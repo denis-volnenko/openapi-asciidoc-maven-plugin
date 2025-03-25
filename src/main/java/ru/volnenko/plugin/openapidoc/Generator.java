@@ -145,7 +145,7 @@ public class Generator extends AbstractMojo {
     }
 
     private void generate(String path, String method, Operation operation) {
-        stringBuilder.append("=== "+ method.toUpperCase() + " \"" + path + "\" \n");
+        stringBuilder.append("=== Ресурс "+ method.toUpperCase() + " \"" + path + "\" \n");
         stringBuilder.append("==== Общие сведения\n");
         stringBuilder.append("\n");
         stringBuilder.append("[cols=\"20,80\"]\n");
