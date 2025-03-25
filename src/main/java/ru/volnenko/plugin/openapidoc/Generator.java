@@ -14,10 +14,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
-import ru.volnenko.plugin.openapidoc.model.Content;
-import ru.volnenko.plugin.openapidoc.model.Operation;
-import ru.volnenko.plugin.openapidoc.model.Response;
-import ru.volnenko.plugin.openapidoc.model.Root;
+import ru.volnenko.plugin.openapidoc.model.*;
 import ru.volnenko.plugin.openapidoc.util.ContentUtil;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
 import ru.volnenko.plugin.openapidoc.util.ParameterUtil;
@@ -116,7 +113,23 @@ public class Generator extends AbstractMojo {
 
     public void generate(@NonNull final Root root) {
         generate(root.getPaths());
+        generate(root.getComponents());
         System.out.println(root.getOpenapi());
+    }
+
+    private void generate(final Components components) {
+        if (components == null) return;
+        if (components.getSchemas() == null) return;
+        if (components.getSchemas().isEmpty()) return;
+        int index = 1;
+        for (final String model: components.getSchemas().keySet()) {
+            generate(model, components.getSchemas().get(model), index);
+            index++;
+        }
+    }
+
+    public void generate(final String model, final Schema schema, final int index) {
+        stringBuilder.append("=== Модель данных \""+ model + "\" \n");
     }
 
     private void generate(Map<String, Map<String, Operation>> paths) {
