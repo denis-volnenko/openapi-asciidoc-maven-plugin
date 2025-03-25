@@ -7,12 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Schema {
+
+    private String description;
 
     private String type;
 
@@ -33,5 +36,7 @@ public class Schema {
     private List<String> enums;
 
     private Schema items;
+
+    private Map<String, Schema> properties;
 
 }
