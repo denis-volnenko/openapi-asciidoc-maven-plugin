@@ -163,7 +163,7 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("==== Описание параметров \n");
         int index = 1;
         stringBuilder.append("\n");
-        stringBuilder.append("[cols=\"0,20,20,20,10,10,10\"]\n");
+        stringBuilder.append("[cols=\"0,20,20,10,10,10,10\"]\n");
         stringBuilder.append("|===\n");
 
         stringBuilder.append("\n");
