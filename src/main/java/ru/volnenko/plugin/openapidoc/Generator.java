@@ -14,6 +14,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
+import ru.volnenko.plugin.openapidoc.model.Operation;
 import ru.volnenko.plugin.openapidoc.model.Root;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
 import ru.volnenko.plugin.openapidoc.util.StringUtil;
@@ -22,6 +23,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE)
 public class Generator extends AbstractMojo {
@@ -112,7 +114,24 @@ public class Generator extends AbstractMojo {
     }
 
     public void generate(@NonNull final Root root) {
+        generate(root.getPaths());
         System.out.println(root.getOpenapi());
+    }
+
+    private void generate(Map<String, Map<String, Operation>> paths) {
+        for (String path: paths.keySet()) {
+            generate(path, paths.get(path));
+        }
+    }
+
+    private void generate(String path,  Map<String, Operation> operations) {
+        for (String method: operations.keySet()) {
+            generate(path, method, operations.get(method));
+        }
+    }
+
+    private void generate(String path, String method, Operation operation) {
+        stringBuilder.append("=== "+ method.toUpperCase() + " \"" + path + "\" \n");
     }
 
     private void header() {
@@ -125,7 +144,7 @@ public class Generator extends AbstractMojo {
             stringBuilder.append("\n");
         }
         if (headerSecondEnabled) {
-            stringBuilder.append("== Представление сервисов \n");
+            stringBuilder.append("== Представление веб-сервисов \n");
             stringBuilder.append("\n");
         }
     }
