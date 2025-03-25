@@ -174,6 +174,12 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("|*Обязательный*\n");
         stringBuilder.append("\n");
 
+        if (parameters.length == 0) {
+            stringBuilder.append("\n");
+            stringBuilder.append("6+^| Отсутствуют \n");
+            stringBuilder.append("\n");
+        }
+
         for (ru.volnenko.plugin.openapidoc.model.Parameter parameter: parameters) {
             generate(parameter, index);
             index++;
