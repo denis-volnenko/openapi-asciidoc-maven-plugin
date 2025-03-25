@@ -16,6 +16,8 @@ public class Operation {
 
     private String operationId;
 
+    private String summary;
+
     private RequestBody requestBody;
 
     private List<Parameter> parameters;

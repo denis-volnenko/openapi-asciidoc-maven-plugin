@@ -132,6 +132,28 @@ public class Generator extends AbstractMojo {
 
     private void generate(String path, String method, Operation operation) {
         stringBuilder.append("=== "+ method.toUpperCase() + " \"" + path + "\" \n");
+        stringBuilder.append("==== Общие сведения\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("[cols=\"20,80\"]\n");
+        stringBuilder.append("|===\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|*Физ. название*:\n");
+        stringBuilder.append("|" + StringUtil.format(operation.getOperationId()) + "\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|*Лог. название*:\n");
+        stringBuilder.append("|" + StringUtil.format(operation.getSummary()) + "\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|*Сервис*:\n");
+        stringBuilder.append("|" + StringUtil.format(serviceName) + "\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|*HTTP-метод*:\n");
+        stringBuilder.append("|" + StringUtil.format(method.toUpperCase()) + "\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|*HTTP-адрес*:\n");
+        stringBuilder.append("|" + StringUtil.format(path) + "\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|===\n");
+        stringBuilder.append("\n");
     }
 
     private void header() {
