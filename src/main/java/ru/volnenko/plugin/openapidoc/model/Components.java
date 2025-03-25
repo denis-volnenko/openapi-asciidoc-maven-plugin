@@ -5,23 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Map;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Root {
+public class Components {
 
-    private String openapi;
-
-    private Info info;
-
-    private List<Server> servers;
-
-    private Map<String, Map<String, Operation>> paths;
-
-    private Components components;
+    private Map<String, Schema> schemas;
 
 }

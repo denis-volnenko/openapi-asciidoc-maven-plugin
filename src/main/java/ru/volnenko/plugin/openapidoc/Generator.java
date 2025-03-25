@@ -207,7 +207,6 @@ public class Generator extends AbstractMojo {
                         stringBuilder.append("^|"+ ContentUtil.format(content)+"\n");
                         stringBuilder.append("^|"+StringUtil.format(operation.getRequestBody().getRequired()) +"\n");
                         stringBuilder.append("\n");
-
                     }
                 }
             }
@@ -219,7 +218,6 @@ public class Generator extends AbstractMojo {
 
         generate(operation);
     }
-
 
     private void generate(@NonNull final Operation operation) {
         stringBuilder.append("==== Описание ответов \n");
