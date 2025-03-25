@@ -125,7 +125,7 @@ public class Generator extends AbstractMojo {
             stringBuilder.append("\n");
         }
         if (headerSecondEnabled) {
-            stringBuilder.append("== Представление данных\n");
+            stringBuilder.append("== Представление сервисов \n");
             stringBuilder.append("\n");
         }
     }

@@ -73,7 +73,7 @@
                     <headerFirstEnabled>true</headerFirstEnabled>
                     <headerSecondEnabled>true</headerSecondEnabled>
                     <tableOfContentsEnabled>true</tableOfContentsEnabled>
-                    <outputPath>${project.basedir}/doc/</outputPath>
+                    <outputPath>${project.basedir}/example/</outputPath>
                     <files>
                         <file>${project.basedir}/example/openapi.json</file>
                     </files>
