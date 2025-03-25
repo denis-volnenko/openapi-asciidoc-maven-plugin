@@ -171,8 +171,46 @@ public class Generator extends AbstractMojo {
             stringBuilder.append("^|*Медиа тип*\n");
             stringBuilder.append("^|*Тип данных*\n");
             stringBuilder.append("^|*Формат*\n");
-            stringBuilder.append("|*Обязательный*\n");
+            stringBuilder.append("^|*Обязательный*\n");
             stringBuilder.append("\n");
+
+            boolean exists = true;
+            if (operation.getRequestBody() == null) exists = false;
+
+            if (operation.getRequestBody() != null) {
+                if (operation.getRequestBody().getContent() == null) {
+                    exists = false;
+                } else {
+                    if (operation.getRequestBody().getContent().isEmpty()) {
+                        exists = false;
+                    }
+                }
+            }
+
+            if (!exists) {
+                stringBuilder.append("\n");
+                stringBuilder.append("5+^| Отсутствует \n");
+                stringBuilder.append("\n");
+            }
+
+            if (operation.getRequestBody() != null) {
+                if (operation.getRequestBody().getContent() != null) {
+                    int index = 1;
+                    for (final String mediaType: operation.getRequestBody().getContent().keySet()) {
+                        final Content content = operation.getRequestBody().getContent().get(mediaType);
+                        if (content == null) continue;
+
+                        stringBuilder.append("\n");
+                        stringBuilder.append("^|"+StringUtil.format(index)+". \n");
+                        stringBuilder.append("^|" + StringUtil.format(mediaType) + "\n");
+                        stringBuilder.append("^| " + ContentUtil.scheme(content) + "\n");
+                        stringBuilder.append("^|"+ ContentUtil.format(content)+"\n");
+                        stringBuilder.append("^|"+StringUtil.format(operation.getRequestBody().getRequired()) +"\n");
+                        stringBuilder.append("\n");
+
+                    }
+                }
+            }
 
             stringBuilder.append("\n");
             stringBuilder.append("|===\n");
