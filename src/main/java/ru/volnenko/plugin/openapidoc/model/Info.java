@@ -13,6 +13,10 @@ public class Info {
 
     private String title;
 
+    private String summary;
+
+    private String description;
+
     private String version;
 
 }

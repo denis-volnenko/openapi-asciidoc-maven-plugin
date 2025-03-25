@@ -21,6 +21,7 @@ public class Schema {
     @JsonProperty("$ref")
     private String reference;
 
+    @JsonProperty("default")
     private String defaultValue;
 
     private Boolean uniqueItems;
