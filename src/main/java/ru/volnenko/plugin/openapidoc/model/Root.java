@@ -20,6 +20,6 @@ public class Root {
 
     private List<Server> servers;
 
-    private Map<String, Path> paths;
+    private Map<String, Map<String, Operation>> paths;
 
 }
