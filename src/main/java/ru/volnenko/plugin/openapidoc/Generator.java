@@ -17,6 +17,7 @@ import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
 import ru.volnenko.plugin.openapidoc.model.Operation;
 import ru.volnenko.plugin.openapidoc.model.Root;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
+import ru.volnenko.plugin.openapidoc.util.ParameterUtil;
 import ru.volnenko.plugin.openapidoc.util.StringUtil;
 
 import java.io.File;
@@ -162,21 +163,22 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("==== Описание параметров \n");
         int index = 1;
         stringBuilder.append("\n");
-        stringBuilder.append("[cols=\"0,20,20,20,10,10\"]\n");
+        stringBuilder.append("[cols=\"0,20,20,20,10,10,10\"]\n");
         stringBuilder.append("|===\n");
 
         stringBuilder.append("\n");
         stringBuilder.append("^|*№*\n");
         stringBuilder.append("|*Физ. название*\n");
         stringBuilder.append("|*Лог. название*\n");
-        stringBuilder.append("|*Тип*\n");
-        stringBuilder.append("|*Вид*\n");
-        stringBuilder.append("|*Обязательный*\n");
+        stringBuilder.append("^|*Тип*\n");
+        stringBuilder.append("^|*Формат*\n");
+        stringBuilder.append("^|*Вид*\n");
+        stringBuilder.append("^|*Обязательный*\n");
         stringBuilder.append("\n");
 
         if (parameters.length == 0) {
             stringBuilder.append("\n");
-            stringBuilder.append("6+^| Отсутствуют \n");
+            stringBuilder.append("7+^| Отсутствуют \n");
             stringBuilder.append("\n");
         }
 
@@ -191,7 +193,15 @@ public class Generator extends AbstractMojo {
     }
 
     private void generate(ru.volnenko.plugin.openapidoc.model.Parameter parameter, int index) {
-
+        stringBuilder.append("\n");
+        stringBuilder.append("^|"+StringUtil.format(index) + ". \n");
+        stringBuilder.append("|"+parameter.getName()+"\n");
+        stringBuilder.append("|\n");
+        stringBuilder.append("^|"+parameter.getSchema().toString() + "\n");
+        stringBuilder.append("^|"+ ParameterUtil.format(parameter)+"\n");
+        stringBuilder.append("^|"+parameter.getIn()+"\n");
+        stringBuilder.append("^|"+StringUtil.format(parameter.getRequired()) +"\n");
+        stringBuilder.append("\n");
     }
 
     private void header() {
