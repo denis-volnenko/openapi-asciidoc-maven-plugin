@@ -159,10 +159,35 @@ public class Generator extends AbstractMojo {
         if (operation.getParameters() == null) operation.setParameters(Collections.emptyList());
         generate(operation.getParameters().toArray(new ru.volnenko.plugin.openapidoc.model.Parameter[0]));
 
+        {
+            stringBuilder.append("==== Описание запроса \n");
+
+            stringBuilder.append("\n");
+            stringBuilder.append("[cols=\"0,20,50,20,10\"]\n");
+            stringBuilder.append("|===\n");
+
+            stringBuilder.append("\n");
+            stringBuilder.append("^|*№*\n");
+            stringBuilder.append("^|*Медиа тип*\n");
+            stringBuilder.append("^|*Тип данных*\n");
+            stringBuilder.append("^|*Формат*\n");
+            stringBuilder.append("|*Обязательный*\n");
+            stringBuilder.append("\n");
+
+            stringBuilder.append("\n");
+            stringBuilder.append("|===\n");
+            stringBuilder.append("\n");
+        }
+
+        generate(operation);
+    }
+
+
+    private void generate(@NonNull final Operation operation) {
         stringBuilder.append("==== Описание ответов \n");
 
         stringBuilder.append("\n");
-        stringBuilder.append("[cols=\"0,12,15,37,20,20\"]\n");
+        stringBuilder.append("[cols=\"0,15,20,50,30,20\"]\n");
         stringBuilder.append("|===\n");
 
         stringBuilder.append("\n");
@@ -173,7 +198,6 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("^|*Тип данных*\n");
         stringBuilder.append("^|*Формат*\n");
         stringBuilder.append("\n");
-
 
         if (operation.getResponses() == null) operation.setResponses(Collections.emptyMap());
 
