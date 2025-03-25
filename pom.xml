@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.volnenko.maven.plugin</groupId>
-    <artifactId>maven-liquilbase-asciidoc-plugin</artifactId>
+    <artifactId>maven-openapi-asciidoc-plugin</artifactId>
     <version>1.0.0</version>
     <packaging>maven-plugin</packaging>
 
@@ -104,13 +104,5 @@
             </plugin>
         </plugins>
     </build>
-
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>github</id>-->
-<!--            <name>github</name>-->
-<!--            <url>https://maven.pkg.github.com/denis-volnenko/maven</url>-->
-<!--        </repository>-->
-<!--    </distributionManagement>-->
 
 </project>
