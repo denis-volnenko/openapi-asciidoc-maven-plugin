@@ -14,7 +14,9 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
+import ru.volnenko.plugin.openapidoc.model.Content;
 import ru.volnenko.plugin.openapidoc.model.Operation;
+import ru.volnenko.plugin.openapidoc.model.Response;
 import ru.volnenko.plugin.openapidoc.model.Root;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
 import ru.volnenko.plugin.openapidoc.util.ParameterUtil;
@@ -156,10 +158,34 @@ public class Generator extends AbstractMojo {
         if (operation.getParameters() == null) operation.setParameters(Collections.emptyList());
         generate(operation.getParameters().toArray(new ru.volnenko.plugin.openapidoc.model.Parameter[0]));
 
-        stringBuilder.append("==== Описание HTTP-кодов \n");
+        stringBuilder.append("==== Описание ответов \n");
+
+        stringBuilder.append("\n");
+        stringBuilder.append("[cols=\"0,20,40,20,20\"]\n");
+        stringBuilder.append("|===\n");
+
+        stringBuilder.append("\n");
+        stringBuilder.append("^|*№*\n");
+        stringBuilder.append("^|*Медиа тип*\n");
+        stringBuilder.append("|*Описание*\n");
+        stringBuilder.append("^|*Тип данных*\n");
+        stringBuilder.append("^|*Формат*\n");
+        stringBuilder.append("\n");
+
+        if (operation.getResponses() == null) operation.setResponses(Collections.emptyMap());
+        for (String mediaType: operation.getResponses().keySet()) {
+            generate(mediaType, operation.getResponses().get(mediaType));
+        }
+
+        stringBuilder.append("\n");
+        stringBuilder.append("|===\n");
+        stringBuilder.append("\n");
     }
 
-    private void generate(ru.volnenko.plugin.openapidoc.model.Parameter[] parameters) {
+    private void generate(@NonNull final String mediaType,  final Response response) {
+    }
+
+    private void generate(@NonNull final ru.volnenko.plugin.openapidoc.model.Parameter[] parameters) {
         stringBuilder.append("==== Описание параметров \n");
         int index = 1;
         stringBuilder.append("\n");
