@@ -65,7 +65,7 @@
         <plugins>
             <plugin>
                 <groupId>ru.volnenko.maven.plugin</groupId>
-                <artifactId>maven-liquilbase-asciidoc-plugin</artifactId>
+                <artifactId>maven-openapi-asciidoc-plugin</artifactId>
                 <version>1.0.0</version>
                 <configuration>
                     <serviceName>TaskManager</serviceName>
@@ -75,8 +75,7 @@
                     <tableOfContentsEnabled>true</tableOfContentsEnabled>
                     <outputPath>${project.basedir}/doc/</outputPath>
                     <files>
-                        <file>${project.basedir}/erd/project.yaml</file>
-                        <file>${project.basedir}/erd/task.yaml</file>
+                        <file>${project.basedir}/example/openapi.json</file>
                     </files>
                 </configuration>
             </plugin>
