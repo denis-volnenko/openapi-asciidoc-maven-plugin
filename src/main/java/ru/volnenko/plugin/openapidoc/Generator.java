@@ -18,6 +18,7 @@ import ru.volnenko.plugin.openapidoc.model.Content;
 import ru.volnenko.plugin.openapidoc.model.Operation;
 import ru.volnenko.plugin.openapidoc.model.Response;
 import ru.volnenko.plugin.openapidoc.model.Root;
+import ru.volnenko.plugin.openapidoc.util.ContentUtil;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
 import ru.volnenko.plugin.openapidoc.util.ParameterUtil;
 import ru.volnenko.plugin.openapidoc.util.StringUtil;
@@ -161,11 +162,12 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("==== Описание ответов \n");
 
         stringBuilder.append("\n");
-        stringBuilder.append("[cols=\"0,20,40,20,20\"]\n");
+        stringBuilder.append("[cols=\"0,12,15,37,20,20\"]\n");
         stringBuilder.append("|===\n");
 
         stringBuilder.append("\n");
         stringBuilder.append("^|*№*\n");
+        stringBuilder.append("^|*HTTP-код*\n");
         stringBuilder.append("^|*Медиа тип*\n");
         stringBuilder.append("|*Описание*\n");
         stringBuilder.append("^|*Тип данных*\n");
@@ -173,8 +175,10 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("\n");
 
         if (operation.getResponses() == null) operation.setResponses(Collections.emptyMap());
-        for (String mediaType: operation.getResponses().keySet()) {
-            generate(mediaType, operation.getResponses().get(mediaType));
+        int index = 1;
+        for (final String httpCode: operation.getResponses().keySet()) {
+            generate(httpCode, operation.getResponses().get(httpCode), index);
+            index++;
         }
 
         stringBuilder.append("\n");
@@ -182,7 +186,21 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("\n");
     }
 
-    private void generate(@NonNull final String mediaType,  final Response response) {
+    private void generate(@NonNull final String httpCode, final Response response, int index) {
+        if (response.getContent() == null || response.getContent().isEmpty()) {
+            return;
+        }
+        for (final String mediaType: response.getContent().keySet()) {
+            final Content content = response.getContent().get(mediaType);
+            stringBuilder.append("\n");
+            stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
+            stringBuilder.append("^|" + StringUtil.format(httpCode) + "\n");
+            stringBuilder.append("^| \"" + StringUtil.format(mediaType) + "\" \n");
+            stringBuilder.append("|\n");
+            stringBuilder.append("^| " + ContentUtil.scheme(content) + "\n");
+            stringBuilder.append("^|"+ ContentUtil.format(content)+"\n");
+            stringBuilder.append("\n");
+        }
     }
 
     private void generate(@NonNull final ru.volnenko.plugin.openapidoc.model.Parameter[] parameters) {
