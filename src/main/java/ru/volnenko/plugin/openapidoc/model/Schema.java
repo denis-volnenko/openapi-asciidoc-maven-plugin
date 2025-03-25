@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.volnenko.plugin.openapidoc.util.StringUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -39,4 +40,11 @@ public class Schema {
 
     private Map<String, Schema> properties;
 
+    @Override
+    public String toString() {
+        if (reference != null && !reference.isEmpty()) {
+            return reference;
+        }
+        return StringUtil.format(type);
+    }
 }

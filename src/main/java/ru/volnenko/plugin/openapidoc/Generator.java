@@ -20,10 +20,7 @@ import ru.volnenko.plugin.openapidoc.util.MapperUtil;
 import ru.volnenko.plugin.openapidoc.util.StringUtil;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE)
 public class Generator extends AbstractMojo {
@@ -154,6 +151,41 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("\n");
         stringBuilder.append("|===\n");
         stringBuilder.append("\n");
+
+        if (operation.getParameters() == null) operation.setParameters(Collections.emptyList());
+        generate(operation.getParameters().toArray(new ru.volnenko.plugin.openapidoc.model.Parameter[0]));
+
+        stringBuilder.append("==== Описание HTTP-кодов \n");
+    }
+
+    private void generate(ru.volnenko.plugin.openapidoc.model.Parameter[] parameters) {
+        stringBuilder.append("==== Описание параметров \n");
+        int index = 1;
+        stringBuilder.append("\n");
+        stringBuilder.append("[cols=\"0,20,20,20,10,10\"]\n");
+        stringBuilder.append("|===\n");
+
+        stringBuilder.append("\n");
+        stringBuilder.append("^|*№*\n");
+        stringBuilder.append("|*Физ. название*\n");
+        stringBuilder.append("|*Лог. название*\n");
+        stringBuilder.append("|*Тип*\n");
+        stringBuilder.append("|*Вид*\n");
+        stringBuilder.append("|*Обязательный*\n");
+        stringBuilder.append("\n");
+
+        for (ru.volnenko.plugin.openapidoc.model.Parameter parameter: parameters) {
+            generate(parameter, index);
+            index++;
+        }
+
+        stringBuilder.append("\n");
+        stringBuilder.append("|===\n");
+        stringBuilder.append("\n");
+    }
+
+    private void generate(ru.volnenko.plugin.openapidoc.model.Parameter parameter, int index) {
+
     }
 
     private void header() {
