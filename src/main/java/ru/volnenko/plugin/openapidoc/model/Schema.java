@@ -43,10 +43,26 @@ public class Schema {
 
     @Override
     public String toString() {
-        if (reference != null && !reference.isEmpty()) {
-            String[] items = reference.split("/");
-            return items[items.length - 1];
+        String localReference = reference;
+        String localType = type;
+
+        String dataType = "";
+        if ("array".equalsIgnoreCase(type)) {
+            if (items == null) return "array";
+            localReference = items.getReference();
+            localType = items.getType();
         }
-        return StringUtil.format(type);
+
+        if (localReference != null && !localReference.isEmpty()) {
+            String[] items = localReference.split("/");
+            dataType = items[items.length - 1];
+        } else {
+            dataType = StringUtil.format(localType);
+        }
+
+        if ("array".equalsIgnoreCase(type)) {
+            dataType += "[]";
+        }
+        return dataType;
     }
 }

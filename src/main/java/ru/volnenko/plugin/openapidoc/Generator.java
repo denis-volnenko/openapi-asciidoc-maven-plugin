@@ -174,11 +174,23 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("^|*Формат*\n");
         stringBuilder.append("\n");
 
+
         if (operation.getResponses() == null) operation.setResponses(Collections.emptyMap());
+
         int index = 1;
         for (final String httpCode: operation.getResponses().keySet()) {
-            generate(httpCode, operation.getResponses().get(httpCode), index);
+            Response response = operation.getResponses().get(httpCode);
+            if (response.getContent() == null || response.getContent().isEmpty()) {
+                continue;
+            }
+            generate(httpCode, response, index);
             index++;
+        }
+
+        if (index == 1) {
+            stringBuilder.append("\n");
+            stringBuilder.append("6+^| Отсутствует \n");
+            stringBuilder.append("\n");
         }
 
         stringBuilder.append("\n");
@@ -222,7 +234,7 @@ public class Generator extends AbstractMojo {
 
         if (parameters.length == 0) {
             stringBuilder.append("\n");
-            stringBuilder.append("7+^| Отсутствуют \n");
+            stringBuilder.append("7+^| Отсутствует \n");
             stringBuilder.append("\n");
         }
 
