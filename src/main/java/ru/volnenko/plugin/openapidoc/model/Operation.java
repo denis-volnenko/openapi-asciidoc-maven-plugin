@@ -5,18 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Map;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Path {
+public class Operation {
 
-    private Operation get;
+    private RequestBody requestBody;
 
-    private Operation post;
+    private Map<String, Response> responses;
 
-    private Operation put;
-
-    private Operation delete;
 
 }
