@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import ru.volnenko.plugin.openapidoc.util.StringUtil;
 
@@ -43,7 +44,8 @@ public class Schema {
     @Override
     public String toString() {
         if (reference != null && !reference.isEmpty()) {
-            return reference;
+            String[] items = reference.split("/");
+            return items[items.length - 1];
         }
         return StringUtil.format(type);
     }
