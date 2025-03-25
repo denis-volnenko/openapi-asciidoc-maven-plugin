@@ -195,11 +195,11 @@ public class Generator extends AbstractMojo {
     private void generate(ru.volnenko.plugin.openapidoc.model.Parameter parameter, int index) {
         stringBuilder.append("\n");
         stringBuilder.append("^|"+StringUtil.format(index) + ". \n");
-        stringBuilder.append("|"+parameter.getName()+"\n");
-        stringBuilder.append("|\n");
+        stringBuilder.append("|"+StringUtil.format(parameter.getName())+"\n");
+        stringBuilder.append("|"+StringUtil.format(parameter.getDescription())+"\n");
         stringBuilder.append("^|"+parameter.getSchema().toString() + "\n");
         stringBuilder.append("^|"+ ParameterUtil.format(parameter)+"\n");
-        stringBuilder.append("^|"+parameter.getIn()+"\n");
+        stringBuilder.append("^|"+StringUtil.format(parameter.getIn())+"\n");
         stringBuilder.append("^|"+StringUtil.format(parameter.getRequired()) +"\n");
         stringBuilder.append("\n");
     }
