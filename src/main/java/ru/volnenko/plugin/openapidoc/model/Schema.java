@@ -41,6 +41,8 @@ public class Schema {
 
     private Map<String, Schema> properties;
 
+    private List<String> required;
+
     public boolean referenced() {
         String localReference = reference;
         String localType = type;

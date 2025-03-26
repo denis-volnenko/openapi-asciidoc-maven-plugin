@@ -2,6 +2,7 @@ package ru.volnenko.plugin.openapidoc.util;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.openapidoc.model.Content;
+import ru.volnenko.plugin.openapidoc.model.Schema;
 
 public class ContentUtil {
 
@@ -10,6 +11,19 @@ public class ContentUtil {
         if (content == null) return "--";
         if (content.getSchema() == null) return "--";
         return content.getSchema().toString();
+    }
+
+    @NonNull
+    public static String scheme(final Schema schema) {
+        if (schema == null) return "--";
+        return schema.toString();
+    }
+
+    @NonNull
+    public static String format(final Schema schema) {
+        if (schema == null) return "--";
+        if (schema.getFormat() == null) return "--";
+        return schema.getFormat();
     }
 
     @NonNull

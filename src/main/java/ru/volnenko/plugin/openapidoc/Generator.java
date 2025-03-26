@@ -128,7 +128,7 @@ public class Generator extends AbstractMojo {
         }
     }
 
-    public void generate(final String model, final Schema schema, final int index) {
+    public void generate(final String model, final Schema schema, final int indexm) {
         stringBuilder.append("=== Модель данных \""+ model + "\"" + " [[" + model + "]]" + "\n");
         stringBuilder.append("\n");
 
@@ -181,6 +181,31 @@ public class Generator extends AbstractMojo {
             stringBuilder.append("\n");
             stringBuilder.append("6+^| Отсутствует \n");
             stringBuilder.append("\n");
+        }
+
+        if (exists) {
+            int index = 1;
+            for (final String field: properties.keySet()) {
+                final Schema property = properties.get(field);
+
+                stringBuilder.append("\n");
+                stringBuilder.append("^|"+StringUtil.format(index)+". \n");
+                stringBuilder.append("|" + StringUtil.format(field) + "\n");
+                stringBuilder.append("|" + StringUtil.format(property.getDescription()) + "\n");
+                stringBuilder.append("^| " + ContentUtil.scheme(property) + "\n");
+                stringBuilder.append("^|"+ ContentUtil.format(property)+"\n");
+
+                if (schema.getRequired() == null) {
+                    stringBuilder.append("^|--\n");
+                } else {
+                   if (schema.getRequired().contains(field)) {
+                       stringBuilder.append("^|✓\n");
+                   } else {
+                       stringBuilder.append("^|--\n");
+                   }
+                }
+                index++;
+            }
         }
 
         stringBuilder.append("\n");
