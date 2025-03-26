@@ -129,7 +129,8 @@ public class Generator extends AbstractMojo {
     }
 
     public void generate(final String model, final Schema schema, final int index) {
-        stringBuilder.append("=== Модель данных \""+ model + "\" \n");
+        stringBuilder.append("=== Модель данных \""+ model + "\"" + " [[" + model + "]]" + "\n");
+        stringBuilder.append("\n");
 
         stringBuilder.append("==== Общие сведения\n");
         stringBuilder.append("\n");
@@ -142,6 +143,9 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("|*Лог. название*:\n");
         stringBuilder.append("|" + StringUtil.format(schema.getDescription()) + "\n");
         stringBuilder.append("\n");
+        stringBuilder.append("|*Тип данных*:\n");
+        stringBuilder.append("|" + StringUtil.format(schema.getType()) + "\n");
+        stringBuilder.append("\n");
         stringBuilder.append("|*Сервис*:\n");
         stringBuilder.append("|" + StringUtil.format(serviceName) + "\n");
         stringBuilder.append("\n");
@@ -149,15 +153,48 @@ public class Generator extends AbstractMojo {
         stringBuilder.append("\n");
 
         stringBuilder.append("==== Описание полей \n");
+
+        stringBuilder.append("\n");
+        stringBuilder.append("[cols=\"0,30,30,20,10,10\"]\n");
+        stringBuilder.append("|===\n");
+
+        stringBuilder.append("\n");
+        stringBuilder.append("^|*№*\n");
+        stringBuilder.append("|*Физ. название*\n");
+        stringBuilder.append("|*Лог. название*\n");
+        stringBuilder.append("^|*Тип данных*\n");
+        stringBuilder.append("^|*Формат*\n");
+        stringBuilder.append("^|*Обязательный*\n");
+        stringBuilder.append("\n");
+
+        boolean exists = true;
+        Map<String, Schema> properties = schema.getProperties();
+        if ("array".equalsIgnoreCase(schema.getType())) {
+            if (schema.getItems() != null) {
+                properties = schema.getItems().getProperties();
+            }
+        }
+        if (properties == null) exists = false;
+        if (properties != null && properties.isEmpty()) exists = false;
+
+        if (!exists) {
+            stringBuilder.append("\n");
+            stringBuilder.append("6+^| Отсутствует \n");
+            stringBuilder.append("\n");
+        }
+
+        stringBuilder.append("\n");
+        stringBuilder.append("|===\n");
+        stringBuilder.append("\n");
     }
 
-    private void generate(Map<String, Map<String, Operation>> paths) {
+    private void generate(final Map<String, Map<String, Operation>> paths) {
         for (String path: paths.keySet()) {
             generate(path, paths.get(path));
         }
     }
 
-    private void generate(String path,  Map<String, Operation> operations) {
+    private void generate(final String path, final Map<String, Operation> operations) {
         for (String method: operations.keySet()) {
             generate(path, method, operations.get(method));
         }
