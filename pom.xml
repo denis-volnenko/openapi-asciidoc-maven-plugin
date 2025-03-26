@@ -69,7 +69,6 @@
                 <version>1.0.0</version>
                 <configuration>
                     <serviceName>TaskManager</serviceName>
-                    <dataBaseInfo>Postgres 15</dataBaseInfo>
                     <headerFirstEnabled>true</headerFirstEnabled>
                     <headerSecondEnabled>true</headerSecondEnabled>
                     <tableOfContentsEnabled>true</tableOfContentsEnabled>

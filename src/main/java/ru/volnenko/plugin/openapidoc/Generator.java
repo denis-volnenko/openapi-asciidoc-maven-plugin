@@ -33,11 +33,6 @@ public class Generator extends AbstractMojo {
 
     @Getter
     @Setter
-    @Parameter(property = "dataBaseInfo")
-    public String dataBaseInfo = "";
-
-    @Getter
-    @Setter
     @Parameter(property = "headerFirstEnabled")
     public boolean headerFirstEnabled = true;
 
