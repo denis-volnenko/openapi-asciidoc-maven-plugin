@@ -112,8 +112,8 @@ public class Generator extends AbstractMojo {
     }
 
     public void generate(@NonNull final Root root) {
-        generate(root.getPaths());
         generate(root.getComponents());
+        generate(root.getPaths());
         System.out.println(root.getOpenapi());
     }
 
@@ -130,6 +130,25 @@ public class Generator extends AbstractMojo {
 
     public void generate(final String model, final Schema schema, final int index) {
         stringBuilder.append("=== Модель данных \""+ model + "\" \n");
+
+        stringBuilder.append("==== Общие сведения\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("[cols=\"20,80\"]\n");
+        stringBuilder.append("|===\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|*Физ. название*:\n");
+        stringBuilder.append("|" + StringUtil.format(model) + "\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|*Лог. название*:\n");
+        stringBuilder.append("|" + StringUtil.format(schema.getDescription()) + "\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|*Сервис*:\n");
+        stringBuilder.append("|" + StringUtil.format(serviceName) + "\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("|===\n");
+        stringBuilder.append("\n");
+
+        stringBuilder.append("==== Описание полей \n");
     }
 
     private void generate(Map<String, Map<String, Operation>> paths) {
