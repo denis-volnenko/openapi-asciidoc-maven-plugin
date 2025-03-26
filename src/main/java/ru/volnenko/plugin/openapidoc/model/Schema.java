@@ -41,6 +41,19 @@ public class Schema {
 
     private Map<String, Schema> properties;
 
+    public boolean referenced() {
+        String localReference = reference;
+        String localType = type;
+
+        if ("array".equalsIgnoreCase(type)) {
+            if (items == null) return false;
+            localReference = items.getReference();
+            localType = items.getType();
+        }
+
+        return localReference != null && !localReference.isEmpty();
+    }
+
     @Override
     public String toString() {
         String localReference = reference;
@@ -58,6 +71,10 @@ public class Schema {
             dataType = items[items.length - 1];
         } else {
             dataType = StringUtil.format(localType);
+        }
+
+        if (referenced()) {
+            dataType = "<<" + dataType + "," + dataType + ">>";
         }
 
         if ("array".equalsIgnoreCase(type)) {
