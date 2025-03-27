@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.openapidoc.model;
 
-public class Contact {
+public final class Contact {
 
     private String name;
 

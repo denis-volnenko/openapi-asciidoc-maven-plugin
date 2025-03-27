@@ -4,7 +4,7 @@ import lombok.NonNull;
 import ru.volnenko.plugin.openapidoc.model.Content;
 import ru.volnenko.plugin.openapidoc.model.Schema;
 
-public class ContentUtil {
+public final class ContentUtil {
 
     @NonNull
     public static String scheme(final Content content) {

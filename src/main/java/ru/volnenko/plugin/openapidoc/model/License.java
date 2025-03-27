@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.openapidoc.model;
 
-public class License {
+public final class License {
 
     private String name;
 
