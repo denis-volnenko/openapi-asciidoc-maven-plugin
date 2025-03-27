@@ -14,3 +14,11 @@ components:
           email:
             type: string
             description: E-mail
+          created:
+            type: string
+            format: iso8601
+            description: Дата создания
+          updated:
+            type: string
+            format: iso8601
+            description: Дата создания

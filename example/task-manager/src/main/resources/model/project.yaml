@@ -11,3 +11,11 @@ components:
         name:
           type: string
           description: Название
+        created:
+          type: string
+          format: iso8601
+          description: Дата создания
+        updated:
+          type: string
+          format: iso8601
+          description: Дата создания
