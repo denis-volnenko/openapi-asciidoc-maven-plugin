@@ -49,6 +49,8 @@
                                 <file>${project.basedir}/src/main/resources/model/user.yaml</file>
                                 <file>${project.basedir}/src/main/resources/path/project/select-one.yaml</file>
                                 <file>${project.basedir}/src/main/resources/path/project/select-all.yaml</file>
+                                <file>${project.basedir}/src/main/resources/path/task/select-one.yaml</file>
+                                <file>${project.basedir}/src/main/resources/path/task/select-all.yaml</file>
                             </files>
                         </configuration>
                     </execution>
@@ -72,6 +74,8 @@
                                 <filename>${project.basedir}/src/main/resources/model/user.yaml</filename>
                                 <filename>${project.basedir}/src/main/resources/path/project/select-one.yaml</filename>
                                 <filename>${project.basedir}/src/main/resources/path/project/select-all.yaml</filename>
+                                <filename>${project.basedir}/src/main/resources/path/task/select-one.yaml</filename>
+                                <filename>${project.basedir}/src/main/resources/path/task/select-all.yaml</filename>
                             </filenames>
                             <outputPath>${project.basedir}/src/main/asciidoc</outputPath>
                             <outputFilename>openapi</outputFilename>

@@ -240,6 +240,95 @@
           }
         }
       }
+    },
+    "/task/one/{taskId}/" : {
+      "get" : {
+        "tags" : [ "task" ],
+        "summary" : "Выборка задачи.",
+        "description" : "Выборка одной задачи по Id.",
+        "operationId" : "selectOneTask",
+        "parameters" : [ {
+          "name" : "taskId",
+          "in" : "path",
+          "description" : "Код задачи",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Успешный ответ",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Task"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Task"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Проект не найден"
+          },
+          "default" : {
+            "description" : "Неизветсная ошибока",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/task/all/" : {
+      "get" : {
+        "tags" : [ "task" ],
+        "summary" : "Выборка всех задач.",
+        "description" : "Выборка всех задач.",
+        "operationId" : "selectAllTask",
+        "responses" : {
+          "200" : {
+            "description" : "Успешный ответ",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Task"
+                  }
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Task"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Неизветсная ошибока",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
