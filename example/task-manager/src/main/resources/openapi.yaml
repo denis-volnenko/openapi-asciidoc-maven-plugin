@@ -2,3 +2,5 @@
 openapi: 3.0.4
 info:
   title: Task Manager
+servers:
+  - url: https://tm.volnenko.ru/api/
