@@ -11,6 +11,13 @@ components:
         name:
           type: string
           description: Название
+        description:
+          type: string
+          description: Описание
+        userId:
+          type: string
+          format: uuid
+          description: Код пользователя
         created:
           type: string
           format: iso8601

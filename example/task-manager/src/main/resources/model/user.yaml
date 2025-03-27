@@ -8,17 +8,17 @@ components:
           type: string
           format: uuid
           description: Идентификатор
-          username:
-            type: string
-            description: Имя пользователя
-          email:
-            type: string
-            description: E-mail
-          created:
-            type: string
-            format: iso8601
-            description: Дата создания
-          updated:
-            type: string
-            format: iso8601
-            description: Дата создания
+        username:
+          type: string
+          description: Имя пользователя
+        email:
+          type: string
+          description: E-mail
+        created:
+          type: string
+          format: iso8601
+          description: Дата создания
+        updated:
+          type: string
+          format: iso8601
+          description: Дата создания
