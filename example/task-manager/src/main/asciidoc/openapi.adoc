@@ -1,4 +1,4 @@
-= Pet Store
+= Task Manager
 :toc-title: Оглавление
 :toc:
 
@@ -15,13 +15,13 @@
 |Project
 
 |*Лог. название*:
-|
+|Проект
 
 |*Тип данных*:
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 
@@ -65,13 +65,13 @@
 |Task
 
 |*Лог. название*:
-|
+|Задача
 
 |*Тип данных*:
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 
@@ -115,13 +115,13 @@
 |User
 
 |*Лог. название*:
-|
+|Пользователь
 
 |*Тип данных*:
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 

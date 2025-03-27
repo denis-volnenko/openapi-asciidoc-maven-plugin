@@ -2,6 +2,7 @@ components:
   schemas:
     Project:
       type: object
+      description: Проект
       properties:
         id:
           type: string

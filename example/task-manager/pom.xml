@@ -29,19 +29,27 @@
                 <groupId>ru.volnenko.maven.plugin</groupId>
                 <artifactId>maven-openapi-asciidoc-plugin</artifactId>
                 <version>1.0.0</version>
-                <configuration>
-                    <serviceName>Task Manager</serviceName>
-                    <headerFirstEnabled>true</headerFirstEnabled>
-                    <headerSecondEnabled>true</headerSecondEnabled>
-                    <tableOfContentsEnabled>true</tableOfContentsEnabled>
-                    <outputPath>${project.basedir}/src/main/asciidoc</outputPath>
-                    <outputFile>openapi.adoc</outputFile>
-                    <files>
-                        <file>${project.basedir}/src/main/resources/model/project.yaml</file>
-                        <file>${project.basedir}/src/main/resources/model/task.yaml</file>
-                        <file>${project.basedir}/src/main/resources/model/user.yaml</file>
-                    </files>
-                </configuration>
+                <executions>
+                    <execution>
+                        <id>openapi</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <serviceName>Task Manager</serviceName>
+                            <headerFirstEnabled>true</headerFirstEnabled>
+                            <headerSecondEnabled>true</headerSecondEnabled>
+                            <tableOfContentsEnabled>true</tableOfContentsEnabled>
+                            <outputPath>${project.basedir}/src/main/asciidoc</outputPath>
+                            <outputFile>openapi.adoc</outputFile>
+                            <files>
+                                <file>${project.basedir}/src/main/resources/model/project.yaml</file>
+                                <file>${project.basedir}/src/main/resources/model/task.yaml</file>
+                                <file>${project.basedir}/src/main/resources/model/user.yaml</file>
+                            </files>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

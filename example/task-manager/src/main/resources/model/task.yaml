@@ -2,6 +2,7 @@ components:
   schemas:
     Task:
       type: object
+      description: Задача
       properties:
         id:
           type: string

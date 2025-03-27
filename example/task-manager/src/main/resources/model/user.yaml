@@ -2,6 +2,7 @@ components:
   schemas:
     User:
       type: object
+      description: Пользователь
       properties:
         id:
           type: string
