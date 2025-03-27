@@ -1,0 +1,12 @@
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Идентификатор
+        name:
+          type: string
+          description: Название

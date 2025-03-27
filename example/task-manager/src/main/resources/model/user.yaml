@@ -1,0 +1,15 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Идентификатор
+          username:
+            type: string
+            description: Имя пользователя
+          email:
+            type: string
+            description: E-mail
