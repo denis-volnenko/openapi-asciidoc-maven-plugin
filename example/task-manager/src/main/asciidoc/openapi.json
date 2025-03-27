@@ -8,6 +8,25 @@
   } ],
   "components" : {
     "schemas" : {
+      "Error" : {
+        "type" : "object",
+        "description" : "Ошибка",
+        "required" : [ "success" ],
+        "properties" : {
+          "success" : {
+            "type" : "boolean",
+            "description" : "Результат выполнения"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Сообщение об ошибке"
+          },
+          "errorCode" : {
+            "type" : "string",
+            "description" : "Код ошибки"
+          }
+        }
+      },
       "Project" : {
         "type" : "object",
         "description" : "Проект",
