@@ -68,6 +68,7 @@
                     <headerSecondEnabled>true</headerSecondEnabled>
                     <tableOfContentsEnabled>true</tableOfContentsEnabled>
                     <outputPath>${project.basedir}/example/</outputPath>
+                    <outputFile>index.adoc</outputFile>
                     <files>
                         <file>${project.basedir}/example/openapi.yaml</file>
                     </files>
