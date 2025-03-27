@@ -51,6 +51,28 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>it.traeck.tools.json-merge</groupId>
+                <artifactId>json-merge-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>merge</goal>
+                        </goals>
+                        <configuration>
+                            <filenames>
+                                <filename>${project.basedir}/src/main/resources/model/project.yaml</filename>
+                                <filename>${project.basedir}/src/main/resources/model/task.yaml</filename>
+                                <filename>${project.basedir}/src/main/resources/model/user.yaml</filename>
+                            </filenames>
+                            <outputPath>${project.basedir}/src/main/asciidoc</outputPath>
+                            <outputFilename>openapi</outputFilename>
+                            <outputFormat>JSON</outputFormat>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
