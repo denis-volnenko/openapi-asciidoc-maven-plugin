@@ -3,6 +3,11 @@ components:
     Task:
       type: object
       description: Задача
+      required:
+        - id
+        - userId
+        - created
+        - updated
       properties:
         id:
           type: string
@@ -14,6 +19,13 @@ components:
         description:
           type: string
           description: Описание
+        statusType:
+          type: string
+          description: Статус
+          enum:
+            - NOT_STARTED
+            - IN_PROGRESS
+            - COMPLETE
         userId:
           type: string
           format: uuid

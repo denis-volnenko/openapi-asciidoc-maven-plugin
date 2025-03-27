@@ -3,6 +3,12 @@ components:
     User:
       type: object
       description: Пользователь
+      required:
+        - id
+        - username
+        - email
+        - created
+        - updated
       properties:
         id:
           type: string
@@ -11,6 +17,15 @@ components:
         username:
           type: string
           description: Имя пользователя
+        firstName:
+          type: string
+          description: Имя
+        lastName:
+          type: string
+          description: Фамилия
+        middleName:
+          type: string
+          description: Отчество
         email:
           type: string
           description: E-mail
