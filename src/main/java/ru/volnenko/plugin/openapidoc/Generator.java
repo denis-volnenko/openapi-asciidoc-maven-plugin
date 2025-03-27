@@ -24,7 +24,7 @@ import java.io.File;
 import java.util.*;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE)
-public class Generator extends AbstractMojo {
+public final class Generator extends AbstractMojo {
 
     @Getter
     @Setter

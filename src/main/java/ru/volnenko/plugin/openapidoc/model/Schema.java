@@ -37,6 +37,8 @@ public class Schema {
 
     private List<String> enums;
 
+    private Object example;
+
     private Schema items;
 
     private Map<String, Schema> properties;
