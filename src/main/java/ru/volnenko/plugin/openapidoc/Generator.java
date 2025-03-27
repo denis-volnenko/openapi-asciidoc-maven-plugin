@@ -106,10 +106,11 @@ public final class Generator extends AbstractMojo {
         generate(root);
     }
 
-    public void generate(@NonNull final Root root) {
+    @NonNull
+    public String generate(@NonNull final Root root) {
         generate(root.getComponents());
         generate(root.getPaths());
-        System.out.println(root.getOpenapi());
+        return stringBuilder.toString();
     }
 
     private void generate(final Components components) {
@@ -209,6 +210,7 @@ public final class Generator extends AbstractMojo {
     }
 
     private void generate(final Map<String, Map<String, Operation>> paths) {
+        if (paths == null) return;
         for (String path: paths.keySet()) {
             generate(path, paths.get(path));
         }
