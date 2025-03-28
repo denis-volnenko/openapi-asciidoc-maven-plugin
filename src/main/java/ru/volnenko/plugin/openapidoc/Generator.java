@@ -359,7 +359,7 @@ public final class Generator extends AbstractMojo {
             stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
             stringBuilder.append("^|" + StringUtil.format(httpCode) + "\n");
             stringBuilder.append("^| \"" + StringUtil.format(mediaType) + "\" \n");
-            stringBuilder.append("|\n");
+            stringBuilder.append("|" + String.format(response.getDescription())+"\n");
             stringBuilder.append("^| " + ContentUtil.scheme(content) + "\n");
             stringBuilder.append("^|"+ ContentUtil.format(content)+"\n");
             stringBuilder.append("\n");
