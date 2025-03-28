@@ -552,7 +552,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|Successful operation
 ^| <<Pet,Pet>>
 ^|--
 
@@ -560,7 +560,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|Successful operation
 ^| <<Pet,Pet>>
 ^|--
 
@@ -568,7 +568,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -668,7 +668,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|Successful operation
 ^| <<Pet,Pet>>
 ^|--
 
@@ -676,7 +676,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|Successful operation
 ^| <<Pet,Pet>>
 ^|--
 
@@ -684,7 +684,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -772,7 +772,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<Pet,Pet>>[]
 ^|--
 
@@ -780,7 +780,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|successful operation
 ^| <<Pet,Pet>>[]
 ^|--
 
@@ -788,7 +788,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -876,7 +876,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<Pet,Pet>>[]
 ^|--
 
@@ -884,7 +884,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|successful operation
 ^| <<Pet,Pet>>[]
 ^|--
 
@@ -892,7 +892,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -980,7 +980,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<Pet,Pet>>
 ^|--
 
@@ -988,7 +988,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|successful operation
 ^| <<Pet,Pet>>
 ^|--
 
@@ -996,7 +996,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1102,7 +1102,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<Pet,Pet>>
 ^|--
 
@@ -1110,7 +1110,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|successful operation
 ^| <<Pet,Pet>>
 ^|--
 
@@ -1118,7 +1118,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1215,7 +1215,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1316,7 +1316,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<ApiResponse,ApiResponse>>
 ^|--
 
@@ -1324,7 +1324,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1406,7 +1406,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| object
 ^|--
 
@@ -1414,7 +1414,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1514,7 +1514,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<Order,Order>>
 ^|--
 
@@ -1522,7 +1522,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1610,7 +1610,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<Order,Order>>
 ^|--
 
@@ -1618,7 +1618,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|successful operation
 ^| <<Order,Order>>
 ^|--
 
@@ -1626,7 +1626,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1714,7 +1714,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1814,7 +1814,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<User,User>>
 ^|--
 
@@ -1822,7 +1822,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|successful operation
 ^| <<User,User>>
 ^|--
 
@@ -1830,7 +1830,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1916,7 +1916,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|Successful operation
 ^| <<User,User>>
 ^|--
 
@@ -1924,7 +1924,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|Successful operation
 ^| <<User,User>>
 ^|--
 
@@ -1932,7 +1932,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2029,7 +2029,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|successful operation
 ^| string
 ^|--
 
@@ -2037,7 +2037,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| string
 ^|--
 
@@ -2045,7 +2045,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2127,7 +2127,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2215,7 +2215,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<User,User>>
 ^|--
 
@@ -2223,7 +2223,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|successful operation
 ^| <<User,User>>
 ^|--
 
@@ -2231,7 +2231,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2337,7 +2337,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2425,7 +2425,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 

@@ -107,7 +107,8 @@ public final class Generator extends AbstractMojo {
     }
 
     @NonNull
-    public String generate(@NonNull final Root root) {
+    public String generate(final Root root) {
+        if (root == null) return "";
         generate(root.getComponents());
         generate(root.getPaths());
         return stringBuilder.toString();
@@ -210,19 +211,25 @@ public final class Generator extends AbstractMojo {
     }
 
     private void generate(final Map<String, Map<String, Operation>> paths) {
-        if (paths == null) return;
-        for (String path: paths.keySet()) {
+        if (paths == null || paths.isEmpty()) return;
+        for (final String path: paths.keySet()) {
+            if (path == null || path.isEmpty()) continue;
             generate(path, paths.get(path));
         }
     }
 
     private void generate(final String path, final Map<String, Operation> operations) {
-        for (String method: operations.keySet()) {
+        if (path == null) return;
+        for (final String method: operations.keySet()) {
+            if (method == null || method.isEmpty()) continue;
             generate(path, method, operations.get(method));
         }
     }
 
     private void generate(String path, String method, Operation operation) {
+        if (path == null || path.isEmpty()) return;
+        if (method == null || method.isEmpty()) return;
+        if (operation == null) return;
         stringBuilder.append("=== Ресурс "+ method.toUpperCase() + " \"" + path + "\" \n");
         stringBuilder.append("==== Общие сведения\n");
         stringBuilder.append("\n");
