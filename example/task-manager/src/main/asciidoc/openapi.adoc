@@ -404,7 +404,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|Успешный ответ
 ^| <<Project,Project>>
 ^|--
 
@@ -412,7 +412,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|Успешный ответ
 ^| <<Project,Project>>
 ^|--
 
@@ -420,7 +420,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Неизветсная ошибока
 ^| <<Error,Error>>
 ^|--
 
@@ -502,7 +502,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|Успешный ответ
 ^| <<Project,Project>>[]
 ^|--
 
@@ -510,7 +510,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|Успешный ответ
 ^| <<Project,Project>>[]
 ^|--
 
@@ -518,7 +518,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Неизветсная ошибока
 ^| <<Error,Error>>
 ^|--
 
@@ -606,7 +606,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|Успешный ответ
 ^| <<Task,Task>>
 ^|--
 
@@ -614,7 +614,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|Успешный ответ
 ^| <<Task,Task>>
 ^|--
 
@@ -622,7 +622,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Неизветсная ошибока
 ^| <<Error,Error>>
 ^|--
 
@@ -704,7 +704,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|Успешный ответ
 ^| <<Task,Task>>[]
 ^|--
 
@@ -712,7 +712,7 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
+|Успешный ответ
 ^| <<Task,Task>>[]
 ^|--
 
@@ -720,7 +720,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Неизветсная ошибока
 ^| <<Error,Error>>
 ^|--
 
