@@ -520,14 +520,14 @@
 ^|✓
 
 
-^|01. 
+^|02. 
 ^|application/xml
 ^| <<Pet,Pet>>
 ^|--
 ^|✓
 
 
-^|01. 
+^|03. 
 ^|application/x-www-form-urlencoded
 ^| <<Pet,Pet>>
 ^|--
@@ -552,23 +552,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<Pet,Pet>>
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|Successful operation
 ^| <<Pet,Pet>>
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|Successful operation
+^| <<Pet,Pet>>
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -636,14 +636,14 @@
 ^|✓
 
 
-^|01. 
+^|02. 
 ^|application/xml
 ^| <<Pet,Pet>>
 ^|--
 ^|✓
 
 
-^|01. 
+^|03. 
 ^|application/x-www-form-urlencoded
 ^| <<Pet,Pet>>
 ^|--
@@ -668,23 +668,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<Pet,Pet>>
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|Successful operation
 ^| <<Pet,Pet>>
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|Successful operation
+^| <<Pet,Pet>>
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -772,23 +772,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<Pet,Pet>>[]
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|successful operation
 ^| <<Pet,Pet>>[]
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|successful operation
+^| <<Pet,Pet>>[]
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -876,23 +876,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<Pet,Pet>>[]
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|successful operation
 ^| <<Pet,Pet>>[]
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|successful operation
+^| <<Pet,Pet>>[]
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -980,23 +980,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<Pet,Pet>>
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|successful operation
 ^| <<Pet,Pet>>
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|successful operation
+^| <<Pet,Pet>>
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1102,23 +1102,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<Pet,Pet>>
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|successful operation
 ^| <<Pet,Pet>>
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|successful operation
+^| <<Pet,Pet>>
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1215,7 +1215,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1316,7 +1316,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<ApiResponse,ApiResponse>>
 ^|--
 
@@ -1324,7 +1324,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1406,7 +1406,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| object
 ^|--
 
@@ -1414,7 +1414,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1482,14 +1482,14 @@
 ^|--
 
 
-^|01. 
+^|02. 
 ^|application/xml
 ^| <<Order,Order>>
 ^|--
 ^|--
 
 
-^|01. 
+^|03. 
 ^|application/x-www-form-urlencoded
 ^| <<Order,Order>>
 ^|--
@@ -1514,7 +1514,7 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
+|successful operation
 ^| <<Order,Order>>
 ^|--
 
@@ -1522,7 +1522,7 @@
 ^|02. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1610,23 +1610,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<Order,Order>>
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|successful operation
 ^| <<Order,Order>>
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|successful operation
+^| <<Order,Order>>
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1714,7 +1714,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1782,14 +1782,14 @@
 ^|--
 
 
-^|01. 
+^|02. 
 ^|application/xml
 ^| <<User,User>>
 ^|--
 ^|--
 
 
-^|01. 
+^|03. 
 ^|application/x-www-form-urlencoded
 ^| <<User,User>>
 ^|--
@@ -1814,23 +1814,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<User,User>>
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|successful operation
 ^| <<User,User>>
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|successful operation
+^| <<User,User>>
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -1916,23 +1916,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<User,User>>
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|Successful operation
 ^| <<User,User>>
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|Successful operation
+^| <<User,User>>
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2029,23 +2029,23 @@
 ^|01. 
 ^|200
 ^| "application/xml" 
-|
-^| string
-^|--
-
-
-^|01. 
-^|200
-^| "application/json" 
-|
+|successful operation
 ^| string
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/json" 
+|successful operation
+^| string
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2127,7 +2127,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2215,23 +2215,23 @@
 ^|01. 
 ^|200
 ^| "application/json" 
-|
-^| <<User,User>>
-^|--
-
-
-^|01. 
-^|200
-^| "application/xml" 
-|
+|successful operation
 ^| <<User,User>>
 ^|--
 
 
 ^|02. 
+^|200
+^| "application/xml" 
+|successful operation
+^| <<User,User>>
+^|--
+
+
+^|03. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2305,14 +2305,14 @@
 ^|--
 
 
-^|01. 
+^|02. 
 ^|application/xml
 ^| <<User,User>>
 ^|--
 ^|--
 
 
-^|01. 
+^|03. 
 ^|application/x-www-form-urlencoded
 ^| <<User,User>>
 ^|--
@@ -2337,7 +2337,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 
@@ -2425,7 +2425,7 @@
 ^|01. 
 ^|default
 ^| "application/json" 
-|
+|Unexpected error
 ^| <<Error,Error>>
 ^|--
 

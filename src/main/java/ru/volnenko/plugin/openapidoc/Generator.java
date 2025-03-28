@@ -124,7 +124,7 @@ public final class Generator extends AbstractMojo {
         }
     }
 
-    public void generate(final String model, final Schema schema, final int indexm) {
+    public void generate(final String model, final Schema schema, final int startIndex) {
         stringBuilder.append("=== Модель данных \""+ model + "\"" + " [[" + model + "]]" + "\n");
         stringBuilder.append("\n");
 
@@ -292,7 +292,7 @@ public final class Generator extends AbstractMojo {
                         if (content == null) continue;
 
                         stringBuilder.append("\n");
-                        stringBuilder.append("^|"+StringUtil.format(index)+". \n");
+                        stringBuilder.append("^|"+StringUtil.format(index++)+". \n");
                         stringBuilder.append("^|" + StringUtil.format(mediaType) + "\n");
                         stringBuilder.append("^| " + ContentUtil.scheme(content) + "\n");
                         stringBuilder.append("^|"+ ContentUtil.format(content)+"\n");
@@ -329,13 +329,14 @@ public final class Generator extends AbstractMojo {
         if (operation.getResponses() == null) operation.setResponses(Collections.emptyMap());
 
         int index = 1;
+        IntWrapper wrapper = new IntWrapper(index);
         for (final String httpCode: operation.getResponses().keySet()) {
             Response response = operation.getResponses().get(httpCode);
             if (response.getContent() == null || response.getContent().isEmpty()) {
                 continue;
             }
-            generate(httpCode, response, index);
-            index++;
+            generate(httpCode, response, wrapper);
+            index = wrapper.value;
         }
 
         if (index == 1) {
@@ -349,14 +350,21 @@ public final class Generator extends AbstractMojo {
         stringBuilder.append("\n");
     }
 
-    private void generate(@NonNull final String httpCode, final Response response, int index) {
+    private static class IntWrapper {
+        public int value;
+        public IntWrapper(int value) {
+            this.value = value;
+        }
+    }
+
+    private void generate(@NonNull final String httpCode, final Response response, IntWrapper indexWrapper) {
         if (response.getContent() == null || response.getContent().isEmpty()) {
             return;
         }
         for (final String mediaType: response.getContent().keySet()) {
             final Content content = response.getContent().get(mediaType);
             stringBuilder.append("\n");
-            stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
+            stringBuilder.append("^|" + StringUtil.format(indexWrapper.value++) + ". \n");
             stringBuilder.append("^|" + StringUtil.format(httpCode) + "\n");
             stringBuilder.append("^| \"" + StringUtil.format(mediaType) + "\" \n");
             stringBuilder.append("|" + String.format(response.getDescription())+"\n");
