@@ -9,6 +9,10 @@
     <version>1.0.0</version>
     <packaging>maven-plugin</packaging>
 
+    <scm>
+        <url>git@github.com:denis-volnenko/maven-openapi-asciidoc-plugin.git</url>
+    </scm>
+
     <developers>
         <developer>
             <id>volnenko</id>
