@@ -1,0 +1,5732 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/digital",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Issued-permission",
+      "description": "Согласия пользователя"
+    },
+    {
+      "name": "permissions-public",
+      "description": "Платформа согласий"
+    },
+    {
+      "name": "permissions-internal",
+      "description": "Платформа согласий внутренние ресты для Oauth"
+    },
+    {
+      "name": "event-listener-internal",
+      "description": "Реализация асинхронного взаимодействия посредством реакции на определенные события через ресты"
+    },
+    {
+      "name": "claimed",
+      "description": "Запрос согласий"
+    },
+    {
+      "name": "permissions-internal-techportal",
+      "description": "Платформа согласий внутренние ресты для техпортала"
+    },
+    {
+      "name": "permissions-internal",
+      "description": "Платформа согласий внутренние ресты"
+    }
+  ],
+  "paths": {
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions": {
+      "get": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Получение согласий пользователя, выданных организации (с любым скоупом)",
+        "operationId": "getIssuedPermissions_1",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Номер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "Размер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentsV1"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Выдача согласия пользователем для организации (статус A)",
+        "operationId": "issuePermissions",
+        "parameters": [
+          {
+            "name": "prn_oid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentsV1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Выдача согласия пользователем для организации (статус A)",
+        "operationId": "issuePermissions_1",
+        "parameters": [
+          {
+            "name": "prn_oid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentsV1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/claimed/permissions/{id}": {
+      "put": {
+        "tags": [
+          "claimed"
+        ],
+        "summary": "Утверждение запрошенного согласия пользователем",
+        "operationId": "approvePermission",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id запрошенного согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentV1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "claimed"
+        ],
+        "summary": "Утверждение запрошенного согласия пользователем",
+        "operationId": "approvePermission_1",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id запрошенного согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentV1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "claimed"
+        ],
+        "summary": "Отказ от запрошенного согласия пользователем",
+        "operationId": "refusePermission",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id запрошенного согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/{id}": {
+      "put": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Активация ранее отозванного типа согласия",
+        "operationId": "activatePermission",
+        "parameters": [
+          {
+            "name": "Id типа согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Отзыв типа согласия",
+        "operationId": "revokePermission_1",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Id типа согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/health-check/sentry": {
+      "post": {
+        "tags": [
+          "Контроль работы Sentry"
+        ],
+        "summary": "Отправить контрольное событие в Sentry",
+        "operationId": "sendHealthCheckSentryEvent",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain;charset=UTF-8": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/permissions/prm_detail": {
+      "post": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Проверка подписок на сведения из ФФОМС",
+        "operationId": "getPermissionDetail",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckPermissionRequestDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckPermissionResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/permissions/policy/approve": {
+      "post": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Ознакомление с соглашением",
+        "operationId": "approvePolicy",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/permissions/offer/reject": {
+      "post": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Отказ от оферты",
+        "operationId": "rejectOffer",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/permissions/offer/accept": {
+      "post": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Прием оферты и выдача согласия для Минкомсвязи",
+        "operationId": "acceptOffer",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentV1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions/revoke_with_reason": {
+      "post": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Отзыв нескольских согласий с указанием причины",
+        "operationId": "revokeWithReason",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionIdWithResult"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions/revoke": {
+      "post": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Отзыв нескольских согласий ",
+        "operationId": "revoke",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions/revoke/{id}": {
+      "post": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Отзыв выданного согласия с указанием причины отзыва",
+        "operationId": "revokeIssuedPermission",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id выданного согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions/revoke/digital_offer": {
+      "post": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Отзыв генеральных согласий",
+        "operationId": "revokeDigitalOffer",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/claimed/permissions": {
+      "get": {
+        "tags": [
+          "claimed"
+        ],
+        "summary": "Получение запрошенных согласий",
+        "operationId": "getClaimedPermissions",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Номер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "Размер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentsV1"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "claimed"
+        ],
+        "summary": "Запрос согласия пользователя от организации (статус W)",
+        "operationId": "claimPermissions",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentsV1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/permissions/bysysname": {
+      "post": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Получения названий типов согласий, целей, действий, скоупов по мнемоникам",
+        "operationId": "getPermissionsBySysname",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentsV1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentsV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/claimed/permissions": {
+      "post": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Запрос согласия пользователя от организации (статус W) по СНИЛС",
+        "operationId": "claimPermissions_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentsV1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/pso/{prn_oid}/permissions/doc/egisso-service": {
+      "post": {
+        "tags": [
+          "event-listener-internal"
+        ],
+        "operationId": "sendEventToAgenciesForBankAccount",
+        "parameters": [
+          {
+            "name": "prn_oid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_oid}/permissions/pep": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "пэп",
+        "operationId": "getPepEntity",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/permissions/issued/check/scopes": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "check/scopes",
+        "operationId": "checkScopesIssuedToDigitalProfile",
+        "parameters": [
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/issued/permissions": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "issued/permissions",
+        "operationId": "issuePermissions_2",
+        "parameters": [
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usi",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "claim",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/issued/oauth/permissions": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "oauth/permissions",
+        "operationId": "issuePermissionsOauth",
+        "parameters": [
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usi",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "claim",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "oauth",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/issued/kid/permissions": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение cогласий ребенка",
+        "operationId": "issuePermissionToKidParent",
+        "parameters": [
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usi",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/get/issued/permissions": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение cогласий",
+        "operationId": "getIssuedPermissions",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IssuedPermissionEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/find/issued/permissions": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение cогласий по personId OrgId и Prm",
+        "operationId": "findByPersonIdAndOrgIdAndPrm",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "prmSysname",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IssuedPermissionEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{personId}/permissions/offer/accept": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Принятие оферты генерального согласия",
+        "operationId": "permissionAcceptOffer",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Id учетки",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usi",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "system",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subjectOid",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Создание типа согласия",
+        "operationId": "createPermission",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentV1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal/org/client/link": {
+      "post": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "добавление в PRM_IT_SYS_ORG",
+        "operationId": "createPermissionSystem",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionSystemDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal/org/category/link": {
+      "post": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "добавление в PRM_CATS",
+        "operationId": "createPermissionCategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionCategoryDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/purpose": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Создание цели",
+        "operationId": "createPurpose",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PurposeV1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurposeV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/optimize": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "optimize",
+        "operationId": "checkGrantsForPermission",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/PermissionDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/offer/reject": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Отклонение оферты генерального согласия",
+        "operationId": "rejectOffer_1",
+        "parameters": [
+          {
+            "name": "account_oid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/offer/accept": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Принятие оферты генерального согласия",
+        "operationId": "acceptOffer_1",
+        "parameters": [
+          {
+            "name": "account_oid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/PermissionDTO"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/check/grants": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "check/grants",
+        "operationId": "checkGrantsForPermission_1",
+        "parameters": [
+          {
+            "name": "itSystemId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/bysysname": {
+      "post": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "bysysname",
+        "operationId": "getPermissionsBySysname_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermissionDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health-check/status": {
+      "get": {
+        "tags": [
+          "health-check-controller"
+        ],
+        "operationId": "status",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/status": {
+      "get": {
+        "tags": [
+          "health-check-controller"
+        ],
+        "operationId": "status_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/permissions/settings": {
+      "get": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Получение конфигурационных параметров отображения форм соглашения и оферты",
+        "operationId": "getAgreementFormConfig",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/permissions/offer": {
+      "get": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Получение оферты",
+        "operationId": "getOffer",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions/{id}": {
+      "get": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Получение согласия пользователя, выданного организации (с любым скоупом)",
+        "operationId": "getIssuedPermissions_2",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id выданного согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentV1"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Отзыв выданного согласия",
+        "operationId": "revokeIssuedPermission_1",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id выданного согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions/{id}/archive": {
+      "get": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Получение  архива электронной подписи",
+        "operationId": "getArchive",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id выданного согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions/digital/scopes": {
+      "get": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Получения списка скоупов, выданных в рамках согласия Цифровому профилю",
+        "operationId": "getIssuedScopesToDigitalProfile",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScopesV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions/archive": {
+      "get": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Получение  архивов электронной подписи",
+        "operationId": "getArchives",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/prns/{prn_oid}/issued/permissions/all": {
+      "get": {
+        "tags": [
+          "Issued-permission"
+        ],
+        "summary": "Получение списка всех согласий, которые выдал пользователь (для ЦП)",
+        "operationId": "getAllIssuedPermissions",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Номер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "Размер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "Мнемоника типа согласия",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ОГРН",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Наименование организации",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Статус выданного согласия (битовая маска)",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "список выданных согласий за исключением согласий типа DIGITAL_OFFER",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentsV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/permissions": {
+      "get": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Получение всех типов согласий",
+        "operationId": "getAllPermissions",
+        "parameters": [
+          {
+            "name": "Номер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "Размер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentsV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/permissions/{id}": {
+      "get": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "Получение типа согласия",
+        "operationId": "getPermission",
+        "parameters": [
+          {
+            "name": "Id типа согласия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/{version}/issued/permissions/{prn_oid}": {
+      "get": {
+        "tags": [
+          "permissions-public"
+        ],
+        "summary": "API получения действующих согласий в отношении ребёнка",
+        "operationId": "getKidsPermissions",
+        "parameters": [
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Номер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "Размер страницы",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentsV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_oid}/permissions/validate": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Рест для проверки согласий с учетом пользователя",
+        "operationId": "validatePersonPermissions",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "permissions",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_oid}/permissions/offer": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "permissions/offer",
+        "operationId": "getOffer_1",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usi",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/permissions/find": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "permissions/find",
+        "operationId": "findIssuedPermissions",
+        "parameters": [
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "itSystemId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IssuedPermissionEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/permissions/find/status": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "find/status",
+        "operationId": "findIssuedPermissionsStatus",
+        "parameters": [
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "itSystemId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "WAITING",
+                "DELETED"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IssuedPermissionEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/permissions/find/kid": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "find/kid",
+        "operationId": "findIssuedPermissionsForKid",
+        "parameters": [
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "itSystemId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IssuedPermissionEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/check/permissions": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Проверка cогласий",
+        "operationId": "checkPermissionByPerson",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "itSystemMnemonic",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{personId}/permissions/scope/bank": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Проверка наличия согласия у банков",
+        "operationId": "checkScopeBankAccount",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Id учетки",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id согласия",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{personId}/org/{orgId}/permissions/has-actual": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Проверка наличия согласия",
+        "operationId": "hasActualPermission",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Id учетки",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id организации",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "sysname",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{personId}/org/{orgId}/permissions/get-scopes-to-link-account": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получить скоупы",
+        "operationId": "permissionAcceptOffer_1",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Id учетки",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id организации",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "linkAccount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScopeEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/validateScope": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "operationId": "checkScopeExists",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "oid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/validate/enrich": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "проверка согласий без учета пользователя",
+        "operationId": "validatePermissions",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Client ID",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "permissions",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal": {
+      "get": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "Получение согласий из PRM",
+        "operationId": "getAllPermissions_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionsV2"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal/org/сategory/orgs": {
+      "get": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "Получение организаций",
+        "operationId": "getOrganization",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionOrganizationsV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal/org/client": {
+      "get": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "Получение таблицы PRM_IT_SYS_ORG",
+        "operationId": "getPermissionSystem",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionSystemsV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal/org/category": {
+      "get": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "Получение категорий из PRM_CATS",
+        "operationId": "getСategory",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoriesV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal/org/category/{oid}": {
+      "get": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "Получение согласий для категории",
+        "operationId": "getOrganization_1",
+        "parameters": [
+          {
+            "name": "OID организации",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionsV2"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal/org/category/all": {
+      "get": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "Получение PRM_CATS",
+        "operationId": "getPermissionCategory",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionCategoriesV1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/rkn": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение rkn",
+        "operationId": "isRknPermissionSysname",
+        "parameters": [
+          {
+            "name": "sysname",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/persons/{personId}/scopes": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "operationId": "getIssuedScopesToDigitalProfile_1",
+        "parameters": [
+          {
+            "name": "personId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScopeEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/offer": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение оферты генерального согласия",
+        "operationId": "getOffer_2",
+        "parameters": [
+          {
+            "name": "account_oid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/kid/issued/scope": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Постраничное получение списков согласий",
+        "operationId": "isKidsIssuedScope",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "kidId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "personId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/kid/digital-offer/validateScope": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "operationId": "checkScopeExistsForDigitalOfferForKid",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parentId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "kidOid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/getAllByScope": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Постраничное получение списков согласий",
+        "operationId": "getAllByScope",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "batchSize",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageDTOIssuedPermissionEntity"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/get/{id}": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение cогласий",
+        "operationId": "getPermission_1",
+        "parameters": [
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionEntity"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/get-by-sysname": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение согласия",
+        "operationId": "getBySysName",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sysname",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionEntity"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/excludable/forbiddens": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение Forbiddens",
+        "operationId": "getNonExcludableForbiddens",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/digital-offer/validateScope": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "operationId": "checkScopeExistsForDigitalOffer",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/delegatable": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "sysname",
+        "operationId": "isDelegatablePermission",
+        "parameters": [
+          {
+            "name": "sysname",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/categories": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение категорий",
+        "operationId": "getCategories",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/all/terms": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение /all/terms",
+        "operationId": "getAllTerms",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermissionTermEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/all/forbiddens": {
+      "get": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Получение all/forbiddens",
+        "operationId": "getAllForbiddens",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermissionForbiddenEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/revoke/permissions/person": {
+      "delete": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "удаление согласия для пользователя",
+        "operationId": "revokePersonIssuedPermissions",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "revokeMethodCode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usi",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{prn_id}/revoke/permissions/bank/account": {
+      "delete": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "удаление согласия для банка",
+        "operationId": "revokePermissionBankAccount",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ID пользователя",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usi",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/prns/{personId}/org/{orgId}/permissions/revoke": {
+      "delete": {
+        "tags": [
+          "permissions-internal"
+        ],
+        "summary": "Отзыв типа согласия",
+        "operationId": "revokePermission",
+        "parameters": [
+          {
+            "name": "Версия",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Id учетки",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "Id организации",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "sysname",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usi",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal/org/client/{id}": {
+      "delete": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "удаление из PRM_IT_SYS_ORG",
+        "operationId": "deleteSystem",
+        "parameters": [
+          {
+            "name": "Id записи",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/{version}/permissions/techportal/org/category/{id}": {
+      "delete": {
+        "tags": [
+          "permissions-internal-techportal"
+        ],
+        "summary": "удаление из PRM_CATS",
+        "operationId": "deleteCategory",
+        "parameters": [
+          {
+            "name": "Id записи",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ConsentsV1": {
+        "type": "object",
+        "required": ["size"],
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "snils": {
+            "type": "string"
+          },
+          "ogrn": {
+            "type": "string"
+          },
+          "orgShortName": {
+            "type": "string"
+          },
+          "orgAddress": {
+            "type": "string"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "StateFact": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "ActionsV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "ConsentV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "personId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "subjOid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "orgId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "permissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "itSystemId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "orgShortName": {
+            "type": "string"
+          },
+          "ogrn": {
+            "type": "string"
+          },
+          "orgAddress": {
+            "type": "string"
+          },
+          "responsibleObject": {
+            "type": "string"
+          },
+          "extContext": {
+            "type": "string"
+          },
+          "issuedOn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "expiredOn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "expire": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "maxExpiration": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "revokedOn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "scopeMode": {
+            "type": "string"
+          },
+          "text": {
+            "$ref": "#/components/schemas/ConsentV1"
+          },
+          "purposeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdOn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "updatedOn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "signatureId": {
+            "type": "string"
+          },
+          "signatureStatus": {
+            "type": "string"
+          },
+          "kidId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "kidInfo": {
+            "$ref": "#/components/schemas/KidInfoV1"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/ScopesV1"
+          },
+          "purposes": {
+            "$ref": "#/components/schemas/PurposesV1"
+          },
+          "actions": {
+            "$ref": "#/components/schemas/ActionsV1"
+          },
+          "terms": {
+            "$ref": "#/components/schemas/TermsV1"
+          },
+          "forbiddens": {
+            "$ref": "#/components/schemas/ForbiddensV1"
+          },
+          "actions_ext": {
+            "$ref": "#/components/schemas/ForbiddensV1"
+          },
+          "sites": {
+            "$ref": "#/components/schemas/SitesV1"
+          },
+          "delegatable": {
+            "type": "boolean"
+          },
+          "ageRestriction": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ForbiddensV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "KidInfoV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "kidFullname": {
+            "type": "string"
+          },
+          "kidBirthdate": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "PurposesV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "ScopesV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "SitesV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "TermsV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "CheckPermissionRequestDTO": {
+        "type": "object",
+        "properties": {
+          "oid": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "objId": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "CheckPermissionResponseDTO": {
+        "type": "object",
+        "properties": {
+          "signedOid": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "signedObjId": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "PermissionIdWithResult": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          },
+          "id": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "ActionDTO": {
+        "type": "object",
+        "properties": {
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "ForbiddenDTO": {
+        "type": "object",
+        "properties": {
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "PermissionDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "personId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "kidId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "subjOid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "orgId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "itSystemId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "extContext": {
+            "type": "string"
+          },
+          "maxExpiration": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "scopeMode": {
+            "type": "string",
+            "enum": [
+              "NONE",
+              "LIMITED",
+              "ANY"
+            ]
+          },
+          "issuedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "revokedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expire": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "expiredOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "WAITING",
+              "DELETED"
+            ]
+          },
+          "statusStr": {
+            "type": "string"
+          },
+          "responsibleObject": {
+            "type": "string"
+          },
+          "orgShortName": {
+            "type": "string"
+          },
+          "orgAddress": {
+            "type": "string"
+          },
+          "ogrn": {
+            "type": "string"
+          },
+          "permissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "revokeReason": {
+            "type": "string"
+          },
+          "purposeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "signatureId": {
+            "type": "string"
+          },
+          "signatureStatus": {
+            "type": "string"
+          },
+          "purposes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PurposeDTO"
+            }
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionDTO"
+            }
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScopeDTO"
+            }
+          },
+          "terms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TermDTO"
+            }
+          },
+          "forbiddens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ForbiddenDTO"
+            }
+          },
+          "sites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SiteDTO"
+            }
+          },
+          "personKidIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "delegatable": {
+            "type": "boolean"
+          },
+          "ageRestriction": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PurposeDTO": {
+        "type": "object",
+        "properties": {
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "ScopeDTO": {
+        "type": "object",
+        "properties": {
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "agcName": {
+            "type": "string"
+          },
+          "extendedAuth": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SiteDTO": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "require": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "TermDTO": {
+        "type": "object",
+        "properties": {
+          "sysname": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "require": {
+            "type": "boolean"
+          },
+          "requireReason": {
+            "type": "string"
+          }
+        }
+      },
+      "PermissionsDTO": {
+        "type": "object",
+        "properties": {
+          "snils": {
+            "type": "string"
+          },
+          "orgId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ogrn": {
+            "type": "string"
+          },
+          "orgShortName": {
+            "type": "string"
+          },
+          "orgAddress": {
+            "type": "string"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PermissionDTO"
+            }
+          }
+        }
+      },
+      "ActionEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "r",
+              "a",
+              "w"
+            ]
+          }
+        }
+      },
+      "AddressEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "verifiedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vrfReqStu": {
+            "$ref": "#/components/schemas/Vrs"
+          },
+          "addressType": {
+            "type": "string",
+            "enum": [
+              "PERSON_LIVE_ADDRESS",
+              "PERSON_REGISTER_ADDRESS",
+              "PERSON_TEMP_ADDRESS",
+              "PERSON_MVD_REGISTRATION_ADDRESS",
+              "ORGANIZATION_POST_ADDRESS",
+              "ORGANIZATION_LEGAL_ADDRESS",
+              "RA_ADDRESS",
+              "PERSON_TEMP_ADDRESS_FROM_XML"
+            ]
+          },
+          "objectId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "countryId": {
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string"
+          },
+          "addressStr": {
+            "type": "string"
+          },
+          "fullAddress": {
+            "type": "string"
+          },
+          "kladrCode": {
+            "type": "string"
+          },
+          "fiasCode": {
+            "type": "string"
+          },
+          "fiasCodeLevel": {
+            "type": "string"
+          },
+          "extUid": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "area": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "settlement": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "additionArea": {
+            "type": "string"
+          },
+          "additionAreaStreet": {
+            "type": "string"
+          },
+          "house": {
+            "type": "string"
+          },
+          "building": {
+            "type": "string"
+          },
+          "frame": {
+            "type": "string"
+          },
+          "litera": {
+            "type": "string"
+          },
+          "flatType": {
+            "type": "string"
+          },
+          "flat": {
+            "type": "string"
+          },
+          "room": {
+            "type": "string"
+          },
+          "steadType": {
+            "type": "string"
+          },
+          "stead": {
+            "type": "string"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "vrfDdt": {
+            "type": "string"
+          },
+          "another": {
+            "type": "string"
+          },
+          "planStruct": {
+            "type": "string"
+          },
+          "frameType": {
+            "type": "string"
+          },
+          "frameTypeFull": {
+            "type": "string"
+          },
+          "houseType": {
+            "type": "string"
+          },
+          "houseTypeFull": {
+            "type": "string"
+          },
+          "startDateOfTemporaryRegistration": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temporaryRegistrationEndDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "selected": {
+            "type": "boolean"
+          },
+          "pdfLink": {
+            "type": "string"
+          },
+          "foreign": {
+            "type": "boolean"
+          },
+          "addressStrForSc": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "cancelled": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "IssuedPermissionActionEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "issuedPermissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "actionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "actionEntity": {
+            "$ref": "#/components/schemas/ActionEntity"
+          }
+        }
+      },
+      "IssuedPermissionEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "personId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "orgId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "permissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "kidId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "subjOid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "issuedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expiredOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expire": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "WAITING",
+              "DELETED"
+            ]
+          },
+          "responsibleObject": {
+            "type": "string"
+          },
+          "revokeReason": {
+            "type": "string"
+          },
+          "signatureId": {
+            "type": "string"
+          },
+          "signatureStatus": {
+            "type": "string"
+          },
+          "revokeMethod": {
+            "type": "string",
+            "enum": [
+              "REVOKE_PERMISSION",
+              "DELETE_ACCOUNT",
+              "REVOKE_OFFER",
+              "REVOKE_PERMISSION_TYPE",
+              "PERSON_DEATH"
+            ]
+          },
+          "organization": {
+            "$ref": "#/components/schemas/OrganizationWithAddressEntity"
+          },
+          "permission": {
+            "$ref": "#/components/schemas/PermissionEntity"
+          },
+          "kid": {
+            "$ref": "#/components/schemas/KidEntity"
+          },
+          "purposes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuedPermissionPurposeEntity"
+            }
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuedPermissionActionEntity"
+            }
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuedPermissionScopeEntity"
+            }
+          },
+          "terms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuedPermissionTermEntity"
+            }
+          },
+          "forbiddens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuedPermissionForbiddenEntity"
+            }
+          },
+          "sites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuedPermissionSiteEntity"
+            }
+          }
+        }
+      },
+      "IssuedPermissionForbiddenEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "issuedPermissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "permissionForbiddenId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "check": {
+            "type": "boolean"
+          },
+          "permissionForbiddenEntity": {
+            "$ref": "#/components/schemas/PermissionForbiddenEntity"
+          }
+        }
+      },
+      "IssuedPermissionPurposeEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "issuedPermissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "purposeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "purposeEntity": {
+            "$ref": "#/components/schemas/PurposeEntity"
+          }
+        }
+      },
+      "IssuedPermissionScopeEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "issuedPermissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "scopeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/ScopeEntity"
+          }
+        }
+      },
+      "IssuedPermissionSiteEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "issuedPermissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "url": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      },
+      "IssuedPermissionTermEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "issuedPermissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "permissionTermId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "permissionTermEntity": {
+            "$ref": "#/components/schemas/PermissionTermEntity"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "requiredReason": {
+            "type": "string"
+          }
+        }
+      },
+      "KidEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "vrfStatus": {
+            "type": "string"
+          },
+          "objectType": {
+            "type": "string",
+            "enum": [
+              "AGENCY",
+              "VIRTUAL_ORGANIZATION",
+              "BUSINESS_PERSON",
+              "LEGAL_ORGANIZATION",
+              "FOREIGN_ORGANIZATION",
+              "TRUSTED_PERSON",
+              "LIGHT_PERSON",
+              "KID",
+              "IT_SYSTEM",
+              "REGISTRY_AUTHORITY",
+              "BRANCH"
+            ]
+          },
+          "oid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ctxRaw": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "birthday": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "birthPlace": {
+            "type": "string"
+          },
+          "trusted": {
+            "type": "boolean"
+          },
+          "gender": {
+            "type": "string",
+            "enum": [
+              "MALE",
+              "FEMALE"
+            ]
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "inn": {
+            "type": "string"
+          },
+          "snils": {
+            "type": "string"
+          },
+          "linkCode": {
+            "type": "string"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "parentOid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "snilsCrtSts": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "citizenshipId": {
+            "type": "string"
+          },
+          "permissionParent": {
+            "type": "boolean"
+          },
+          "hiddenByParent": {
+            "type": "boolean"
+          },
+          "linkCodeAsString": {
+            "type": "string"
+          },
+          "notVerified": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "verified": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "writeOnly": true
+          },
+          "cancelled": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "writeOnly": true
+          }
+        }
+      },
+      "ObjectAttributeEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "attribute": {
+            "type": "string",
+            "enum": [
+              "AGENCY_TYPE",
+              "AGENCY_TERRITORIAL_RANGE",
+              "AGENCY_OKTMO",
+              "AGENCY_AUTHORIZED_ORG",
+              "SYSTEM_SITE_URL",
+              "SYSTEM_LOGIN_PROMPT",
+              "AGENCY_ADD_INFO",
+              "PERSON_NTRUSTED_HIDE_VRD_BLOCK",
+              "HIDE_INFO_BOX_BLOCK",
+              "SYSTEM_ALGORITHM_OAUTH",
+              "CATEGORY_SYSTEM",
+              "ACCESS_TOKEN_TTL",
+              "REFRESH_TOKEN_TTL",
+              "SYSTEM_URL_FOR_PUSH",
+              "SYSTEM_URL_FOR_PUSHD",
+              "IT_SYSTEM_FOR_PD_CHANGE_NOTIF",
+              "HIDE_AGREEMENT_FORM",
+              "PERMISSIONS_NOTIFICATION_URL",
+              "PERMISSIONS_NOTIFICATION_SYSTEM",
+              "ADDITIONAL_REQUEST_PARAMS",
+              "USE_REFRESH_TOKEN_REST_API",
+              "SYSTEM_USE_REFRESH_TOKEN",
+              "OAUTH_SYSTEM_ACCESS_TYPE_MISSED",
+              "SYSTEM_CREATED_ONLY_PERMISSIONS",
+              "PERSON_FILTER_PARAMS"
+            ]
+          },
+          "ownerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "verificationStatus": {
+            "type": "string",
+            "enum": [
+              "VERIFICATION_FAILED",
+              "VERIFYING",
+              "RECOVERY",
+              "RECOVERY_WITHOUT_2FA"
+            ]
+          },
+          "numberValue": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "stringValue": {
+            "type": "string"
+          },
+          "dateValue": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "textValue": {
+            "type": "string"
+          },
+          "value": {
+            "type": "object"
+          },
+          "numericFeatureEnabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "OrganizationWithAddressEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "vrfStatus": {
+            "type": "string"
+          },
+          "objectType": {
+            "type": "string",
+            "enum": [
+              "AGENCY",
+              "VIRTUAL_ORGANIZATION",
+              "BUSINESS_PERSON",
+              "LEGAL_ORGANIZATION",
+              "FOREIGN_ORGANIZATION",
+              "TRUSTED_PERSON",
+              "LIGHT_PERSON",
+              "KID",
+              "IT_SYSTEM",
+              "REGISTRY_AUTHORITY",
+              "BRANCH"
+            ]
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "oid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ctxRaw": {
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "personId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "organizationType": {
+            "type": "string",
+            "enum": [
+              "AGENCY",
+              "BUSINESS_PERSON",
+              "LEGAL_ORGANIZATION",
+              "FOREIGN_ORGANIZATION",
+              "VIRTUAL_ORGANIZATION",
+              "BRANCH"
+            ]
+          },
+          "subtypeEnum": {
+            "type": "string",
+            "enum": [
+              "INDIVIDUAL_ENTREPRENEUR"
+            ]
+          },
+          "ogrn": {
+            "type": "string"
+          },
+          "inn": {
+            "type": "string"
+          },
+          "kpp": {
+            "type": "string"
+          },
+          "features": {
+            "type": "string"
+          },
+          "oldOrgId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "legalFormCode": {
+            "type": "string"
+          },
+          "legalFormCodeVrf": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ObjectAttributeEntity"
+            }
+          },
+          "created": {
+            "type": "string"
+          },
+          "branchesCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "staffCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "approvalId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dateLiquidation": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "addressEntity": {
+            "$ref": "#/components/schemas/AddressEntity"
+          },
+          "fullAddressStr": {
+            "type": "string"
+          },
+          "featuresAsSet": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notVerified": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "verified": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "writeOnly": true
+          },
+          "cancelled": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "writeOnly": true
+          }
+        }
+      },
+      "PermissionEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "itSystemId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "extContext": {
+            "type": "string"
+          },
+          "maxExpiration": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "scopeMode": {
+            "type": "string",
+            "enum": [
+              "NONE",
+              "LIMITED",
+              "ANY"
+            ]
+          },
+          "revokedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "permissionTextId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "purposeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "delegatable": {
+            "type": "boolean"
+          },
+          "ageRestriction": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PermissionScopeEntity"
+            }
+          }
+        }
+      },
+      "PermissionForbiddenEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "PermissionScopeEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "permissionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "scopeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/ScopeEntity"
+          }
+        }
+      },
+      "PermissionTermEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sysname": {
+            "type": "string"
+          }
+        }
+      },
+      "PurposeEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "ScopeEntity": {
+        "type": "object",
+        "properties": {
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dsc": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sysname": {
+            "type": "string"
+          },
+          "sysnameNew": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "itSystemId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "extendedAuth": {
+            "type": "boolean"
+          },
+          "agencyName": {
+            "type": "string"
+          },
+          "agencyNsiId": {
+            "type": "string"
+          },
+          "itsystemId": {
+            "type": "integer",
+            "format": "int64",
+            "writeOnly": true
+          }
+        }
+      },
+      "Vrs": {
+        "type": "object"
+      },
+      "PermissionSystemDTO": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "ogrn": {
+            "type": "string"
+          },
+          "permissionSysname": {
+            "type": "string"
+          }
+        }
+      },
+      "PermissionCategoryDTO": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "permissionId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "PurposeV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "sysname": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdOn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "updatedOn": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "PermissionsV2": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "PermissionOrganizationsV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "PermissionSystemsV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "CategoriesV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "PermissionCategoriesV1": {
+        "type": "object",
+        "properties": {
+          "stateFacts": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StateFact"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "PageDTOIssuedPermissionEntity": {
+        "type": "object",
+        "properties": {
+          "pageElements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuedPermissionEntity"
+            }
+          },
+          "totalElementsCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "zeroPage": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

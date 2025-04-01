@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0743f73a-b1c6-4c2c-8aa5-ecdfc8a9e54d" name="Changes" comment="Added task-manager api mock." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="madmin@mcod" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2uoZQUzI2c7oWpGLOruNecjLpKE" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.format.on.save.advertiser.fired" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/site" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/site" />
+      <recent name="$PROJECT_DIR$/example/task-manager" />
+      <recent name="$PROJECT_DIR$/example/task-manager/src/main/resources/path/task" />
+      <recent name="$PROJECT_DIR$/example/task-manager/src/main/resources/path/project" />
+      <recent name="$PROJECT_DIR$/src/main/java/ru/volnenko/plugin/openapidoc" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/example/task-manager/src/main/resources/path/project" />
+      <recent name="$PROJECT_DIR$/.idea" />
+      <recent name="$PROJECT_DIR$/example" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.volnenko.plugin.openapidoc.exception" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Maven.maven-openapi-asciidoc-plugin [openapi-asciidoc:generate]">
+    <configuration name="GeneratorTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="maven-openapi-asciidoc-plugin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.volnenko.plugin.openapidoc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.volnenko.plugin.openapidoc" />
+      <option name="MAIN_CLASS_NAME" value="ru.volnenko.plugin.openapidoc.GeneratorTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="maven-openapi-asciidoc-plugin [openapi-asciidoc:generate]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="openapi-asciidoc:generate" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="$PROJECT_DIR$/gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
+      <option name="jdkPath" value="" />
+      <option name="language" value="java" />
+      <option name="specificationPath" value="$PROJECT_DIR$/example/openapi.yaml" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Maven.maven-openapi-asciidoc-plugin [openapi-asciidoc:generate]" />
+        <item itemvalue="JUnit.GeneratorTest.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0743f73a-b1c6-4c2c-8aa5-ecdfc8a9e54d" name="Changes" comment="" />
+      <created>1742916873991</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742916873991</updated>
+      <workItem from="1742916875204" duration="19044000" />
+      <workItem from="1742974272547" duration="1248000" />
+      <workItem from="1743035074756" duration="5007000" />
+      <workItem from="1743060293320" duration="5081000" />
+      <workItem from="1743069892151" duration="86000" />
+      <workItem from="1743070375254" duration="1499000" />
+      <workItem from="1743101584635" duration="1238000" />
+      <workItem from="1743128256790" duration="169000" />
+      <workItem from="1743165003357" duration="1223000" />
+      <workItem from="1743455144455" duration="11000" />
+      <workItem from="1743494397370" duration="3634000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added Jacoco maven plugin.">
+      <created>1743055550186</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743055550186</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added openapi example.">
+      <created>1743055976152</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743055976152</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated readme.">
+      <created>1743056224589</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743056224589</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updated readme.">
+      <created>1743056347337</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743056347337</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added developer info.">
+      <created>1743064142006</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743064142006</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added task-manager example.">
+      <created>1743064890635</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743064890635</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added task-manager api mock.">
+      <created>1743067803447</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743067803447</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Jacoco maven plugin." />
+    <MESSAGE value="Added openapi example." />
+    <MESSAGE value="Updated readme." />
+    <MESSAGE value="Added developer info." />
+    <MESSAGE value="Added task-manager example." />
+    <MESSAGE value="Added task-manager api mock." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added task-manager api mock." />
+  </component>
+</project>
