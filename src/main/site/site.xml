@@ -4,19 +4,20 @@
          name="Maven">
 
     <bannerLeft>
-        <name>volnenko</name>
-        <src>https://maven.apache.org/images/apache-maven-project.png</src>
-        <href>https://www.volnenko.ru</href>
+        <name>OPENAPI ASCIIDOC MAVEN PLUGIN</name>
+<!--        <src>https://maven.apache.org/images/apache-maven-project.png</src>-->
+        <href>https://maven.volnenko.ru/sites/openapi-asciidoc-maven-plugin/</href>
     </bannerLeft>
 
     <bannerRight>
-        <src>https://maven.apache.org/images/maven-small.gif</src>
+        <src></src>
+<!--        <src>https://maven.apache.org/images/maven-small.gif</src>-->
     </bannerRight>
 
     <body>
-        <!--        <links>-->
-        <!--            <item name="archdoc" href="archdoc/archdoc.html" />-->
-        <!--        </links>-->
+        <links>
+            <item name="MAVEN" href="https://maven.volnenko.ru" />
+        </links>
         <!--        <menu name="DOC">-->
         <!--            <item name="archdoc" href="archdoc/archdoc.html" />-->
         <!--        </menu>-->
