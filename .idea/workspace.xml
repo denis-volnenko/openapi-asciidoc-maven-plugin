@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0743f73a-b1c6-4c2c-8aa5-ecdfc8a9e54d" name="Changes" comment="Added task-manager api mock." />
+    <list default="true" id="0743f73a-b1c6-4c2c-8aa5-ecdfc8a9e54d" name="Changes" comment="Added task-manager api mock.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,6 +160,8 @@
       <workItem from="1743165003357" duration="1223000" />
       <workItem from="1743455144455" duration="11000" />
       <workItem from="1743494397370" duration="3634000" />
+      <workItem from="1743502827519" duration="18000" />
+      <workItem from="1743502877878" duration="44000" />
     </task>
     <task id="LOCAL-00001" summary="Added Jacoco maven plugin.">
       <created>1743055550186</created>
