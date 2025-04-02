@@ -5,6 +5,7 @@
 
     <bannerLeft>
         <name>OPENAPI ASCIIDOC MAVEN PLUGIN</name>
+        <src></src>
 <!--        <src>https://maven.apache.org/images/apache-maven-project.png</src>-->
         <href>https://maven.volnenko.ru/sites/openapi-asciidoc-maven-plugin/</href>
     </bannerLeft>
