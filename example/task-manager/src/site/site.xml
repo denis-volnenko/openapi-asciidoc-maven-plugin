@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 https://maven.apache.org/xsd/decoration-1.8.0.xsd"
+         name="Maven">
+
+    <bannerLeft>
+        <name>TM OPENAPI</name>
+        <src></src>
+<!--        <src>https://maven.apache.org/images/apache-maven-project.png</src>-->
+        <href>https://maven.volnenko.ru/sites/task-manager-openapi-asciidoc/</href>
+    </bannerLeft>
+
+    <bannerRight>
+<!--        <src>https://maven.apache.org/images/maven-small.gif</src>-->
+        <src></src>
+    </bannerRight>
+
+    <body>
+        <!--        <links>-->
+        <!--            <item name="asciidoc" href="asciidoc/index.html" />-->
+        <!--        </links>-->
+        <links>
+            <item name="MAVEN" href="https://maven.volnenko.ru" />
+        </links>
+        <menu name="Ссылки">
+            <item name="Описание веб-сервисов" href="asciidoc/openapi.html" />
+            <item name="openapi-asciidoc" href="https://maven.volnenko.ru/sites/openapi-asciidoc-maven-plugin/" />
+        </menu>
+        <menu ref="reports"/>
+    </body>
+
+</project>
