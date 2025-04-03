@@ -122,6 +122,7 @@ public final class Generator extends AbstractMojo {
         if (!outputYamlFileEnabled) return this;
         if (outputYamlFile.isEmpty()) return this;
         @NonNull final File file = new File(path.getAbsolutePath() + "/" + outputYamlFile);
+        System.out.println(file);
         FileUtils.fileWrite(file, rootParser.yaml());
         return this;
     }
@@ -132,6 +133,7 @@ public final class Generator extends AbstractMojo {
         if (!outputJsonFileEnabled) return this;
         if (outputJsonFile.isEmpty()) return this;
         @NonNull final File file = new File(path.getAbsolutePath() + "/" + outputJsonFile);
+        System.out.println(file);
         FileUtils.fileWrite(file, rootParser.json());
         return this;
     }
