@@ -15,6 +15,7 @@ import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
 import ru.volnenko.plugin.openapidoc.model.*;
+import ru.volnenko.plugin.openapidoc.parser.RootParser;
 import ru.volnenko.plugin.openapidoc.util.ContentUtil;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
 import ru.volnenko.plugin.openapidoc.util.ParameterUtil;
@@ -56,6 +57,26 @@ public final class Generator extends AbstractMojo {
     @Parameter(property = "outputFile")
     public String outputFile = "index.adoc";
 
+    @Getter
+    @Setter
+    @Parameter(property = "outputJsonFile")
+    public String outputJsonFile = "scheme.json";
+
+    @Getter
+    @Setter
+    @Parameter(property = "outputJsonFileEnabled")
+    public Boolean outputJsonFileEnabled = false;
+
+    @Getter
+    @Setter
+    @Parameter(property = "outputYamlFile")
+    public String outputYamlFile = "scheme.yaml";
+
+    @Getter
+    @Setter
+    @Parameter(property = "outputYamlFileEnabled")
+    public Boolean outputYamlFileEnabled = false;
+
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
     private MavenProject project;
 
@@ -63,6 +84,11 @@ public final class Generator extends AbstractMojo {
     @Setter
     @Parameter(property = "files")
     private List<String> files = new ArrayList<>();
+
+    @Getter
+    @Setter
+    @NonNull
+    private final RootParser rootParser = new RootParser();
 
     @NonNull
     private final StringBuilder stringBuilder = new StringBuilder();
@@ -79,25 +105,56 @@ public final class Generator extends AbstractMojo {
     @SneakyThrows
     public void execute() throws MojoExecutionException, MojoFailureException {
         header();
+        @NonNull final List<Root> roots = rootParser.files(files).parse();
         for (final String file : files) {
             if (file == null || file.isEmpty()) {
                 continue;
             }
             parse(file);
         }
+
         save();
+    }
+
+    @NonNull
+    @SneakyThrows
+    private Generator saveDatabaseYAML(@NonNull final File path) {
+        if (!outputYamlFileEnabled) return this;
+        if (outputYamlFile.isEmpty()) return this;
+        @NonNull final File file = new File(path.getAbsolutePath() + "/" + outputYamlFile);
+        FileUtils.fileWrite(file, rootParser.yaml());
+        return this;
+    }
+
+    @NonNull
+    @SneakyThrows
+    private Generator saveDatabaseJSON(@NonNull final File path) {
+        if (!outputJsonFileEnabled) return this;
+        if (outputJsonFile.isEmpty()) return this;
+        @NonNull final File file = new File(path.getAbsolutePath() + "/" + outputJsonFile);
+        FileUtils.fileWrite(file, rootParser.json());
+        return this;
     }
 
     @SneakyThrows
     public void save() {
         if (outputPath == null || outputPath.isEmpty()) return;
-        File path = new File(outputPath);
-        path.mkdirs();
-
         if (outputFile == null || outputFile.isEmpty()) return;
-        File file = new File(path.getAbsolutePath() + "/" + outputFile);
+        @NonNull final File path = new File(outputPath);
+        initOutputPath(path)
+                .saveDatabaseYAML(path)
+                .saveDatabaseJSON(path);
+
+        @NonNull final File file = new File(path.getAbsolutePath() + "/" + outputFile);
         FileUtils.fileWrite(file, stringBuilder.toString());
     }
+
+    @NonNull
+    private Generator initOutputPath(@NonNull final File path) {
+        path.mkdirs();
+        return this;
+    }
+
 
     @SneakyThrows
     public void parse(@NonNull final String file) {
