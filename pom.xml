@@ -102,6 +102,7 @@
                     <outputFile>index.adoc</outputFile>
                     <outputJsonFileEnabled>true</outputJsonFileEnabled>
                     <outputYamlFileEnabled>true</outputYamlFileEnabled>
+                    <outputJavaScriptFileEnabled>true</outputJavaScriptFileEnabled>
                     <files>
                         <file>${project.basedir}/example/openapi.yaml</file>
                     </files>

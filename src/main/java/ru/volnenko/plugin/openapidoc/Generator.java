@@ -69,6 +69,16 @@ public final class Generator extends AbstractMojo {
 
     @Getter
     @Setter
+    @Parameter(property = "outputJavaScriptFile")
+    public String outputJavaScriptFile = "scheme.js";
+
+    @Getter
+    @Setter
+    @Parameter(property = "outputJavaScriptFileEnabled")
+    public Boolean outputJavaScriptFileEnabled = false;
+
+    @Getter
+    @Setter
     @Parameter(property = "outputYamlFile")
     public String outputYamlFile = "scheme.yaml";
 
@@ -138,6 +148,17 @@ public final class Generator extends AbstractMojo {
         return this;
     }
 
+    @NonNull
+    @SneakyThrows
+    private Generator saveDatabaseJavaScript(@NonNull final File path) {
+        if (!outputJavaScriptFileEnabled) return this;
+        if (outputJavaScriptFile.isEmpty()) return this;
+        @NonNull final File file = new File(path.getAbsolutePath() + "/" + outputJavaScriptFile);
+        System.out.println(file);
+        FileUtils.fileWrite(file, "var scheme = " + rootParser.json());
+        return this;
+    }
+
     @SneakyThrows
     public void save() {
         if (outputPath == null || outputPath.isEmpty()) return;
@@ -145,7 +166,8 @@ public final class Generator extends AbstractMojo {
         @NonNull final File path = new File(outputPath);
         initOutputPath(path)
                 .saveDatabaseYAML(path)
-                .saveDatabaseJSON(path);
+                .saveDatabaseJSON(path)
+                .saveDatabaseJavaScript(path);
 
         @NonNull final File file = new File(path.getAbsolutePath() + "/" + outputFile);
         FileUtils.fileWrite(file, stringBuilder.toString());
