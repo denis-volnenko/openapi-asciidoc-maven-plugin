@@ -42,7 +42,10 @@
                             <tableOfContentsEnabled>true</tableOfContentsEnabled>
                             <outputPath>${project.basedir}/src/main/asciidoc</outputPath>
                             <outputFile>openapi.adoc</outputFile>
+                            <outputJsonFileEnabled>true</outputJsonFileEnabled>
+                            <outputYamlFileEnabled>true</outputYamlFileEnabled>
                             <files>
+                                <file>${project.basedir}/src/main/resources/openapi.yaml</file>
                                 <file>${project.basedir}/src/main/resources/model/error.yaml</file>
                                 <file>${project.basedir}/src/main/resources/model/project.yaml</file>
                                 <file>${project.basedir}/src/main/resources/model/task.yaml</file>
