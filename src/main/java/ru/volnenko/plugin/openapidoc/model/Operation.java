@@ -36,7 +36,7 @@ public final class Operation {
             if (!result.isEmpty()) result += ", ";
             result += tag;
         }
-        return result;
+        return "(" + result + ")";
     }
 
 
