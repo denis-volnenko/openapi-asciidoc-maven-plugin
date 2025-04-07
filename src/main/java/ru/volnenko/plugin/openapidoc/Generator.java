@@ -311,7 +311,7 @@ public final class Generator extends AbstractMojo {
         if (path == null || path.isEmpty()) return;
         if (method == null || method.isEmpty()) return;
         if (operation == null) return;
-        stringBuilder.append("=== Ресурс "+ method.toUpperCase() + " \"" + path + "\" \n");
+        stringBuilder.append("=== Ресурс " + operation.tags() + " " + method.toUpperCase() + " \"" + path + "\" \n");
         stringBuilder.append("==== Общие сведения\n");
         stringBuilder.append("\n");
         stringBuilder.append("[cols=\"20,80\"]\n");
