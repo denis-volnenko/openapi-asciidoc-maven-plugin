@@ -43,7 +43,7 @@
 
 |===
 
-== Asciidoc Maven Plugins
+== Volnenko Maven Plugins
 
 [cols="20,80"]
 |===
