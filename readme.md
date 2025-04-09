@@ -1,5 +1,28 @@
 # maven-openapi-asciidoc-plugin
 
+## Repository config
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project ...>
+
+    <repositories>
+        <repository>
+            <id>maven.volnenko.ru</id>
+            <name>maven.volnenko.ru</name>
+            <url>https://maven.volnenko.ru/repository</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>
+```
+
 ## Plugin Configuration
 ```xml
 <build>
