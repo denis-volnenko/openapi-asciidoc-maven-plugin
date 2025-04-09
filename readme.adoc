@@ -36,7 +36,7 @@
 |===
 
 |task-manager-openapi-asciidoc
-|https://github.com/denis-volnenko/openapi-asciidoc-maven-plugin/blob/master/example/index.adoc
+|https://github.com/denis-volnenko/openapi-asciidoc-maven-plugin/blob/master/example/task-manager-openapi-asciidoc/src/main/asciidoc/openapi.adoc
 
 |pet-store-openapi-asciidoc
 |https://github.com/denis-volnenko/openapi-asciidoc-maven-plugin/blob/master/example/pet-store-openapi-asciidoc/src/main/asciidoc/index.adoc
