@@ -41,7 +41,7 @@
                             <headerSecondEnabled>true</headerSecondEnabled>
                             <tableOfContentsEnabled>true</tableOfContentsEnabled>
                             <outputPath>${project.basedir}/src/main/asciidoc</outputPath>
-                            <outputFile>openapi.adoc</outputFile>
+                            <outputFile>index.adoc</outputFile>
                             <outputJsonFileEnabled>true</outputJsonFileEnabled>
                             <outputYamlFileEnabled>true</outputYamlFileEnabled>
                             <files>

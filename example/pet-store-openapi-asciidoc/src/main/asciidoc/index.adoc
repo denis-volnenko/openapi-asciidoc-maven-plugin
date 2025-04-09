@@ -1,4 +1,4 @@
-= Pet Store
+= Task Manager
 :toc-title: Оглавление
 :toc:
 
@@ -21,7 +21,7 @@
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 
@@ -99,7 +99,7 @@
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 
@@ -149,7 +149,7 @@
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 
@@ -241,7 +241,7 @@
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 
@@ -291,7 +291,7 @@
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 
@@ -369,7 +369,7 @@
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 
@@ -426,7 +426,7 @@
 |object
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |===
 
@@ -459,7 +459,7 @@
 
 |===
 
-=== Ресурс PUT "/pet" 
+=== Ресурс (pet) PUT "/pet" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -472,7 +472,7 @@
 |Update an existing pet.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |PUT
@@ -575,7 +575,7 @@
 
 |===
 
-=== Ресурс POST "/pet" 
+=== Ресурс (pet) POST "/pet" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -588,7 +588,7 @@
 |Add a new pet to the store.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |POST
@@ -691,7 +691,7 @@
 
 |===
 
-=== Ресурс GET "/pet/findByStatus" 
+=== Ресурс (pet) GET "/pet/findByStatus" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -704,7 +704,7 @@
 |Finds Pets by status.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |GET
@@ -795,7 +795,7 @@
 
 |===
 
-=== Ресурс GET "/pet/findByTags" 
+=== Ресурс (pet) GET "/pet/findByTags" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -808,7 +808,7 @@
 |Finds Pets by tags.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |GET
@@ -899,7 +899,7 @@
 
 |===
 
-=== Ресурс GET "/pet/{petId}" 
+=== Ресурс (pet) GET "/pet/{petId}" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -912,7 +912,7 @@
 |Find pet by ID.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |GET
@@ -1003,7 +1003,7 @@
 
 |===
 
-=== Ресурс POST "/pet/{petId}" 
+=== Ресурс (pet) POST "/pet/{petId}" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1016,7 +1016,7 @@
 |Updates a pet in the store with form data.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |POST
@@ -1125,7 +1125,7 @@
 
 |===
 
-=== Ресурс DELETE "/pet/{petId}" 
+=== Ресурс (pet) DELETE "/pet/{petId}" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1138,7 +1138,7 @@
 |Deletes a pet.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |DELETE
@@ -1222,7 +1222,7 @@
 
 |===
 
-=== Ресурс POST "/pet/{petId}/uploadImage" 
+=== Ресурс (pet) POST "/pet/{petId}/uploadImage" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1235,7 +1235,7 @@
 |Uploads an image.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |POST
@@ -1331,7 +1331,7 @@
 
 |===
 
-=== Ресурс GET "/store/inventory" 
+=== Ресурс (store) GET "/store/inventory" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1344,7 +1344,7 @@
 |Returns pet inventories by status.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |GET
@@ -1421,7 +1421,7 @@
 
 |===
 
-=== Ресурс POST "/store/order" 
+=== Ресурс (store) POST "/store/order" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1434,7 +1434,7 @@
 |Place an order for a pet.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |POST
@@ -1529,7 +1529,7 @@
 
 |===
 
-=== Ресурс GET "/store/order/{orderId}" 
+=== Ресурс (store) GET "/store/order/{orderId}" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1542,7 +1542,7 @@
 |Find purchase order by ID.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |GET
@@ -1633,7 +1633,7 @@
 
 |===
 
-=== Ресурс DELETE "/store/order/{orderId}" 
+=== Ресурс (store) DELETE "/store/order/{orderId}" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1646,7 +1646,7 @@
 |Delete purchase order by identifier.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |DELETE
@@ -1721,7 +1721,7 @@
 
 |===
 
-=== Ресурс POST "/user" 
+=== Ресурс (user) POST "/user" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1734,7 +1734,7 @@
 |Create user.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |POST
@@ -1837,7 +1837,7 @@
 
 |===
 
-=== Ресурс POST "/user/createWithList" 
+=== Ресурс (user) POST "/user/createWithList" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1850,7 +1850,7 @@
 |Creates list of users with given input array.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |POST
@@ -1939,7 +1939,7 @@
 
 |===
 
-=== Ресурс GET "/user/login" 
+=== Ресурс (user) GET "/user/login" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -1952,7 +1952,7 @@
 |Logs user into the system.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |GET
@@ -2052,7 +2052,7 @@
 
 |===
 
-=== Ресурс GET "/user/logout" 
+=== Ресурс (user) GET "/user/logout" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -2065,7 +2065,7 @@
 |Logs out current logged in user session.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |GET
@@ -2134,7 +2134,7 @@
 
 |===
 
-=== Ресурс GET "/user/{username}" 
+=== Ресурс (user) GET "/user/{username}" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -2147,7 +2147,7 @@
 |Get user by user name.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |GET
@@ -2238,7 +2238,7 @@
 
 |===
 
-=== Ресурс PUT "/user/{username}" 
+=== Ресурс (user) PUT "/user/{username}" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -2251,7 +2251,7 @@
 |Update user resource.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |PUT
@@ -2344,7 +2344,7 @@
 
 |===
 
-=== Ресурс DELETE "/user/{username}" 
+=== Ресурс (user) DELETE "/user/{username}" 
 ==== Общие сведения
 
 [cols="20,80"]
@@ -2357,7 +2357,7 @@
 |Delete user resource.
 
 |*Сервис*:
-|Pet Store
+|Task Manager
 
 |*HTTP-метод*:
 |DELETE
