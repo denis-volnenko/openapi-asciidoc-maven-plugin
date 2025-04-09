@@ -31,6 +31,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.9.8</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -53,6 +58,75 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>com.github.kongchen</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+				<version>3.1.7</version>
+				<configuration>
+					<skipSwaggerGeneration>false</skipSwaggerGeneration>
+					<apiSources>
+						<apiSource>
+							<locations>
+								ru.volnenko.example.example.controller
+							</locations>
+							<springmvc>true</springmvc>
+							<schemes>http,https</schemes>
+							<host>localhost:8080/api</host>
+							<outputFormats>yaml</outputFormats>
+							<info>
+								<title>Swagger Maven Plugin Sample</title>
+								<version>v1</version>
+								<description>This is a sample for swagger-maven-plugin</description>
+								<termsOfService>http://localhost:8080</termsOfService>
+								<contact>
+									<email>denis@volnenko.ru</email>
+									<name>Denis Volnenko</name>
+									<url>http://www.volnenko.ru</url>
+								</contact>
+								<license>
+									<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+									<name>Apache 2.0</name>
+								</license>
+							</info>
+							<swaggerDirectory>${project.build.directory}/sw</swaggerDirectory>
+							<attachSwaggerArtifact>true</attachSwaggerArtifact>
+							<securityDefinitions>
+								<securityDefinition>
+									<name>basicAuth</name>
+									<type>basic</type>
+								</securityDefinition>
+							</securityDefinitions>
+						</apiSource>
+					</apiSources>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.openapitools</groupId>-->
+<!--				<artifactId>openapi-generator-maven-plugin</artifactId>-->
+<!--				<version>7.12.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<goals>-->
+<!--							<goal>generate</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<inputSpec>${project.basedir}/src/main/resources/api.yaml</inputSpec>-->
+<!--							<generatorName>java</generatorName>-->
+<!--							<configOptions>-->
+<!--								<sourceFolder>src/gen/java/main</sourceFolder>-->
+<!--							</configOptions>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 
