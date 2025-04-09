@@ -58,6 +58,11 @@ a|
 https://github.com/denis-volnenko/openapi-asciidoc-maven-plugin/
 https://maven.volnenko.ru/sites/openapi-asciidoc-maven-plugin/
 
+|*Minio Wagon*
+a|
+https://github.com/denis-volnenko/minio-wagon-maven-plugin/
+https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
+
 |===
 
 == Plugin configuration
