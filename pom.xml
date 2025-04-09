@@ -104,7 +104,7 @@
                     <outputYamlFileEnabled>true</outputYamlFileEnabled>
                     <outputJavaScriptFileEnabled>true</outputJavaScriptFileEnabled>
                     <files>
-                        <file>${project.basedir}/example/pet-store-openapi-asciidoc/src/main/asciidoc/openapi.yaml</file>
+                        <file>${project.basedir}/example/pet-store-openapi-asciidoc/src/main/resources/openapi.yaml</file>
                     </files>
                 </configuration>
             </plugin>
