@@ -24,6 +24,55 @@
         </license>
     </licenses>
 
+    <profiles>
+        <profile>
+            <id>minio</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <extension.wagon.groupId>ru.volnenko.maven.plugin</extension.wagon.groupId>
+                <extension.wagon.artifactId>minio-wagon-maven-plugin</extension.wagon.artifactId>
+                <extension.wagon.version>1.0.0</extension.wagon.version>
+            </properties>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>minio</id>
+                    <url>https://s3.volnenko.ru/maven.volnenko.ru/repository</url>
+                </snapshotRepository>
+                <repository>
+                    <id>minio</id>
+                    <url>https://s3.volnenko.ru/maven.volnenko.ru/repository</url>
+                </repository>
+                <site>
+                    <id>minio</id>
+                    <url>https://s3.volnenko.ru/maven.volnenko.ru/sites/${project.artifactId}</url>
+                </site>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>webdav</id>
+            <properties>
+                <extension.wagon.groupId>org.apache.maven.wagon</extension.wagon.groupId>
+                <extension.wagon.artifactId>wagon-webdav-jackrabbit</extension.wagon.artifactId>
+                <extension.wagon.version>3.5.2</extension.wagon.version>
+            </properties>
+            <distributionManagement>
+                <repository>
+                    <id>m2.volnenko.ru</id>
+                    <name>m2.volnenko.ru</name>
+                    <url>dav:https://m2.volnenko.ru/v1/webdav/repository</url>
+                    <uniqueVersion>true</uniqueVersion>
+                </repository>
+                <site>
+                    <id>m2.volnenko.ru</id>
+                    <name>m2.volnenko.ru</name>
+                    <url>dav:https://m2.volnenko.ru/v1/webdav/sites/${project.artifactId}</url>
+                </site>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
     <developers>
         <developer>
             <id>volnenko</id>
@@ -164,9 +213,9 @@
         </plugins>
         <extensions>
             <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-webdav-jackrabbit</artifactId>
-                <version>3.5.2</version>
+                <groupId>${extension.wagon.groupId}</groupId>
+                <artifactId>${extension.wagon.artifactId}</artifactId>
+                <version>${extension.wagon.version}</version>
             </extension>
         </extensions>
     </build>
@@ -207,21 +256,35 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.26.0</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>javadoc</report>
+                            <report>test-javadoc</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+                <configuration>
+                    <show>public</show>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
         </plugins>
     </reporting>
-
-    <distributionManagement>
-        <repository>
-            <id>m2.volnenko.ru</id>
-            <name>m2.volnenko.ru</name>
-            <url>dav:https://m2.volnenko.ru/v1/webdav/repository</url>
-            <uniqueVersion>true</uniqueVersion>
-        </repository>
-        <site>
-            <id>m2.volnenko.ru</id>
-            <name>m2.volnenko.ru</name>
-            <url>dav:https://m2.volnenko.ru/v1/webdav/sites/${artifactId}</url>
-        </site>
-    </distributionManagement>
 
 </project>
