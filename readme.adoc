@@ -1,0 +1,117 @@
+= openapi-asciidoc-maven-plugin
+:toc:
+
+== Project Info
+
+[cols="20,80"]
+|===
+
+|*Version*
+|1.0.0
+
+|*Java*
+|OpenJDK 8
+
+|*Maven*
+|3.6.3
+
+|===
+
+== Developer Info
+
+[cols="20,80"]
+|===
+
+|*Name*
+|Denis Volnenko
+
+|*E-mail*
+|denis@volnenko.ru
+
+|===
+
+== Asciidoc Maven Plugins
+
+[cols="20,80"]
+|===
+
+|*Liquilbase*
+a|
+https://github.com/denis-volnenko/liquilbase-asciidoc-maven-plugin/
+https://maven.volnenko.ru/sites/liquilbase-asciidoc-maven-plugin/
+
+|*OpenApi*
+a|
+https://github.com/denis-volnenko/openapi-asciidoc-maven-plugin/
+https://maven.volnenko.ru/sites/openapi-asciidoc-maven-plugin/
+
+|===
+
+== Plugin configuration
+
+=== Repository config
+
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project ...>
+
+    <repositories>
+        <repository>
+            <id>maven.volnenko.ru</id>
+            <name>maven.volnenko.ru</name>
+            <url>https://maven.volnenko.ru/repository</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>
+----
+
+=== Plugin Configuration
+
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project ...>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>ru.volnenko.maven.plugin</groupId>
+                <artifactId>maven-openapi-asciidoc-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <serviceName>Pet Store</serviceName>
+                    <headerFirstEnabled>true</headerFirstEnabled>
+                    <headerSecondEnabled>true</headerSecondEnabled>
+                    <tableOfContentsEnabled>true</tableOfContentsEnabled>
+                    <outputPath>${project.basedir}/example/</outputPath>
+                    <outputFile>index.adoc</outputFile>
+                    <files>
+                        <file>${project.basedir}/example/openapi.yaml</file>
+                    </files>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+----
+
+== Development
+
+=== Build maven plugin
+
+----
+mvn clean install
+----
+
+=== Generate documentation
+
+----
+mvn openapi-asciidoc:generate
+----
