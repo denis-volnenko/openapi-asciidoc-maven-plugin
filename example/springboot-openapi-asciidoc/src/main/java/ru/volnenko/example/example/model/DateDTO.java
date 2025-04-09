@@ -1,4 +1,4 @@
-package ru.volnenko.example.example;
+package ru.volnenko.example.example.model;
 
 import java.util.Date;
 
