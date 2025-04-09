@@ -30,6 +30,16 @@
 
 |===
 
+== Examples
+
+[cols="20,80"]
+|===
+
+|task-manager-openapi-asciidoc
+|https://github.com/denis-volnenko/openapi-asciidoc-maven-plugin/blob/master/example/index.adoc
+
+|===
+
 == Asciidoc Maven Plugins
 
 [cols="20,80"]
