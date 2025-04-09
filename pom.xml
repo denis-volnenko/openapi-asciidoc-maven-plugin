@@ -98,13 +98,13 @@
                     <headerFirstEnabled>true</headerFirstEnabled>
                     <headerSecondEnabled>true</headerSecondEnabled>
                     <tableOfContentsEnabled>true</tableOfContentsEnabled>
-                    <outputPath>${project.basedir}/example/</outputPath>
+                    <outputPath>${project.basedir}/example/pet-store-openapi-asciidoc/src/main/asciidoc/</outputPath>
                     <outputFile>index.adoc</outputFile>
                     <outputJsonFileEnabled>true</outputJsonFileEnabled>
                     <outputYamlFileEnabled>true</outputYamlFileEnabled>
                     <outputJavaScriptFileEnabled>true</outputJavaScriptFileEnabled>
                     <files>
-                        <file>${project.basedir}/example/openapi.yaml</file>
+                        <file>${project.basedir}/example/pet-store-openapi-asciidoc/src/main/asciidoc/openapi.yaml</file>
                     </files>
                 </configuration>
             </plugin>
