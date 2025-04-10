@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.volnenko.example.tm</groupId>
+    <artifactId>pet-store-swagger-asciidoc</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <developers>
+        <developer>
+            <id>volnenko</id>
+            <name>Denis volnenko</name>
+            <email>denis@volnenko.ru</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+<!--            <plugin>-->
+<!--                <groupId>ru.volnenko.maven.plugin</groupId>-->
+<!--                <artifactId>openapi-asciidoc-maven-plugin</artifactId>-->
+<!--                <version>1.0.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>openapi</id>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <serviceName>Task Manager</serviceName>-->
+<!--                            <headerFirstEnabled>true</headerFirstEnabled>-->
+<!--                            <headerSecondEnabled>true</headerSecondEnabled>-->
+<!--                            <tableOfContentsEnabled>true</tableOfContentsEnabled>-->
+<!--                            <outputPath>${project.basedir}/src/main/asciidoc</outputPath>-->
+<!--                            <outputFile>index.adoc</outputFile>-->
+<!--                            <outputJsonFileEnabled>true</outputJsonFileEnabled>-->
+<!--                            <outputYamlFileEnabled>true</outputYamlFileEnabled>-->
+<!--                            <files>-->
+<!--                                <file>${project.basedir}/src/main/resources/openapi.yaml</file>-->
+<!--                            </files>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+
+</project>
