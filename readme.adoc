@@ -72,7 +72,7 @@ https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <project ...>
-
+    ...
     <repositories>
         <repository>
             <id>maven.volnenko.ru</id>
@@ -86,7 +86,7 @@ https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
             </snapshots>
         </repository>
     </repositories>
-
+    ...
 	<pluginRepositories>
 		<pluginRepository>
 			<id>maven.volnenko.ru</id>
@@ -94,7 +94,7 @@ https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
 			<url>https://maven.volnenko.ru/repository</url>
 		</pluginRepository>
 	</pluginRepositories>
-
+    ...
 </project>
 ----
 
@@ -103,7 +103,7 @@ https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <project ...>
-
+    ...
     <build>
         <plugins>
             <plugin>
@@ -124,7 +124,7 @@ https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
             </plugin>
         </plugins>
     </build>
-
+    ...
 </project>
 ----
 
