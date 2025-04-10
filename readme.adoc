@@ -30,6 +30,10 @@
 
 |===
 
+== Context View
+
+image::doc/context-view.svg[]
+
 == Examples
 
 [cols="20,80"]

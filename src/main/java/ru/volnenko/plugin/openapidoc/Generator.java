@@ -96,7 +96,6 @@ public final class Generator extends AbstractMojo {
     private List<String> files = new ArrayList<>();
 
     @Getter
-    @Setter
     @NonNull
     private final RootParser rootParser = new RootParser();
 
@@ -113,7 +112,7 @@ public final class Generator extends AbstractMojo {
     }
 
     @SneakyThrows
-    public void execute() throws MojoExecutionException, MojoFailureException {
+    public void execute() {
         header();
         @NonNull final String json = rootParser.files(files).json();
         @NonNull final Root root = MapperUtil.json().readValue(json, Root.class);
