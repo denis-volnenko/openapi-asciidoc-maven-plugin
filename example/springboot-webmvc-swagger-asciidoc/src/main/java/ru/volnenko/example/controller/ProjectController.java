@@ -40,4 +40,12 @@ public class ProjectController {
         return new ResultRecord();
     }
 
+    @ApiOperation("Создание новых проектов")
+    @PostMapping(value = "/all")
+    public ResultRecord createAllTask(
+            @RequestBody List<ProjectDTO> projects
+    ) {
+        return new ResultRecord();
+    }
+
 }

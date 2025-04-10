@@ -48,6 +48,27 @@ paths:
       summary: "Получение всех проектов"
       tags:
       - "Проект"
+    post:
+      operationId: "createAllTask"
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              items:
+                $ref: "#/components/schemas/ProjectDTO"
+              type: "array"
+        required: false
+      responses:
+        200:
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResultRecord"
+          description: "successful operation"
+      summary: "Создание новых проектов"
+      tags:
+      - "Проект"
+      x-codegen-request-body-name: "body"
   /api/v1/project/one/{id}:
     get:
       operationId: "selectOneProject"
