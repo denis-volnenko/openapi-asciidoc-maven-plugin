@@ -27,9 +27,6 @@
     <profiles>
         <profile>
             <id>minio</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <extension.wagon.groupId>ru.volnenko.maven.plugin</extension.wagon.groupId>
                 <extension.wagon.artifactId>minio-wagon-maven-plugin</extension.wagon.artifactId>
