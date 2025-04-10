@@ -1,0 +1,38 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a sample for swagger-maven-plugin"
+  version: "v1"
+  title: "Swagger Maven Plugin Sample"
+  termsOfService: "http://localhost:8080"
+  contact:
+    name: "Denis Volnenko"
+    url: "http://www.volnenko.ru"
+    email: "denis@volnenko.ru"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080/api"
+schemes:
+- "http"
+- "https"
+paths:
+  /date:
+    get:
+      operationId: "date"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/DateDTO"
+securityDefinitions:
+  basicAuth:
+    type: "basic"
+definitions:
+  DateDTO:
+    type: "object"
+    properties:
+      date:
+        type: "string"
+        format: "date-time"
