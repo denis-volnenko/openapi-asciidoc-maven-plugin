@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/task")
+@RequestMapping("/api/v1/project")
 public class ProjectController {
 
     @GetMapping(value = "/all", produces = "application/json")

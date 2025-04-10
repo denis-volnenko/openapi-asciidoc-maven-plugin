@@ -26,6 +26,18 @@ paths:
               schema:
                 $ref: "#/components/schemas/DateDTO"
           description: "successful operation"
+  /api/v1/project/all:
+    get:
+      operationId: "selectAllProject"
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/ProjectDTO"
+                type: "array"
+          description: "successful operation"
   /api/v1/task/all:
     get:
       operationId: "selectAllTask"

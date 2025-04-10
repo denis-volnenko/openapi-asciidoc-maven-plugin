@@ -32,6 +32,23 @@
         }
       }
     },
+    "/api/v1/project/all" : {
+      "get" : {
+        "operationId" : "selectAllProject",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ProjectDTO"
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/task/all" : {
       "get" : {
         "operationId" : "selectAllTask",
