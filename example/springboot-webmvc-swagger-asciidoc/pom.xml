@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.volnenko.example</groupId>
+	<artifactId>springboot-webmvc-swagger-asciidoc</artifactId>
+	<version>1.0.0</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.4.RELEASE</version>
+		<relativePath/>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<developers>
+		<developer>
+			<id>volnenko</id>
+			<name>Denis Volnenko</name>
+			<email>denis@volnenko.ru</email>
+			<url>http://www.volnenko.ru</url>
+		</developer>
+	</developers>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.38</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>ru.volnenko.maven.plugin</groupId>-->
+<!--				<artifactId>openapi-asciidoc-maven-plugin</artifactId>-->
+<!--				<version>1.0.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>compile</phase>-->
+<!--						<goals>-->
+<!--							<goal>generate</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<serviceName>Task Manager</serviceName>-->
+<!--							<headerFirstEnabled>true</headerFirstEnabled>-->
+<!--							<headerSecondEnabled>true</headerSecondEnabled>-->
+<!--							<tableOfContentsEnabled>true</tableOfContentsEnabled>-->
+<!--							<outputPath>${project.basedir}/src/main/asciidoc/</outputPath>-->
+<!--							<outputFile>index.adoc</outputFile>-->
+<!--							<outputJsonFileEnabled>false</outputJsonFileEnabled>-->
+<!--							<outputYamlFileEnabled>false</outputYamlFileEnabled>-->
+<!--							<outputJavaScriptFileEnabled>false</outputJavaScriptFileEnabled>-->
+<!--							<files>-->
+<!--								<file>${project.basedir}/src/main/resources/openapi/openapi.json</file>-->
+<!--							</files>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
+		</plugins>
+	</build>
+
+</project>
