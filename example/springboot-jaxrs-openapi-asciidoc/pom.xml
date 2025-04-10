@@ -88,7 +88,7 @@
 				<version>2.1.1</version>
 				<configuration>
 					<resourcePackages>
-						<resourcePackage>ru.volnenko.example.example</resourcePackage>
+						<resourcePackage>ru.volnenko.example</resourcePackage>
 					</resourcePackages>
 					<useResourcePackagesChildren>true</useResourcePackagesChildren>
 					<outputDirectory>${project.basedir}/src/main/resources/openapi</outputDirectory>
@@ -109,6 +109,13 @@
 						</info>
 					</swaggerConfig>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>ru.volnenko.maven.plugin</groupId>
@@ -128,6 +135,13 @@
 						<file>${project.basedir}/src/main/resources/openapi/openapi.json</file>
 					</files>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -17,9 +17,12 @@
   "tags" : [ {
     "name" : "DateController",
     "description" : "Операции с датой и временем"
+  }, {
+    "name" : "TaskController",
+    "description" : "Управление задачами"
   } ],
   "paths" : {
-    "/datetime/current" : {
+    "/api/v1/datetime/current" : {
       "get" : {
         "tags" : [ "DateController" ],
         "summary" : "Текущая дата и время",
@@ -32,6 +35,58 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/DateDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/task/one/{id}" : {
+      "get" : {
+        "tags" : [ "TaskController" ],
+        "summary" : "Получение задачи",
+        "description" : "Получение задачи по Id",
+        "operationId" : "selectOneTask",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Идентификатор",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TaskDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/task/all" : {
+      "get" : {
+        "tags" : [ "TaskController" ],
+        "summary" : "Получение всех задач",
+        "description" : "Получение всех задач",
+        "operationId" : "selectAllTask",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TaskDTO"
+                  }
                 }
               }
             }
@@ -52,6 +107,30 @@
           }
         },
         "description" : "Класс для передачи даты и времени"
+      },
+      "TaskDTO" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Название"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Описание"
+          },
+          "created" : {
+            "type" : "string",
+            "description" : "Дата создания",
+            "format" : "date-time"
+          },
+          "updated" : {
+            "type" : "string",
+            "description" : "Дата обновления",
+            "format" : "date-time"
+          }
+        },
+        "description" : "Задача"
       }
     }
   }

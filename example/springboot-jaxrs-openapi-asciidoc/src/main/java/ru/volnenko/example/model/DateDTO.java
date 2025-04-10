@@ -1,4 +1,4 @@
-package ru.volnenko.example.example.model;
+package ru.volnenko.example.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
