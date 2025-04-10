@@ -115,14 +115,10 @@ public final class Generator extends AbstractMojo {
     @SneakyThrows
     public void execute() throws MojoExecutionException, MojoFailureException {
         header();
-        @NonNull final List<Root> roots = rootParser.files(files).parse();
-        for (final String file : files) {
-            if (file == null || file.isEmpty()) {
-                continue;
-            }
-            parse(file);
-        }
-
+        rootParser.json();
+        @NonNull final String json = rootParser.files(files).json();
+        @NonNull final Root root = MapperUtil.json().readValue(json, Root.class);
+        generate(root);
         save();
     }
 
