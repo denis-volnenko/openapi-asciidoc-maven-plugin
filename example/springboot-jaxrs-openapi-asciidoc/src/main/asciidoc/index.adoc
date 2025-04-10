@@ -109,6 +109,13 @@
 ^|date-time
 ^|--
 
+^|05. 
+|version
+|Версия
+^| integer
+^|int32
+^|--
+
 |===
 
 === Ресурс (DateController) GET "/api/v1/datetime/current" 

@@ -23,6 +23,17 @@ public class TaskDTO {
     @Schema(description = "Дата обновления")
     private Date updated;
 
+    @Schema(description = "Версия")
+    private Integer version;
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
     public String getName() {
         return name;
     }

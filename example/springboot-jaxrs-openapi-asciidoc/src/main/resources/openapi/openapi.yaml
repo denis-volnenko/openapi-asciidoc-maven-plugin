@@ -94,4 +94,8 @@ components:
           type: string
           description: Дата обновления
           format: date-time
+        version:
+          type: integer
+          description: Версия
+          format: int32
       description: Задача

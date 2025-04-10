@@ -86,60 +86,63 @@
 				<groupId>io.openapitools.swagger</groupId>
 				<artifactId>swagger-maven-plugin</artifactId>
 				<version>2.1.1</version>
-				<configuration>
-					<resourcePackages>
-						<resourcePackage>ru.volnenko.example</resourcePackage>
-					</resourcePackages>
-					<useResourcePackagesChildren>true</useResourcePackagesChildren>
-					<outputDirectory>${project.basedir}/src/main/resources/openapi</outputDirectory>
-					<outputFilename>openapi</outputFilename>
-					<outputFormats>JSON,YAML</outputFormats>
-					<prettyPrint>true</prettyPrint>
-					<swaggerConfig>
-						<servers>
-							<server>
-								<url>http://localhost:8080/</url>
-								<description>Локальный сервер Task Manager</description>
-							</server>
-						</servers>
-						<info>
-							<title>Task Manager</title>
-							<version>1.0.0</version>
-							<description>Менеджер управления проектами и задачами</description>
-						</info>
-					</swaggerConfig>
-				</configuration>
 				<executions>
 					<execution>
+						<phase>compile</phase>
 						<goals>
 							<goal>generate</goal>
 						</goals>
+						<configuration>
+							<resourcePackages>
+								<resourcePackage>ru.volnenko.example</resourcePackage>
+							</resourcePackages>
+							<useResourcePackagesChildren>true</useResourcePackagesChildren>
+							<outputDirectory>${project.basedir}/src/main/resources/openapi</outputDirectory>
+							<outputFilename>openapi</outputFilename>
+							<outputFormats>JSON,YAML</outputFormats>
+							<prettyPrint>true</prettyPrint>
+							<swaggerConfig>
+								<servers>
+									<server>
+										<url>http://localhost:8080/</url>
+										<description>Локальный сервер Task Manager</description>
+									</server>
+								</servers>
+								<info>
+									<title>Task Manager</title>
+									<version>1.0.0</version>
+									<description>Менеджер управления проектами и задачами</description>
+								</info>
+							</swaggerConfig>
+						</configuration>
 					</execution>
+
 				</executions>
 			</plugin>
 			<plugin>
 				<groupId>ru.volnenko.maven.plugin</groupId>
 				<artifactId>openapi-asciidoc-maven-plugin</artifactId>
 				<version>1.0.0</version>
-				<configuration>
-					<serviceName>Task Manager</serviceName>
-					<headerFirstEnabled>true</headerFirstEnabled>
-					<headerSecondEnabled>true</headerSecondEnabled>
-					<tableOfContentsEnabled>true</tableOfContentsEnabled>
-					<outputPath>${project.basedir}/src/main/asciidoc/</outputPath>
-					<outputFile>index.adoc</outputFile>
-					<outputJsonFileEnabled>false</outputJsonFileEnabled>
-					<outputYamlFileEnabled>false</outputYamlFileEnabled>
-					<outputJavaScriptFileEnabled>false</outputJavaScriptFileEnabled>
-					<files>
-						<file>${project.basedir}/src/main/resources/openapi/openapi.json</file>
-					</files>
-				</configuration>
 				<executions>
 					<execution>
+						<phase>compile</phase>
 						<goals>
 							<goal>generate</goal>
 						</goals>
+						<configuration>
+							<serviceName>Task Manager</serviceName>
+							<headerFirstEnabled>true</headerFirstEnabled>
+							<headerSecondEnabled>true</headerSecondEnabled>
+							<tableOfContentsEnabled>true</tableOfContentsEnabled>
+							<outputPath>${project.basedir}/src/main/asciidoc/</outputPath>
+							<outputFile>index.adoc</outputFile>
+							<outputJsonFileEnabled>false</outputJsonFileEnabled>
+							<outputYamlFileEnabled>false</outputYamlFileEnabled>
+							<outputJavaScriptFileEnabled>false</outputJavaScriptFileEnabled>
+							<files>
+								<file>${project.basedir}/src/main/resources/openapi/openapi.json</file>
+							</files>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
