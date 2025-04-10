@@ -68,6 +68,32 @@ paths:
       summary: "Получение проекта по Id"
       tags:
       - "Проект"
+    post:
+      operationId: "createOneTask"
+      parameters:
+      - description: "Идентификатор"
+        in: "path"
+        name: "id"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: "#/components/schemas/ProjectDTO"
+        required: false
+      responses:
+        200:
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResultRecord"
+          description: "successful operation"
+      summary: "Создание нового проекта"
+      tags:
+      - "Проект"
+      x-codegen-request-body-name: "body"
   /api/v1/task/all:
     get:
       operationId: "selectAllTask"
@@ -134,6 +160,13 @@ components:
           description: "Дата обновления"
           format: "date-time"
           type: "string"
+      type: "object"
+    ResultRecord:
+      description: "Результат выполнения"
+      properties:
+        success:
+          description: "Флаг успешного выполнения"
+          type: "boolean"
       type: "object"
     TaskDTO:
       description: "Задача"

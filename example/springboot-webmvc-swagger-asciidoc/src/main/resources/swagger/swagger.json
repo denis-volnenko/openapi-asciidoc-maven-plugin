@@ -83,6 +83,34 @@
             }
           }
         }
+      },
+      "post" : {
+        "tags" : [ "Проект" ],
+        "summary" : "Создание нового проекта",
+        "description" : "",
+        "operationId" : "createOneTask",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Идентификатор",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/ProjectDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResultRecord"
+            }
+          }
+        }
       }
     },
     "/api/v1/task/all" : {
@@ -174,6 +202,16 @@
         }
       },
       "description" : "Проект"
+    },
+    "ResultRecord" : {
+      "type" : "object",
+      "properties" : {
+        "success" : {
+          "type" : "boolean",
+          "description" : "Флаг успешного выполнения"
+        }
+      },
+      "description" : "Результат выполнения"
     },
     "TaskDTO" : {
       "type" : "object",
