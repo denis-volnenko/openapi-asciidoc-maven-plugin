@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.hemantsonu20.json.JsonMerge;
 import lombok.NonNull;
 import lombok.SneakyThrows;
+import ru.volnenko.plugin.openapidoc.exception.SwaggerSchemeNotSupportedException;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
 import ru.volnenko.plugin.openapidoc.model.Root;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
@@ -39,7 +40,11 @@ public final class RootParser {
     @SneakyThrows
     public Root parse(@NonNull final String file) {
         @NonNull final ObjectMapper objectMapper = objectMapper(file);
-        return objectMapper.readValue(new File(file), Root.class);
+        @NonNull final Root root = objectMapper.readValue(new File(file), Root.class);
+        if (root.getSwagger() != null && !root.getSwagger().isEmpty()) {
+            throw new SwaggerSchemeNotSupportedException();
+        }
+        return root;
     }
 
     @NonNull

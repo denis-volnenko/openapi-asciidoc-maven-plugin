@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.volnenko.maven.plugin</groupId>
     <artifactId>openapi-asciidoc-maven-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>maven-plugin</packaging>
 
     <name>openapi-asciidoc-maven-plugin</name>
@@ -196,6 +196,7 @@
                     <outputYamlFileEnabled>true</outputYamlFileEnabled>
                     <outputJavaScriptFileEnabled>true</outputJavaScriptFileEnabled>
                     <files>
+<!--                        <file>${project.basedir}/example/pet-store-swagger-asciidoc/src/main/resources/swagger.json</file>-->
                         <file>${project.basedir}/example/pet-store-openapi-asciidoc/src/main/resources/openapi.yaml</file>
                     </files>
                 </configuration>

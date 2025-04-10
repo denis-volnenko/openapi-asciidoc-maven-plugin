@@ -190,8 +190,8 @@ public final class Generator extends AbstractMojo {
     @NonNull
     public String generate(final Root root) {
         if (root == null) return "";
-        generate(root.getComponents());
         generate(root.getPaths());
+        generate(root.getComponents());
         return stringBuilder.toString();
     }
 

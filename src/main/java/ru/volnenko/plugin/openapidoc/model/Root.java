@@ -16,6 +16,8 @@ public final class Root {
 
     private String openapi;
 
+    private String swagger;
+
     private Info info;
 
     private List<Server> servers;
