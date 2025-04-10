@@ -32,6 +32,4 @@ public final class TaskDTO {
     @Schema(description = "Версия")
     private Integer version;
 
-
-
 }
