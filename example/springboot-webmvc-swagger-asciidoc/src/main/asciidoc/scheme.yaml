@@ -47,6 +47,24 @@ paths:
           description: "successful operation"
       tags:
       - "Проект"
+  /api/v1/project/one/{id}:
+    get:
+      operationId: "selectOneProject"
+      parameters:
+      - in: "path"
+        name: "id"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        200:
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ProjectDTO"
+          description: "successful operation"
+      tags:
+      - "Проект"
   /api/v1/task/all:
     get:
       operationId: "selectAllTask"
@@ -58,6 +76,24 @@ paths:
                 items:
                   $ref: "#/components/schemas/TaskDTO"
                 type: "array"
+          description: "successful operation"
+      tags:
+      - "Задача"
+  /api/v1/task/one/{id}:
+    get:
+      operationId: "selectOneTask"
+      parameters:
+      - in: "path"
+        name: "id"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        200:
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/TaskDTO"
           description: "successful operation"
       tags:
       - "Задача"

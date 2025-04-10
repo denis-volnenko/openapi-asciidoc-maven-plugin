@@ -51,6 +51,21 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/ProjectDTO"
+  /api/v1/project/one/{id}:
+    get:
+      tags:
+      - "Проект"
+      operationId: "selectOneProject"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ProjectDTO"
   /api/v1/task/all:
     get:
       tags:
@@ -66,6 +81,21 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/TaskDTO"
+  /api/v1/task/one/{id}:
+    get:
+      tags:
+      - "Задача"
+      operationId: "selectOneTask"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TaskDTO"
 securityDefinitions:
   basicAuth:
     type: "basic"
