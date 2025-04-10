@@ -17,13 +17,13 @@ import java.util.List;
 @RequestMapping("/api/v1/task")
 public class TaskController {
 
-//    @ApiOperation("Получение всех задач")
+    @ApiOperation("Получение всех задач")
     @GetMapping(value = "/all", produces = "application/json")
     public List<TaskDTO> selectAllTask() {
         return Collections.emptyList();
     }
 
-//    @ApiOperation("Получение задачи по Id")
+    @ApiOperation("Получение задачи по Id")
     @GetMapping(value = "/one/{id}")
     public TaskDTO selectOneTask(
 //            @ApiParam(name = "Идентификатор")

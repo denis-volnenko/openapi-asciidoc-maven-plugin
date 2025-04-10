@@ -45,6 +45,7 @@ paths:
                   $ref: "#/components/schemas/ProjectDTO"
                 type: "array"
           description: "successful operation"
+      summary: "Получение всех проектов"
       tags:
       - "Проект"
   /api/v1/project/one/{id}:
@@ -63,6 +64,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ProjectDTO"
           description: "successful operation"
+      summary: "Получение проекта по Id"
       tags:
       - "Проект"
   /api/v1/task/all:
@@ -77,6 +79,7 @@ paths:
                   $ref: "#/components/schemas/TaskDTO"
                 type: "array"
           description: "successful operation"
+      summary: "Получение всех задач"
       tags:
       - "Задача"
   /api/v1/task/one/{id}:
@@ -95,6 +98,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/TaskDTO"
           description: "successful operation"
+      summary: "Получение задачи по Id"
       tags:
       - "Задача"
 components:

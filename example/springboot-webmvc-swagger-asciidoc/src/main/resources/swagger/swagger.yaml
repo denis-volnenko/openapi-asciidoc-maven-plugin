@@ -40,6 +40,8 @@ paths:
     get:
       tags:
       - "Проект"
+      summary: "Получение всех проектов"
+      description: ""
       operationId: "selectAllProject"
       produces:
       - "application/json"
@@ -55,6 +57,8 @@ paths:
     get:
       tags:
       - "Проект"
+      summary: "Получение проекта по Id"
+      description: ""
       operationId: "selectOneProject"
       parameters:
       - name: "id"
@@ -70,6 +74,8 @@ paths:
     get:
       tags:
       - "Задача"
+      summary: "Получение всех задач"
+      description: ""
       operationId: "selectAllTask"
       produces:
       - "application/json"
@@ -85,6 +91,8 @@ paths:
     get:
       tags:
       - "Задача"
+      summary: "Получение задачи по Id"
+      description: ""
       operationId: "selectOneTask"
       parameters:
       - name: "id"

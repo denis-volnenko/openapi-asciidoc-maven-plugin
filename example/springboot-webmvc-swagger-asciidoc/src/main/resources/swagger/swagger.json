@@ -45,6 +45,8 @@
     "/api/v1/project/all" : {
       "get" : {
         "tags" : [ "Проект" ],
+        "summary" : "Получение всех проектов",
+        "description" : "",
         "operationId" : "selectAllProject",
         "produces" : [ "application/json" ],
         "responses" : {
@@ -63,6 +65,8 @@
     "/api/v1/project/one/{id}" : {
       "get" : {
         "tags" : [ "Проект" ],
+        "summary" : "Получение проекта по Id",
+        "description" : "",
         "operationId" : "selectOneProject",
         "parameters" : [ {
           "name" : "id",
@@ -83,6 +87,8 @@
     "/api/v1/task/all" : {
       "get" : {
         "tags" : [ "Задача" ],
+        "summary" : "Получение всех задач",
+        "description" : "",
         "operationId" : "selectAllTask",
         "produces" : [ "application/json" ],
         "responses" : {
@@ -101,6 +107,8 @@
     "/api/v1/task/one/{id}" : {
       "get" : {
         "tags" : [ "Задача" ],
+        "summary" : "Получение задачи по Id",
+        "description" : "",
         "operationId" : "selectOneTask",
         "parameters" : [ {
           "name" : "id",

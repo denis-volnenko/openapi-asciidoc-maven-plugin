@@ -65,6 +65,7 @@
             "description" : "successful operation"
           }
         },
+        "summary" : "Получение всех проектов",
         "tags" : [ "Проект" ]
       }
     },
@@ -91,6 +92,7 @@
             "description" : "successful operation"
           }
         },
+        "summary" : "Получение проекта по Id",
         "tags" : [ "Проект" ]
       }
     },
@@ -112,6 +114,7 @@
             "description" : "successful operation"
           }
         },
+        "summary" : "Получение всех задач",
         "tags" : [ "Задача" ]
       }
     },
@@ -138,6 +141,7 @@
             "description" : "successful operation"
           }
         },
+        "summary" : "Получение задачи по Id",
         "tags" : [ "Задача" ]
       }
     }

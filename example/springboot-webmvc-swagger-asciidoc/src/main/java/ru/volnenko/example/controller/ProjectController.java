@@ -17,13 +17,13 @@ import java.util.List;
 @RequestMapping("/api/v1/project")
 public class ProjectController {
 
-//    @ApiOperation("Получение всех проектов")
+    @ApiOperation("Получение всех проектов")
     @GetMapping(value = "/all", produces = "application/json")
     public List<ProjectDTO> selectAllProject() {
         return Collections.emptyList();
     }
 
-//    @ApiOperation("Получение проекта по Id")
+    @ApiOperation("Получение проекта по Id")
     @GetMapping(value = "/one/{id}")
     public ProjectDTO selectOneProject(
 //            @ApiParam(name = "Идентификатор")
