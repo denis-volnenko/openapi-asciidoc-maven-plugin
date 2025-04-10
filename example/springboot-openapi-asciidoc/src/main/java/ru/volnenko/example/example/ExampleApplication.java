@@ -3,6 +3,7 @@ package ru.volnenko.example.example;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+//https://marmo.dev/spring-boot-openapi-generator
 @SpringBootApplication
 public class ExampleApplication {
 

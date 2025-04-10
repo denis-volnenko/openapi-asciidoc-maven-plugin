@@ -1,0 +1,58 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Task Manager",
+    "description" : "Менеджер управления проектами и задачами",
+    "contact" : {
+      "name" : "Денис Волненко",
+      "url" : "https://www.volnenko.ru",
+      "email" : "denis@volnenko.ru"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080/",
+    "description" : "Локальный сервер Task Manager"
+  } ],
+  "tags" : [ {
+    "name" : "DateController",
+    "description" : "Операции с датой и временем"
+  } ],
+  "paths" : {
+    "/datetime/current" : {
+      "get" : {
+        "tags" : [ "DateController" ],
+        "summary" : "Текущая дата и время",
+        "description" : "Получение с сервера текущей даты и времени",
+        "operationId" : "getDate",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DateDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "DateDTO" : {
+        "type" : "object",
+        "properties" : {
+          "date" : {
+            "type" : "string",
+            "description" : "Дата и время",
+            "format" : "date-time"
+          }
+        },
+        "description" : "Класс для передачи даты и времени"
+      }
+    }
+  }
+}
