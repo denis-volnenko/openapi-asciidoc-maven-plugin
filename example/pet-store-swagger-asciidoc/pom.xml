@@ -25,32 +25,53 @@
 
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>ru.volnenko.maven.plugin</groupId>-->
-<!--                <artifactId>openapi-asciidoc-maven-plugin</artifactId>-->
-<!--                <version>1.0.0</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>openapi</id>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <serviceName>Task Manager</serviceName>-->
-<!--                            <headerFirstEnabled>true</headerFirstEnabled>-->
-<!--                            <headerSecondEnabled>true</headerSecondEnabled>-->
-<!--                            <tableOfContentsEnabled>true</tableOfContentsEnabled>-->
-<!--                            <outputPath>${project.basedir}/src/main/asciidoc</outputPath>-->
-<!--                            <outputFile>index.adoc</outputFile>-->
-<!--                            <outputJsonFileEnabled>true</outputJsonFileEnabled>-->
-<!--                            <outputYamlFileEnabled>true</outputYamlFileEnabled>-->
-<!--                            <files>-->
-<!--                                <file>${project.basedir}/src/main/resources/openapi.yaml</file>-->
-<!--                            </files>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <plugin>
+            <groupId>org.openapitools</groupId>
+            <artifactId>openapi-generator-maven-plugin</artifactId>
+            <version>7.8.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                    <configuration>
+                        <inputSpec>
+                            ${project.basedir}/src/main/resources/swagger.json
+                        </inputSpec>
+                        <generatorName>openapi</generatorName>
+                        <configOptions>
+                            <sourceFolder>src/main/resources/openapi</sourceFolder>
+                        </configOptions>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+            <plugin>
+                <groupId>ru.volnenko.maven.plugin</groupId>
+                <artifactId>openapi-asciidoc-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <id>openapi</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <serviceName>Task Manager</serviceName>
+                            <headerFirstEnabled>true</headerFirstEnabled>
+                            <headerSecondEnabled>true</headerSecondEnabled>
+                            <tableOfContentsEnabled>true</tableOfContentsEnabled>
+                            <outputPath>${project.basedir}/src/main/asciidoc</outputPath>
+                            <outputFile>index.adoc</outputFile>
+                            <outputJsonFileEnabled>true</outputJsonFileEnabled>
+                            <outputYamlFileEnabled>true</outputYamlFileEnabled>
+                            <files>
+                                <file>${project.build.directory}/generated-sources/openapi/openapi.json</file>
+                            </files>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
