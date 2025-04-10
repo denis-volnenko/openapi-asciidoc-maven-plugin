@@ -21,7 +21,7 @@
     "url" : "https://localhost:8080/api/"
   } ],
   "paths" : {
-    "/date" : {
+    "/api/v1/datetime/current" : {
       "get" : {
         "operationId" : "date",
         "responses" : {
@@ -30,6 +30,26 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/DateDTO"
+                }
+              }
+            },
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/task/all" : {
+      "get" : {
+        "operationId" : "selectAllTask",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "items" : {
+                    "$ref" : "#/components/schemas/TaskDTO"
+                  },
+                  "type" : "array"
                 }
               }
             },
@@ -46,6 +66,52 @@
         "properties" : {
           "date" : {
             "description" : "Дата/Время",
+            "format" : "date-time",
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "ProjectDTO" : {
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "version" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "created" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "updated" : {
+            "format" : "date-time",
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "TaskDTO" : {
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "version" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "created" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "updated" : {
             "format" : "date-time",
             "type" : "string"
           }
