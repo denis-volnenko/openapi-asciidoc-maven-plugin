@@ -7,7 +7,7 @@
 |===
 
 |*Version*
-|1.0.0
+|1.0.1
 
 |*Java*
 |OpenJDK 8
@@ -113,7 +113,7 @@ https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
             <plugin>
                 <groupId>ru.volnenko.maven.plugin</groupId>
                 <artifactId>maven-openapi-asciidoc-plugin</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
                 <configuration>
                     <serviceName>Pet Store</serviceName>
                     <headerFirstEnabled>true</headerFirstEnabled>
