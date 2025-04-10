@@ -3,7 +3,10 @@ package ru.volnenko.example.tm;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//https://marmo.dev/spring-boot-openapi-generator
+/**
+ * http://localhost:8080/application.wadl
+ * https://marmo.dev/spring-boot-openapi-generator
+ */
 @SpringBootApplication
 public class Application {
 
