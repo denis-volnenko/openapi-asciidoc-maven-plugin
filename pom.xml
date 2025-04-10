@@ -89,6 +89,9 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <extension.wagon.groupId>org.apache.maven.wagon</extension.wagon.groupId>
+        <extension.wagon.artifactId>wagon-webdav-jackrabbit</extension.wagon.artifactId>
+        <extension.wagon.version>3.5.2</extension.wagon.version>
     </properties>
 
     <dependencies>
