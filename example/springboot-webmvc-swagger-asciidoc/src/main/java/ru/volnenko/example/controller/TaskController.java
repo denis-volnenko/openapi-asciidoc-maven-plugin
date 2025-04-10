@@ -26,7 +26,7 @@ public class TaskController {
     @ApiOperation("Получение задачи по Id")
     @GetMapping(value = "/one/{id}")
     public TaskDTO selectOneTask(
-//            @ApiParam(name = "Идентификатор")
+            @ApiParam("Идентификатор")
             @PathVariable("id") String id
     ) {
         return new TaskDTO();

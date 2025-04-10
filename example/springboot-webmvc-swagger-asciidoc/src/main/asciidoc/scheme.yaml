@@ -52,7 +52,8 @@ paths:
     get:
       operationId: "selectOneProject"
       parameters:
-      - in: "path"
+      - description: "Идентификатор"
+        in: "path"
         name: "id"
         required: true
         schema:
@@ -86,7 +87,8 @@ paths:
     get:
       operationId: "selectOneTask"
       parameters:
-      - in: "path"
+      - description: "Идентификатор"
+        in: "path"
         name: "id"
         required: true
         schema:

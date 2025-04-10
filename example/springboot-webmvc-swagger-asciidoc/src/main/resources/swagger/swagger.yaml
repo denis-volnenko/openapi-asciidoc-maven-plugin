@@ -63,6 +63,7 @@ paths:
       parameters:
       - name: "id"
         in: "path"
+        description: "Идентификатор"
         required: true
         type: "string"
       responses:
@@ -97,6 +98,7 @@ paths:
       parameters:
       - name: "id"
         in: "path"
+        description: "Идентификатор"
         required: true
         type: "string"
       responses:

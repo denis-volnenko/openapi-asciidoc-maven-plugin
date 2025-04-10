@@ -73,6 +73,7 @@
       "get" : {
         "operationId" : "selectOneProject",
         "parameters" : [ {
+          "description" : "Идентификатор",
           "in" : "path",
           "name" : "id",
           "required" : true,
@@ -122,6 +123,7 @@
       "get" : {
         "operationId" : "selectOneTask",
         "parameters" : [ {
+          "description" : "Идентификатор",
           "in" : "path",
           "name" : "id",
           "required" : true,

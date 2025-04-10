@@ -71,6 +71,7 @@
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Идентификатор",
           "required" : true,
           "type" : "string"
         } ],
@@ -113,6 +114,7 @@
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Идентификатор",
           "required" : true,
           "type" : "string"
         } ],

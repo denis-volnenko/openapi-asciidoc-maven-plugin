@@ -26,7 +26,7 @@ public class ProjectController {
     @ApiOperation("Получение проекта по Id")
     @GetMapping(value = "/one/{id}")
     public ProjectDTO selectOneProject(
-//            @ApiParam(name = "Идентификатор")
+            @ApiParam("Идентификатор")
             @PathVariable("id") String id
     ) {
         return new ProjectDTO();
