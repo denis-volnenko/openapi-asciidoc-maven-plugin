@@ -65,7 +65,7 @@
         "tags" : [ "Проект" ],
         "summary" : "Создание новых проектов",
         "description" : "",
-        "operationId" : "createAllTask",
+        "operationId" : "createAllProject",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -116,7 +116,7 @@
         "tags" : [ "Проект" ],
         "summary" : "Создание нового проекта",
         "description" : "",
-        "operationId" : "createOneTask",
+        "operationId" : "createOneProject",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -161,6 +161,33 @@
             }
           }
         }
+      },
+      "post" : {
+        "tags" : [ "Задача" ],
+        "summary" : "Создание новых задач",
+        "description" : "",
+        "operationId" : "createAllTask",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/TaskDTO"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResultRecord"
+            }
+          }
+        }
       }
     },
     "/api/v1/task/one/{id}" : {
@@ -182,6 +209,36 @@
             "description" : "successful operation",
             "schema" : {
               "$ref" : "#/definitions/TaskDTO"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Задача" ],
+        "summary" : "Создание новой задачи",
+        "description" : "",
+        "operationId" : "createOneTask",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Идентификатор",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/TaskDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResultRecord"
             }
           }
         }

@@ -69,7 +69,7 @@
         "tags" : [ "Проект" ]
       },
       "post" : {
-        "operationId" : "createAllTask",
+        "operationId" : "createAllProject",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -128,7 +128,7 @@
         "tags" : [ "Проект" ]
       },
       "post" : {
-        "operationId" : "createOneTask",
+        "operationId" : "createOneProject",
         "parameters" : [ {
           "description" : "Идентификатор",
           "in" : "path",
@@ -185,6 +185,37 @@
         },
         "summary" : "Получение всех задач",
         "tags" : [ "Задача" ]
+      },
+      "post" : {
+        "operationId" : "createAllTask",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "items" : {
+                  "$ref" : "#/components/schemas/TaskDTO"
+                },
+                "type" : "array"
+              }
+            }
+          },
+          "required" : false
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResultRecord"
+                }
+              }
+            },
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Создание новых задач",
+        "tags" : [ "Задача" ],
+        "x-codegen-request-body-name" : "body"
       }
     },
     "/api/v1/task/one/{id}" : {
@@ -213,6 +244,43 @@
         },
         "summary" : "Получение задачи по Id",
         "tags" : [ "Задача" ]
+      },
+      "post" : {
+        "operationId" : "createOneTask",
+        "parameters" : [ {
+          "description" : "Идентификатор",
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TaskDTO"
+              }
+            }
+          },
+          "required" : false
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResultRecord"
+                }
+              }
+            },
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Создание новой задачи",
+        "tags" : [ "Задача" ],
+        "x-codegen-request-body-name" : "body"
       }
     }
   },

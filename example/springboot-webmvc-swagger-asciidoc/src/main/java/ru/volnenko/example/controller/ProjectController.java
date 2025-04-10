@@ -32,7 +32,7 @@ public class ProjectController {
 
     @ApiOperation("Создание нового проекта")
     @PostMapping(value = "/one/{id}", produces = "application/json", consumes = "application/json")
-    public ResultRecord createOneTask(
+    public ResultRecord createOneProject(
             @ApiParam("Идентификатор")
             @PathVariable("id") String id,
             @RequestBody ProjectDTO projectDTO
@@ -42,7 +42,7 @@ public class ProjectController {
 
     @ApiOperation("Создание новых проектов")
     @PostMapping(value = "/all", produces = "application/json", consumes = "application/json")
-    public ResultRecord createAllTask(
+    public ResultRecord createAllProject(
             @RequestBody List<ProjectDTO> projects
     ) {
         return new ResultRecord();
