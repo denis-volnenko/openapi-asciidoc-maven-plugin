@@ -31,7 +31,7 @@ public final class Operation {
     public String tags() {
         if (tags == null) return "";
         @NonNull String result = "";
-        for (String tag: tags) {
+        for (String tag : tags) {
             if (tag == null || tag.isEmpty()) continue;
             if (!result.isEmpty()) result += ", ";
             result += tag;

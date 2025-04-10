@@ -6,21 +6,22 @@
     <bannerLeft>
         <name>OPENAPI ASCIIDOC MAVEN PLUGIN</name>
         <src></src>
-<!--        <src>https://maven.apache.org/images/apache-maven-project.png</src>-->
+        <!--        <src>https://maven.apache.org/images/apache-maven-project.png</src>-->
         <href>https://maven.volnenko.ru/sites/openapi-asciidoc-maven-plugin/</href>
     </bannerLeft>
 
     <bannerRight>
         <src></src>
-<!--        <src>https://maven.apache.org/images/maven-small.gif</src>-->
+        <!--        <src>https://maven.apache.org/images/maven-small.gif</src>-->
     </bannerRight>
 
     <body>
         <links>
-            <item name="MAVEN" href="https://maven.volnenko.ru" />
+            <item name="MAVEN" href="https://maven.volnenko.ru"/>
         </links>
         <menu name="Примеры">
-            <item name="Описание веб-сервисов" href="https://maven.volnenko.ru/sites/task-manager-openapi-asciidoc/asciidoc/openapi.html" />
+            <item name="Описание веб-сервисов"
+                  href="https://maven.volnenko.ru/sites/task-manager-openapi-asciidoc/asciidoc/openapi.html"/>
         </menu>
         <!--        <menu name="DOC">-->
         <!--            <item name="archdoc" href="archdoc/archdoc.html" />-->

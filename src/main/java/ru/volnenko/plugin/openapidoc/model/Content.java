@@ -11,6 +11,6 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class Content {
 
-   private Schema schema;
+    private Schema schema;
 
 }

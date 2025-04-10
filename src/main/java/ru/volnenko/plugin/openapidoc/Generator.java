@@ -6,8 +6,6 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.SneakyThrows;
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -194,14 +192,14 @@ public final class Generator extends AbstractMojo {
         if (components.getSchemas() == null) return;
         if (components.getSchemas().isEmpty()) return;
         int index = 1;
-        for (final String model: components.getSchemas().keySet()) {
+        for (final String model : components.getSchemas().keySet()) {
             generate(model, components.getSchemas().get(model), index);
             index++;
         }
     }
 
     public void generate(final String model, final Schema schema, final int indexm) {
-        stringBuilder.append("=== Модель данных \""+ model + "\"" + " [[" + model + "]]" + "\n");
+        stringBuilder.append("=== Модель данных \"" + model + "\"" + " [[" + model + "]]" + "\n");
         stringBuilder.append("\n");
 
         stringBuilder.append("==== Общие сведения\n");
@@ -257,24 +255,24 @@ public final class Generator extends AbstractMojo {
 
         if (exists) {
             int index = 1;
-            for (final String field: properties.keySet()) {
+            for (final String field : properties.keySet()) {
                 final Schema property = properties.get(field);
 
                 stringBuilder.append("\n");
-                stringBuilder.append("^|"+StringUtil.format(index)+". \n");
+                stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
                 stringBuilder.append("|" + StringUtil.format(field) + "\n");
                 stringBuilder.append("|" + StringUtil.format(property.getDescription()) + "\n");
                 stringBuilder.append("^| " + ContentUtil.scheme(property) + "\n");
-                stringBuilder.append("^|"+ ContentUtil.format(property)+"\n");
+                stringBuilder.append("^|" + ContentUtil.format(property) + "\n");
 
                 if (schema.getRequired() == null) {
                     stringBuilder.append("^|--\n");
                 } else {
-                   if (schema.getRequired().contains(field)) {
-                       stringBuilder.append("^|✓\n");
-                   } else {
-                       stringBuilder.append("^|--\n");
-                   }
+                    if (schema.getRequired().contains(field)) {
+                        stringBuilder.append("^|✓\n");
+                    } else {
+                        stringBuilder.append("^|--\n");
+                    }
                 }
                 index++;
             }
@@ -287,7 +285,7 @@ public final class Generator extends AbstractMojo {
 
     private void generate(final Map<String, Map<String, Operation>> paths) {
         if (paths == null || paths.isEmpty()) return;
-        for (final String path: paths.keySet()) {
+        for (final String path : paths.keySet()) {
             if (path == null || path.isEmpty()) continue;
             generate(path, paths.get(path));
         }
@@ -295,7 +293,7 @@ public final class Generator extends AbstractMojo {
 
     private void generate(final String path, final Map<String, Operation> operations) {
         if (path == null) return;
-        for (final String method: operations.keySet()) {
+        for (final String method : operations.keySet()) {
             if (method == null || method.isEmpty()) continue;
             generate(path, method, operations.get(method));
         }
@@ -369,16 +367,16 @@ public final class Generator extends AbstractMojo {
             if (operation.getRequestBody() != null) {
                 if (operation.getRequestBody().getContent() != null) {
                     int index = 1;
-                    for (final String mediaType: operation.getRequestBody().getContent().keySet()) {
+                    for (final String mediaType : operation.getRequestBody().getContent().keySet()) {
                         final Content content = operation.getRequestBody().getContent().get(mediaType);
                         if (content == null) continue;
 
                         stringBuilder.append("\n");
-                        stringBuilder.append("^|"+StringUtil.format(index)+". \n");
+                        stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
                         stringBuilder.append("^|" + StringUtil.format(mediaType) + "\n");
                         stringBuilder.append("^| " + ContentUtil.scheme(content) + "\n");
-                        stringBuilder.append("^|"+ ContentUtil.format(content)+"\n");
-                        stringBuilder.append("^|"+StringUtil.format(operation.getRequestBody().getRequired()) +"\n");
+                        stringBuilder.append("^|" + ContentUtil.format(content) + "\n");
+                        stringBuilder.append("^|" + StringUtil.format(operation.getRequestBody().getRequired()) + "\n");
                         stringBuilder.append("\n");
                     }
                 }
@@ -411,7 +409,7 @@ public final class Generator extends AbstractMojo {
         if (operation.getResponses() == null) operation.setResponses(Collections.emptyMap());
 
         int index = 1;
-        for (final String httpCode: operation.getResponses().keySet()) {
+        for (final String httpCode : operation.getResponses().keySet()) {
             Response response = operation.getResponses().get(httpCode);
             if (response.getContent() == null || response.getContent().isEmpty()) {
                 continue;
@@ -435,15 +433,15 @@ public final class Generator extends AbstractMojo {
         if (response.getContent() == null || response.getContent().isEmpty()) {
             return;
         }
-        for (final String mediaType: response.getContent().keySet()) {
+        for (final String mediaType : response.getContent().keySet()) {
             final Content content = response.getContent().get(mediaType);
             stringBuilder.append("\n");
             stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
             stringBuilder.append("^|" + StringUtil.format(httpCode) + "\n");
             stringBuilder.append("^| \"" + StringUtil.format(mediaType) + "\" \n");
-            stringBuilder.append("|" + String.format(response.getDescription())+"\n");
+            stringBuilder.append("|" + String.format(response.getDescription()) + "\n");
             stringBuilder.append("^| " + ContentUtil.scheme(content) + "\n");
-            stringBuilder.append("^|"+ ContentUtil.format(content)+"\n");
+            stringBuilder.append("^|" + ContentUtil.format(content) + "\n");
             stringBuilder.append("\n");
         }
     }
@@ -471,7 +469,7 @@ public final class Generator extends AbstractMojo {
             stringBuilder.append("\n");
         }
 
-        for (ru.volnenko.plugin.openapidoc.model.Parameter parameter: parameters) {
+        for (ru.volnenko.plugin.openapidoc.model.Parameter parameter : parameters) {
             generate(parameter, index);
             index++;
         }
@@ -483,13 +481,13 @@ public final class Generator extends AbstractMojo {
 
     private void generate(ru.volnenko.plugin.openapidoc.model.Parameter parameter, int index) {
         stringBuilder.append("\n");
-        stringBuilder.append("^|"+StringUtil.format(index) + ". \n");
-        stringBuilder.append("|"+StringUtil.format(parameter.getName())+"\n");
-        stringBuilder.append("|"+StringUtil.format(parameter.getDescription())+"\n");
-        stringBuilder.append("^|"+parameter.getSchema().toString() + "\n");
-        stringBuilder.append("^|"+ ParameterUtil.format(parameter)+"\n");
-        stringBuilder.append("^|"+StringUtil.format(parameter.getIn())+"\n");
-        stringBuilder.append("^|"+StringUtil.format(parameter.getRequired()) +"\n");
+        stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
+        stringBuilder.append("|" + StringUtil.format(parameter.getName()) + "\n");
+        stringBuilder.append("|" + StringUtil.format(parameter.getDescription()) + "\n");
+        stringBuilder.append("^|" + parameter.getSchema().toString() + "\n");
+        stringBuilder.append("^|" + ParameterUtil.format(parameter) + "\n");
+        stringBuilder.append("^|" + StringUtil.format(parameter.getIn()) + "\n");
+        stringBuilder.append("^|" + StringUtil.format(parameter.getRequired()) + "\n");
         stringBuilder.append("\n");
     }
 
