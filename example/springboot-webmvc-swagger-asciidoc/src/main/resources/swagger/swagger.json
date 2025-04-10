@@ -21,6 +21,7 @@
     "/date" : {
       "get" : {
         "operationId" : "date",
+        "produces" : [ "application/json" ],
         "responses" : {
           "200" : {
             "description" : "successful operation",

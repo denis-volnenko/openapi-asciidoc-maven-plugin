@@ -120,33 +120,33 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!--			<plugin>-->
-<!--				<groupId>ru.volnenko.maven.plugin</groupId>-->
-<!--				<artifactId>openapi-asciidoc-maven-plugin</artifactId>-->
-<!--				<version>1.0.0</version>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<phase>compile</phase>-->
-<!--						<goals>-->
-<!--							<goal>generate</goal>-->
-<!--						</goals>-->
-<!--						<configuration>-->
-<!--							<serviceName>Task Manager</serviceName>-->
-<!--							<headerFirstEnabled>true</headerFirstEnabled>-->
-<!--							<headerSecondEnabled>true</headerSecondEnabled>-->
-<!--							<tableOfContentsEnabled>true</tableOfContentsEnabled>-->
-<!--							<outputPath>${project.basedir}/src/main/asciidoc/</outputPath>-->
-<!--							<outputFile>index.adoc</outputFile>-->
-<!--							<outputJsonFileEnabled>false</outputJsonFileEnabled>-->
-<!--							<outputYamlFileEnabled>false</outputYamlFileEnabled>-->
-<!--							<outputJavaScriptFileEnabled>false</outputJavaScriptFileEnabled>-->
-<!--							<files>-->
-<!--								<file>${project.basedir}/src/main/resources/openapi/openapi.json</file>-->
-<!--							</files>-->
-<!--						</configuration>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
+			<plugin>
+				<groupId>ru.volnenko.maven.plugin</groupId>
+				<artifactId>openapi-asciidoc-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<serviceName>Task Manager</serviceName>
+							<headerFirstEnabled>true</headerFirstEnabled>
+							<headerSecondEnabled>true</headerSecondEnabled>
+							<tableOfContentsEnabled>true</tableOfContentsEnabled>
+							<outputPath>${project.basedir}/src/main/asciidoc/</outputPath>
+							<outputFile>index.adoc</outputFile>
+							<outputJsonFileEnabled>true</outputJsonFileEnabled>
+							<outputYamlFileEnabled>true</outputYamlFileEnabled>
+							<outputJavaScriptFileEnabled>false</outputJavaScriptFileEnabled>
+							<files>
+								<file>${project.build.directory}/generated-sources/openapi/openapi.json</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

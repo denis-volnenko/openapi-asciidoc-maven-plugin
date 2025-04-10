@@ -20,6 +20,8 @@ paths:
   /date:
     get:
       operationId: "date"
+      produces:
+      - "application/json"
       parameters: []
       responses:
         200:

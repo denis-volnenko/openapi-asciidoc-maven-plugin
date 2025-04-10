@@ -13,7 +13,7 @@ import java.util.Date;
 @RestController
 public class DateController {
 
-    @GetMapping("/date")
+    @GetMapping(value = "/date", produces = "application/json")
     public DateDTO date() {
         return new DateDTO(new Date());
     }
