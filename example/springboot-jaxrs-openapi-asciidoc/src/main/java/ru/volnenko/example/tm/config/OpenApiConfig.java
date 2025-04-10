@@ -1,4 +1,4 @@
-package ru.volnenko.example.config;
+package ru.volnenko.example.tm.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -6,9 +6,9 @@ import io.swagger.v3.oas.annotations.info.Info;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.wadl.internal.WadlResource;
 import org.springframework.context.annotation.Configuration;
-import ru.volnenko.example.controller.DateController;
-import ru.volnenko.example.controller.ProjectController;
-import ru.volnenko.example.controller.TaskController;
+import ru.volnenko.example.tm.controller.DateController;
+import ru.volnenko.example.tm.controller.ProjectController;
+import ru.volnenko.example.tm.controller.TaskController;
 
 import javax.ws.rs.ApplicationPath;
 

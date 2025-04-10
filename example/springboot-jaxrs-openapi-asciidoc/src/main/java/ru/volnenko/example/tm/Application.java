@@ -1,14 +1,14 @@
-package ru.volnenko.example;
+package ru.volnenko.example.tm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //https://marmo.dev/spring-boot-openapi-generator
 @SpringBootApplication
-public class ExampleApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ExampleApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

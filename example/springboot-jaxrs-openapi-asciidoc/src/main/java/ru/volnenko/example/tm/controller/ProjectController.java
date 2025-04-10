@@ -1,8 +1,8 @@
-package ru.volnenko.example.controller;
+package ru.volnenko.example.tm.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import ru.volnenko.example.model.ProjectDTO;
+import ru.volnenko.example.tm.model.ProjectDTO;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

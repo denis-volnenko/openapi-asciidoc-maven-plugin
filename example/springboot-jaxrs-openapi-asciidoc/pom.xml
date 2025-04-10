@@ -100,7 +100,7 @@
 						</goals>
 						<configuration>
 							<resourcePackages>
-								<resourcePackage>ru.volnenko.example</resourcePackage>
+								<resourcePackage>ru.volnenko.example.tm</resourcePackage>
 							</resourcePackages>
 							<useResourcePackagesChildren>true</useResourcePackagesChildren>
 							<outputDirectory>${project.basedir}/src/main/resources/openapi</outputDirectory>

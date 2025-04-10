@@ -1,4 +1,4 @@
-package ru.volnenko.example.model;
+package ru.volnenko.example.tm.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -21,6 +21,5 @@ public final class DateDTO {
 
     @Schema(description = "Дата и время")
     private Date date;
-
 
 }

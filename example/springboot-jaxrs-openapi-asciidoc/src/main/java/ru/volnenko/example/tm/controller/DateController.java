@@ -1,15 +1,15 @@
-package ru.volnenko.example.controller;
+package ru.volnenko.example.tm.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import ru.volnenko.example.model.DateDTO;
+import ru.volnenko.example.tm.model.DateDTO;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import java.util.Date;
 
-@Path("/api/v1//datetime")
+@Path("/api/v1/datetime")
 @Produces("application/json")
 @Tag(name = "DateController", description = "Операции с датой и временем")
 public final class DateController {

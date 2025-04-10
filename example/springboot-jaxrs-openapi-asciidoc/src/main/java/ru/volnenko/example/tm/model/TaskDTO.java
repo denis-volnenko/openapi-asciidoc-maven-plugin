@@ -1,4 +1,4 @@
-package ru.volnenko.example.model;
+package ru.volnenko.example.tm.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
@@ -7,11 +7,15 @@ import lombok.Setter;
 
 import java.util.Date;
 
+/**
+ * @author Denis Volnenko
+ */
+
 @Getter
 @Setter
 @NoArgsConstructor
-@Schema(description = "Проект")
-public final class ProjectDTO {
+@Schema(description = "Задача")
+public final class TaskDTO {
 
     @Schema(description = "Название")
     private String name;
@@ -27,5 +31,7 @@ public final class ProjectDTO {
 
     @Schema(description = "Версия")
     private Integer version;
+
+
 
 }
