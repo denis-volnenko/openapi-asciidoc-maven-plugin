@@ -16,10 +16,20 @@
     }
   },
   "host" : "localhost:8080/api",
+  "tags" : [ {
+    "name" : "Дата"
+  }, {
+    "name" : "Задача"
+  }, {
+    "name" : "Проект"
+  } ],
   "schemes" : [ "http", "https" ],
   "paths" : {
     "/api/v1/datetime/current" : {
       "get" : {
+        "tags" : [ "Дата" ],
+        "summary" : "Получение текущей даты",
+        "description" : "",
         "operationId" : "date",
         "produces" : [ "application/json" ],
         "responses" : {
@@ -34,6 +44,7 @@
     },
     "/api/v1/project/all" : {
       "get" : {
+        "tags" : [ "Проект" ],
         "operationId" : "selectAllProject",
         "produces" : [ "application/json" ],
         "responses" : {
@@ -51,6 +62,7 @@
     },
     "/api/v1/task/all" : {
       "get" : {
+        "tags" : [ "Задача" ],
         "operationId" : "selectAllTask",
         "produces" : [ "application/json" ],
         "responses" : {
@@ -88,47 +100,59 @@
       "type" : "object",
       "properties" : {
         "name" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Название"
         },
         "description" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Описание"
         },
         "version" : {
           "type" : "integer",
-          "format" : "int32"
+          "format" : "int32",
+          "description" : "Версия"
         },
         "created" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date-time",
+          "description" : "Дата создания"
         },
         "updated" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date-time",
+          "description" : "Дата обновления"
         }
-      }
+      },
+      "description" : "Проект"
     },
     "TaskDTO" : {
       "type" : "object",
       "properties" : {
         "name" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Название"
         },
         "description" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Описание"
         },
         "version" : {
           "type" : "integer",
-          "format" : "int32"
+          "format" : "int32",
+          "description" : "Версия"
         },
         "created" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date-time",
+          "description" : "Дата создания"
         },
         "updated" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date-time",
+          "description" : "Дата обновления"
         }
-      }
+      },
+      "description" : "Задача"
     }
   }
 }

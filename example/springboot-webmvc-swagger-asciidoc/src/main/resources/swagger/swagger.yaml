@@ -13,12 +13,20 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "localhost:8080/api"
+tags:
+- name: "Дата"
+- name: "Задача"
+- name: "Проект"
 schemes:
 - "http"
 - "https"
 paths:
   /api/v1/datetime/current:
     get:
+      tags:
+      - "Дата"
+      summary: "Получение текущей даты"
+      description: ""
       operationId: "date"
       produces:
       - "application/json"
@@ -30,6 +38,8 @@ paths:
             $ref: "#/definitions/DateDTO"
   /api/v1/project/all:
     get:
+      tags:
+      - "Проект"
       operationId: "selectAllProject"
       produces:
       - "application/json"
@@ -43,6 +53,8 @@ paths:
               $ref: "#/definitions/ProjectDTO"
   /api/v1/task/all:
     get:
+      tags:
+      - "Задача"
       operationId: "selectAllTask"
       produces:
       - "application/json"
@@ -71,30 +83,42 @@ definitions:
     properties:
       name:
         type: "string"
+        description: "Название"
       description:
         type: "string"
+        description: "Описание"
       version:
         type: "integer"
         format: "int32"
+        description: "Версия"
       created:
         type: "string"
         format: "date-time"
+        description: "Дата создания"
       updated:
         type: "string"
         format: "date-time"
+        description: "Дата обновления"
+    description: "Проект"
   TaskDTO:
     type: "object"
     properties:
       name:
         type: "string"
+        description: "Название"
       description:
         type: "string"
+        description: "Описание"
       version:
         type: "integer"
         format: "int32"
+        description: "Версия"
       created:
         type: "string"
         format: "date-time"
+        description: "Дата создания"
       updated:
         type: "string"
         format: "date-time"
+        description: "Дата обновления"
+    description: "Задача"
