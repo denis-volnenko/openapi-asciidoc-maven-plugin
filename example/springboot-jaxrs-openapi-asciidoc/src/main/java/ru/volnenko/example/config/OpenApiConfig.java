@@ -7,6 +7,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.wadl.internal.WadlResource;
 import org.springframework.context.annotation.Configuration;
 import ru.volnenko.example.controller.DateController;
+import ru.volnenko.example.controller.ProjectController;
 import ru.volnenko.example.controller.TaskController;
 
 import javax.ws.rs.ApplicationPath;
@@ -31,6 +32,7 @@ public class OpenApiConfig extends ResourceConfig {
         register(WadlResource.class);
         register(DateController.class);
         register(TaskController.class);
+        register(ProjectController.class);
     }
 
 }

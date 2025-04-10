@@ -15,7 +15,7 @@ import java.util.List;
 @Path("/api/v1/task")
 @Produces("application/json")
 @Tag(name = "TaskController", description = "Управление задачами")
-public class TaskController {
+public final class TaskController {
 
     @GET
     @Path("/one/{id}")

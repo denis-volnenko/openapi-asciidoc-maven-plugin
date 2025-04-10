@@ -7,15 +7,11 @@ import lombok.Setter;
 
 import java.util.Date;
 
-/**
- * @author Denis Volnenko
- */
-
 @Getter
 @Setter
 @NoArgsConstructor
-@Schema(description = "Задача")
-public final class TaskDTO {
+@Schema(description = "Проект")
+public final class ProjectDTO {
 
     @Schema(description = "Название")
     private String name;
@@ -31,7 +27,5 @@ public final class TaskDTO {
 
     @Schema(description = "Версия")
     private Integer version;
-
-
 
 }

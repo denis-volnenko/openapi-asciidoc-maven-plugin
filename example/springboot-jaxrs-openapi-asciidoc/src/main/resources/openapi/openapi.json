@@ -18,6 +18,9 @@
     "name" : "DateController",
     "description" : "Операции с датой и временем"
   }, {
+    "name" : "ProjectController",
+    "description" : "Управление проектами"
+  }, {
     "name" : "TaskController",
     "description" : "Управление задачами"
   } ],
@@ -35,6 +38,29 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/DateDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/project/all" : {
+      "get" : {
+        "tags" : [ "ProjectController" ],
+        "summary" : "Получение всех проектов",
+        "description" : "Получение всех проектов",
+        "operationId" : "selectAllProject",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ProjectDTO"
+                  }
                 }
               }
             }
@@ -107,6 +133,35 @@
           }
         },
         "description" : "Класс для передачи даты и времени"
+      },
+      "ProjectDTO" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Название"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Описание"
+          },
+          "created" : {
+            "type" : "string",
+            "description" : "Дата создания",
+            "format" : "date-time"
+          },
+          "updated" : {
+            "type" : "string",
+            "description" : "Дата обновления",
+            "format" : "date-time"
+          },
+          "version" : {
+            "type" : "integer",
+            "description" : "Версия",
+            "format" : "int32"
+          }
+        },
+        "description" : "Проект"
       },
       "TaskDTO" : {
         "type" : "object",

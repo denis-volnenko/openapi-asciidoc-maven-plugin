@@ -9,14 +9,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import java.util.Date;
 
-/**
- * @author Denis Volnenko
- */
-
 @Path("/api/v1//datetime")
 @Produces("application/json")
 @Tag(name = "DateController", description = "Операции с датой и временем")
-public class DateController {
+public final class DateController {
 
     @GET
     @Path("/current")
