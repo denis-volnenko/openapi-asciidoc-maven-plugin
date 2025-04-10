@@ -44,9 +44,11 @@
       "properties" : {
         "date" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date-time",
+          "description" : "Дата/Время"
         }
-      }
+      },
+      "description" : "Класс для передачи даты и времени"
     }
   }
 }

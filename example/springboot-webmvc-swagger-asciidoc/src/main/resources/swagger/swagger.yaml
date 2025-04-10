@@ -38,3 +38,5 @@ definitions:
       date:
         type: "string"
         format: "date-time"
+        description: "Дата/Время"
+    description: "Класс для передачи даты и времени"

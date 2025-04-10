@@ -42,8 +42,10 @@
   "components" : {
     "schemas" : {
       "DateDTO" : {
+        "description" : "Класс для передачи даты и времени",
         "properties" : {
           "date" : {
+            "description" : "Дата/Время",
             "format" : "date-time",
             "type" : "string"
           }
