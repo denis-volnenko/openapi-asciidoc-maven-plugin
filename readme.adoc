@@ -91,13 +91,13 @@ https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
         </repository>
     </repositories>
     ...
-	<pluginRepositories>
-		<pluginRepository>
-			<id>maven.volnenko.ru</id>
-			<name>maven.volnenko.ru</name>
-			<url>https://maven.volnenko.ru/repository</url>
-		</pluginRepository>
-	</pluginRepositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven.volnenko.ru</id>
+            <name>maven.volnenko.ru</name>
+            <url>https://maven.volnenko.ru/repository</url>
+        </pluginRepository>
+    </pluginRepositories>
     ...
 </project>
 ----
