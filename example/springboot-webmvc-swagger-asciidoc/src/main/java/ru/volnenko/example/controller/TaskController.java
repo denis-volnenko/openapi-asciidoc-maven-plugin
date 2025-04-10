@@ -24,7 +24,7 @@ public class TaskController {
     }
 
     @ApiOperation("Получение задачи по Id")
-    @GetMapping(value = "/one/{id}")
+    @GetMapping(value = "/one/{id}", produces = "application/json")
     public TaskDTO selectOneTask(
             @ApiParam("Идентификатор")
             @PathVariable("id") String id

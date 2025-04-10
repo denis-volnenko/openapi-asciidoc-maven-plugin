@@ -451,7 +451,7 @@
 
 
 ^|01. 
-^|*/*
+^|application/json
 ^| <<ProjectDTO,ProjectDTO>>[]
 ^|--
 ^|--
@@ -474,7 +474,7 @@
 
 ^|01. 
 ^|200
-^| "*/*" 
+^| "application/json" 
 |successful operation
 ^| <<ResultRecord,ResultRecord>>
 ^|--
@@ -562,7 +562,7 @@
 
 ^|01. 
 ^|200
-^| "*/*" 
+^| "application/json" 
 |successful operation
 ^| <<ProjectDTO,ProjectDTO>>
 ^|--
@@ -631,7 +631,7 @@
 
 
 ^|01. 
-^|*/*
+^|application/json
 ^| <<ProjectDTO,ProjectDTO>>
 ^|--
 ^|--
@@ -654,7 +654,7 @@
 
 ^|01. 
 ^|200
-^| "*/*" 
+^| "application/json" 
 |successful operation
 ^| <<ResultRecord,ResultRecord>>
 ^|--
@@ -824,7 +824,7 @@
 
 ^|01. 
 ^|200
-^| "*/*" 
+^| "application/json" 
 |successful operation
 ^| <<TaskDTO,TaskDTO>>
 ^|--

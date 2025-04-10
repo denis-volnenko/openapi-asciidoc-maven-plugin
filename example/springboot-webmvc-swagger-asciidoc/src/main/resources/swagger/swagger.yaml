@@ -59,6 +59,10 @@ paths:
       summary: "Создание новых проектов"
       description: ""
       operationId: "createAllTask"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
       parameters:
       - in: "body"
         name: "body"
@@ -79,6 +83,8 @@ paths:
       summary: "Получение проекта по Id"
       description: ""
       operationId: "selectOneProject"
+      produces:
+      - "application/json"
       parameters:
       - name: "id"
         in: "path"
@@ -96,6 +102,10 @@ paths:
       summary: "Создание нового проекта"
       description: ""
       operationId: "createOneTask"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
       parameters:
       - name: "id"
         in: "path"
@@ -136,6 +146,8 @@ paths:
       summary: "Получение задачи по Id"
       description: ""
       operationId: "selectOneTask"
+      produces:
+      - "application/json"
       parameters:
       - name: "id"
         in: "path"

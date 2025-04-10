@@ -72,7 +72,7 @@
         "operationId" : "createAllTask",
         "requestBody" : {
           "content" : {
-            "*/*" : {
+            "application/json" : {
               "schema" : {
                 "items" : {
                   "$ref" : "#/components/schemas/ProjectDTO"
@@ -86,7 +86,7 @@
         "responses" : {
           "200" : {
             "content" : {
-              "*/*" : {
+              "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/ResultRecord"
                 }
@@ -115,7 +115,7 @@
         "responses" : {
           "200" : {
             "content" : {
-              "*/*" : {
+              "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/ProjectDTO"
                 }
@@ -140,7 +140,7 @@
         } ],
         "requestBody" : {
           "content" : {
-            "*/*" : {
+            "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ProjectDTO"
               }
@@ -151,7 +151,7 @@
         "responses" : {
           "200" : {
             "content" : {
-              "*/*" : {
+              "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/ResultRecord"
                 }
@@ -202,7 +202,7 @@
         "responses" : {
           "200" : {
             "content" : {
-              "*/*" : {
+              "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/TaskDTO"
                 }

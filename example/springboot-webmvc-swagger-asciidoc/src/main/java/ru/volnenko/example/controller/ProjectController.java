@@ -22,7 +22,7 @@ public class ProjectController {
     }
 
     @ApiOperation("Получение проекта по Id")
-    @GetMapping(value = "/one/{id}")
+    @GetMapping(value = "/one/{id}", produces = "application/json")
     public ProjectDTO selectOneProject(
             @ApiParam("Идентификатор")
             @PathVariable("id") String id
@@ -31,7 +31,7 @@ public class ProjectController {
     }
 
     @ApiOperation("Создание нового проекта")
-    @PostMapping(value = "/one/{id}")
+    @PostMapping(value = "/one/{id}", produces = "application/json", consumes = "application/json")
     public ResultRecord createOneTask(
             @ApiParam("Идентификатор")
             @PathVariable("id") String id,
@@ -41,7 +41,7 @@ public class ProjectController {
     }
 
     @ApiOperation("Создание новых проектов")
-    @PostMapping(value = "/all")
+    @PostMapping(value = "/all", produces = "application/json", consumes = "application/json")
     public ResultRecord createAllTask(
             @RequestBody List<ProjectDTO> projects
     ) {
