@@ -91,7 +91,7 @@
 						<resourcePackage>ru.volnenko.example.example</resourcePackage>
 					</resourcePackages>
 					<useResourcePackagesChildren>true</useResourcePackagesChildren>
-					<outputDirectory>${project.basedir}/src/main/resources</outputDirectory>
+					<outputDirectory>${project.basedir}/src/main/resources/openapi</outputDirectory>
 					<outputFilename>openapi</outputFilename>
 					<outputFormats>JSON,YAML</outputFormats>
 					<prettyPrint>true</prettyPrint>
@@ -109,13 +109,6 @@
 						</info>
 					</swaggerConfig>
 				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
