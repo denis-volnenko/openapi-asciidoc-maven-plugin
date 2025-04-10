@@ -110,6 +110,25 @@
 					</swaggerConfig>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>ru.volnenko.maven.plugin</groupId>
+				<artifactId>openapi-asciidoc-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<serviceName>Task Manager</serviceName>
+					<headerFirstEnabled>true</headerFirstEnabled>
+					<headerSecondEnabled>true</headerSecondEnabled>
+					<tableOfContentsEnabled>true</tableOfContentsEnabled>
+					<outputPath>${project.basedir}/src/main/asciidoc/</outputPath>
+					<outputFile>index.adoc</outputFile>
+					<outputJsonFileEnabled>false</outputJsonFileEnabled>
+					<outputYamlFileEnabled>false</outputYamlFileEnabled>
+					<outputJavaScriptFileEnabled>false</outputJavaScriptFileEnabled>
+					<files>
+						<file>${project.basedir}/src/main/resources/openapi/openapi.json</file>
+					</files>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
