@@ -18,6 +18,8 @@ public final class Schema {
 
     private String description;
 
+    private String title;
+
     private String type;
 
     private String format;

@@ -32,6 +32,11 @@ public final class Generator extends AbstractMojo {
 
     @Getter
     @Setter
+    @Parameter(property = "headerFirstText")
+    private String headerFirstText = "REST API";
+
+    @Getter
+    @Setter
     @Parameter(property = "headerFirstEnabled")
     public boolean headerFirstEnabled = true;
 
@@ -225,13 +230,14 @@ public final class Generator extends AbstractMojo {
         stringBuilder.append("==== Описание полей \n");
 
         stringBuilder.append("\n");
-        stringBuilder.append("[cols=\"0,30,30,20,10,10\"]\n");
+        stringBuilder.append("[cols=\"0,20,20,20,20,10,10\"]\n");
         stringBuilder.append("|===\n");
 
         stringBuilder.append("\n");
         stringBuilder.append("^|*№*\n");
         stringBuilder.append("|*Физ. название*\n");
         stringBuilder.append("|*Лог. название*\n");
+        stringBuilder.append("|*Описание*\n");
         stringBuilder.append("^|*Тип данных*\n");
         stringBuilder.append("^|*Формат*\n");
         stringBuilder.append("^|*Обязательный*\n");
@@ -249,7 +255,7 @@ public final class Generator extends AbstractMojo {
 
         if (!exists) {
             stringBuilder.append("\n");
-            stringBuilder.append("6+^| Отсутствует \n");
+            stringBuilder.append("7+^| Отсутствует \n");
             stringBuilder.append("\n");
         }
 
@@ -261,6 +267,7 @@ public final class Generator extends AbstractMojo {
                 stringBuilder.append("\n");
                 stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
                 stringBuilder.append("|" + StringUtil.format(field) + "\n");
+                stringBuilder.append("|" + StringUtil.format(property.getTitle()) + "\n");
                 stringBuilder.append("|" + StringUtil.format(property.getDescription()) + "\n");
                 stringBuilder.append("^| " + ContentUtil.scheme(property) + "\n");
                 stringBuilder.append("^|" + ContentUtil.format(property) + "\n");
@@ -493,7 +500,7 @@ public final class Generator extends AbstractMojo {
 
     private void header() {
         if (headerFirstEnabled) {
-            stringBuilder.append("= " + StringUtil.format(serviceName) + "\n");
+            stringBuilder.append("= " + StringUtil.format(headerFirstText) + "\n");
             if (tableOfContentsEnabled) {
                 stringBuilder.append(":toc-title: Оглавление\n");
                 stringBuilder.append(":toc:\n");

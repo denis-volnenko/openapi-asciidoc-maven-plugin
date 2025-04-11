@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.volnenko.maven.plugin</groupId>
     <artifactId>openapi-asciidoc-maven-plugin</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>maven-plugin</packaging>
 
     <name>openapi-asciidoc-maven-plugin</name>
@@ -184,7 +184,7 @@
             <plugin>
                 <groupId>ru.volnenko.maven.plugin</groupId>
                 <artifactId>openapi-asciidoc-maven-plugin</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.2</version>
                 <configuration>
                     <serviceName>Pet Store</serviceName>
                     <headerFirstEnabled>true</headerFirstEnabled>
