@@ -12,11 +12,6 @@ public final class MapperUtil {
     @NonNull
     private static final ObjectMapper YAML = new YAMLMapper();
 
-    static {
-//        JSON.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
-//        YAML.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
-    }
-
     @NonNull
     public static ObjectMapper json() {
         return JSON;
