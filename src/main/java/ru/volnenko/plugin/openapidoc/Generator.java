@@ -110,15 +110,6 @@ public final class Generator extends AbstractMojo {
     private final IRootGenerator rootGenerator = new RootGenerator();
 
     @NonNull
-    private final IParameterGenerator parameterGenerator = new ParameterGenerator();
-
-    @NonNull
-    private final IResponseGenerator responseGenerator = new ResponseGenerator();
-
-    @NonNull
-    private final IParametersGenerator parametersGenerator = new ParametersGenerator();
-
-    @NonNull
     private final IOperationGenerator operationGenerator = new OperationGenerator();
 
     @NonNull
@@ -214,12 +205,12 @@ public final class Generator extends AbstractMojo {
         if (components.getSchemas().isEmpty()) return;
         int index = 1;
         for (final String model : components.getSchemas().keySet()) {
-            generate(model, components.getSchemas().get(model), index);
+            generate(model, components.getSchemas().get(model));
             index++;
         }
     }
 
-    public void generate(final String model, final Schema schema, final int indexm) {
+    public void generate(final String model, final Schema schema) {
         stringBuilder.append("=== Модель данных \"" + model + "\"" + " [[" + model + "]]" + "\n");
         stringBuilder.append("\n");
 
@@ -322,107 +313,12 @@ public final class Generator extends AbstractMojo {
         }
     }
 
-    private void generate(String path, String method, Operation operation) {
-        if (path == null || path.isEmpty()) return;
-        if (method == null || method.isEmpty()) return;
-        if (operation == null) return;
-        stringBuilder.append("=== Ресурс " + operation.tags() + " " + method.toUpperCase() + " \"" + path + "\" \n");
-        stringBuilder.append("==== Общие сведения\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("[cols=\"20,80\"]\n");
-        stringBuilder.append("|===\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|*Физ. название*:\n");
-        stringBuilder.append("|" + StringUtil.format(operation.getOperationId()) + "\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|*Лог. название*:\n");
-        stringBuilder.append("|" + StringUtil.format(operation.getSummary()) + "\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|*Сервис*:\n");
-        stringBuilder.append("|" + StringUtil.format(serviceName) + "\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|*HTTP-метод*:\n");
-        stringBuilder.append("|" + StringUtil.format(method.toUpperCase()) + "\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|*HTTP-адрес*:\n");
-        stringBuilder.append("|" + StringUtil.format(path) + "\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|===\n");
-        stringBuilder.append("\n");
-
-        if (operation.getParameters() == null) operation.setParameters(Collections.emptyList());
-        generate(operation.getParameters());
-
-        {
-            stringBuilder.append("==== Описание запроса \n");
-
-            stringBuilder.append("\n");
-            stringBuilder.append("[cols=\"0,20,50,20,10\"]\n");
-            stringBuilder.append("|===\n");
-
-            stringBuilder.append("\n");
-            stringBuilder.append("^|*№*\n");
-            stringBuilder.append("^|*Медиа тип*\n");
-            stringBuilder.append("^|*Тип данных*\n");
-            stringBuilder.append("^|*Формат*\n");
-            stringBuilder.append("^|*Обязательный*\n");
-            stringBuilder.append("\n");
-
-            boolean exists = true;
-            if (operation.getRequestBody() == null) exists = false;
-
-            if (operation.getRequestBody() != null) {
-                if (operation.getRequestBody().getContent() == null) {
-                    exists = false;
-                } else {
-                    if (operation.getRequestBody().getContent().isEmpty()) {
-                        exists = false;
-                    }
-                }
-            }
-
-            if (!exists) {
-                stringBuilder.append("\n");
-                stringBuilder.append("5+^| Отсутствует \n");
-                stringBuilder.append("\n");
-            }
-
-            if (operation.getRequestBody() != null) {
-                if (operation.getRequestBody().getContent() != null) {
-                    int index = 1;
-                    for (final String mediaType : operation.getRequestBody().getContent().keySet()) {
-                        final Content content = operation.getRequestBody().getContent().get(mediaType);
-                        if (content == null) continue;
-
-                        stringBuilder.append("\n");
-                        stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
-                        stringBuilder.append("^|" + StringUtil.format(mediaType) + "\n");
-                        stringBuilder.append("^| " + ContentUtil.scheme(content) + "\n");
-                        stringBuilder.append("^|" + ContentUtil.format(content) + "\n");
-                        stringBuilder.append("^|" + StringUtil.format(operation.getRequestBody().getRequired()) + "\n");
-                        stringBuilder.append("\n");
-                    }
-                }
-            }
-
-            stringBuilder.append("\n");
-            stringBuilder.append("|===\n");
-            stringBuilder.append("\n");
-        }
-
-        generate(operation);
-    }
-
-    private void generate(@NonNull final Operation operation) {
+    private void generate(final String path, final String method, final Operation operation) {
         operationGenerator
+                .path(path)
+                .method(method)
                 .operation(operation)
-                .append(stringBuilder);
-    }
-
-
-    private void generate(@NonNull final List<ru.volnenko.plugin.openapidoc.model.impl.Parameter> parameters) {
-        parametersGenerator
-                .parameters(parameters)
+                .serviceName(serviceName)
                 .append(stringBuilder);
     }
 
