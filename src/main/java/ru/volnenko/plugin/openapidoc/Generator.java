@@ -206,98 +206,16 @@ public final class Generator extends AbstractMojo {
         if (components == null) return;
         if (components.getSchemas() == null) return;
         if (components.getSchemas().isEmpty()) return;
-        int index = 1;
         for (final String model : components.getSchemas().keySet()) {
             generate(model, components.getSchemas().get(model));
-            index++;
         }
     }
 
     public void generate(final String model, final Schema schema) {
-        stringBuilder.append("=== Модель данных \"" + model + "\"" + " [[" + model + "]]" + "\n");
-        stringBuilder.append("\n");
-
-        stringBuilder.append("==== Общие сведения\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("[cols=\"20,80\"]\n");
-        stringBuilder.append("|===\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|*Физ. название*:\n");
-        stringBuilder.append("|" + StringUtil.format(model) + "\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|*Лог. название*:\n");
-        stringBuilder.append("|" + StringUtil.format(schema.getDescription()) + "\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|*Тип данных*:\n");
-        stringBuilder.append("|" + StringUtil.format(schema.getType()) + "\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|*Сервис*:\n");
-        stringBuilder.append("|" + StringUtil.format(serviceName) + "\n");
-        stringBuilder.append("\n");
-        stringBuilder.append("|===\n");
-        stringBuilder.append("\n");
-
-        stringBuilder.append("==== Описание полей \n");
-
-        stringBuilder.append("\n");
-        stringBuilder.append("[cols=\"0,20,20,20,20,10,10\"]\n");
-        stringBuilder.append("|===\n");
-
-        stringBuilder.append("\n");
-        stringBuilder.append("^|*№*\n");
-        stringBuilder.append("|*Физ. название*\n");
-        stringBuilder.append("|*Лог. название*\n");
-        stringBuilder.append("|*Описание*\n");
-        stringBuilder.append("^|*Тип данных*\n");
-        stringBuilder.append("^|*Формат*\n");
-        stringBuilder.append("^|*Обязательный*\n");
-        stringBuilder.append("\n");
-
-        boolean exists = true;
-        Map<String, Schema> properties = schema.getProperties();
-        if ("array".equalsIgnoreCase(schema.getType())) {
-            if (schema.getItems() != null) {
-                properties = schema.getItems().getProperties();
-            }
-        }
-        if (properties == null) exists = false;
-        if (properties != null && properties.isEmpty()) exists = false;
-
-        if (!exists) {
-            stringBuilder.append("\n");
-            stringBuilder.append("7+^| Отсутствует \n");
-            stringBuilder.append("\n");
-        }
-
-        if (exists) {
-            int index = 1;
-            for (final String field : properties.keySet()) {
-                final Schema property = properties.get(field);
-
-                stringBuilder.append("\n");
-                stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
-                stringBuilder.append("|" + StringUtil.format(field) + "\n");
-                stringBuilder.append("|" + StringUtil.format(property.getTitle()) + "\n");
-                stringBuilder.append("|" + StringUtil.format(property.getDescription()) + "\n");
-                stringBuilder.append("^| " + ContentUtil.scheme(property) + "\n");
-                stringBuilder.append("^|" + ContentUtil.format(property) + "\n");
-
-                if (schema.getRequired() == null) {
-                    stringBuilder.append("^|--\n");
-                } else {
-                    if (schema.getRequired().contains(field)) {
-                        stringBuilder.append("^|✓\n");
-                    } else {
-                        stringBuilder.append("^|--\n");
-                    }
-                }
-                index++;
-            }
-        }
-
-        stringBuilder.append("\n");
-        stringBuilder.append("|===\n");
-        stringBuilder.append("\n");
+        schemaGenerator
+                .model(model)
+                .schema(schema)
+                .append(stringBuilder);
     }
 
     private void generate(final Map<String, Map<String, Operation>> paths) {
