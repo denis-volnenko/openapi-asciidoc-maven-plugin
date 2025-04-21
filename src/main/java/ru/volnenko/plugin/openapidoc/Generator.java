@@ -113,6 +113,9 @@ public final class Generator extends AbstractMojo {
     private final IOperationGenerator operationGenerator = new OperationGenerator();
 
     @NonNull
+    private final ISchemaGenerator schemaGenerator = new SchemaGenerator();
+
+    @NonNull
     private ObjectMapper objectMapper(@NonNull final String file) {
         @NonNull final String name = file.toLowerCase(Locale.ROOT);
         if (name.endsWith(".json")) return MapperUtil.json();
