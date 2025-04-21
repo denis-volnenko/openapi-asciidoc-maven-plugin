@@ -18,14 +18,17 @@ public final class Contact implements IContact {
 
     private String email;
 
+    @Override
     public String name() {
         return name;
     }
 
+    @Override
     public String url() {
         return url;
     }
 
+    @Override
     public String email() {
         return email;
     }

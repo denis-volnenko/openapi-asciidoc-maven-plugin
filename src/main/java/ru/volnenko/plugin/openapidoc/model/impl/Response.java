@@ -18,4 +18,14 @@ public final class Response implements IResponse {
 
     private Map<String, Content> content;
 
+    @Override
+    public String description() {
+        return description;
+    }
+
+    @Override
+    public Map<String, Content> content() {
+        return content;
+    }
+
 }

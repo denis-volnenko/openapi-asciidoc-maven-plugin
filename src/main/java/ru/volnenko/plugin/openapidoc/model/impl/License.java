@@ -16,4 +16,14 @@ public final class License implements ILicense {
 
     private String url;
 
+    @Override
+    public String name() {
+        return name;
+    }
+
+    @Override
+    public String url() {
+        return url;
+    }
+
 }

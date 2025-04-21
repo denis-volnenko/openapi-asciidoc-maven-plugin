@@ -28,6 +28,32 @@ public final class Operation implements IOperation {
 
     private Map<String, Response> responses;
 
+    @Override
+    public String operationId() {
+        return operationId;
+    }
+
+    @Override
+    public String summary() {
+        return summary;
+    }
+
+    @Override
+    public RequestBody requestBody() {
+        return requestBody;
+    }
+
+    @Override
+    public List<Parameter> parameters() {
+        return parameters;
+    }
+
+    @Override
+    public Map<String, Response> responses() {
+        return responses;
+    }
+
+    @Override
     @NonNull
     public String tags() {
         if (tags == null) return "";

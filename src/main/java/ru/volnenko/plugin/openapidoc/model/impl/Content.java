@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.openapidoc.model.IContent;
-import ru.volnenko.plugin.openapidoc.model.impl.Schema;
 
 @Getter
 @Setter
@@ -15,6 +14,7 @@ public final class Content implements IContent {
 
     private Schema schema;
 
+    @Override
     public Schema schema() {
         return schema;
     }

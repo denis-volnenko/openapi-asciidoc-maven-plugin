@@ -10,4 +10,6 @@ public interface IComponents {
 
     void setSchemas(Map<String, Schema> schemas);
 
+    Map<String, Schema> schemas();
+
 }

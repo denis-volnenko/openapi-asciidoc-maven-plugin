@@ -16,6 +16,7 @@ public final class Components implements IComponents {
 
     private Map<String, Schema> schemas;
 
+    @Override
     public Map<String, Schema> schemas() {
         return schemas;
     }
