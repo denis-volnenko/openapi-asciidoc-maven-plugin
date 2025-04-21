@@ -14,9 +14,11 @@ import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
 import ru.volnenko.plugin.openapidoc.generator.IParameterGenerator;
 import ru.volnenko.plugin.openapidoc.generator.IParametersGenerator;
+import ru.volnenko.plugin.openapidoc.generator.IResponseGenerator;
 import ru.volnenko.plugin.openapidoc.generator.IRootGenerator;
 import ru.volnenko.plugin.openapidoc.generator.impl.ParameterGenerator;
 import ru.volnenko.plugin.openapidoc.generator.impl.ParametersGenerator;
+import ru.volnenko.plugin.openapidoc.generator.impl.ResponseGenerator;
 import ru.volnenko.plugin.openapidoc.generator.impl.RootGenerator;
 import ru.volnenko.plugin.openapidoc.model.impl.*;
 import ru.volnenko.plugin.openapidoc.parser.RootParser;
@@ -447,21 +449,15 @@ public final class Generator extends AbstractMojo {
         stringBuilder.append("\n");
     }
 
+    @NonNull
+    private final IResponseGenerator responseGenerator = new ResponseGenerator();
+
     private void generate(@NonNull final String httpCode, final Response response, int index) {
-        if (response.getContent() == null || response.getContent().isEmpty()) {
-            return;
-        }
-        for (final String mediaType : response.getContent().keySet()) {
-            final Content content = response.getContent().get(mediaType);
-            stringBuilder.append("\n");
-            stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
-            stringBuilder.append("^|" + StringUtil.format(httpCode) + "\n");
-            stringBuilder.append("^| \"" + StringUtil.format(mediaType) + "\" \n");
-            stringBuilder.append("|" + String.format(response.getDescription()) + "\n");
-            stringBuilder.append("^| " + ContentUtil.scheme(content) + "\n");
-            stringBuilder.append("^|" + ContentUtil.format(content) + "\n");
-            stringBuilder.append("\n");
-        }
+       responseGenerator
+               .response(response)
+               .httpCode(httpCode)
+               .index(index)
+               .append(stringBuilder);
     }
 
     @NonNull

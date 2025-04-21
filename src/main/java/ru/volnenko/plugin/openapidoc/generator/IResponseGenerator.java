@@ -3,7 +3,7 @@ package ru.volnenko.plugin.openapidoc.generator;
 import lombok.NonNull;
 import ru.volnenko.plugin.openapidoc.model.impl.Response;
 
-public interface IResponseGenerator {
+public interface IResponseGenerator extends IGenerator {
 
     int index();
 

@@ -2,7 +2,10 @@ package ru.volnenko.plugin.openapidoc.generator.impl;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.openapidoc.generator.IResponseGenerator;
+import ru.volnenko.plugin.openapidoc.model.impl.Content;
 import ru.volnenko.plugin.openapidoc.model.impl.Response;
+import ru.volnenko.plugin.openapidoc.util.ContentUtil;
+import ru.volnenko.plugin.openapidoc.util.StringUtil;
 
 public final class ResponseGenerator implements IResponseGenerator {
 
@@ -52,4 +55,23 @@ public final class ResponseGenerator implements IResponseGenerator {
         return this;
     }
 
+    @NonNull
+    @Override
+    public StringBuilder append(@NonNull final StringBuilder stringBuilder) {
+        if (response.getContent() == null || response.getContent().isEmpty()) {
+            return stringBuilder;
+        }
+        for (final String mediaType : response.getContent().keySet()) {
+            final Content content = response.getContent().get(mediaType);
+            stringBuilder.append("\n");
+            stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
+            stringBuilder.append("^|" + StringUtil.format(httpCode) + "\n");
+            stringBuilder.append("^| \"" + StringUtil.format(mediaType) + "\" \n");
+            stringBuilder.append("|" + String.format(response.getDescription()) + "\n");
+            stringBuilder.append("^| " + ContentUtil.scheme(content) + "\n");
+            stringBuilder.append("^|" + ContentUtil.format(content) + "\n");
+            stringBuilder.append("\n");
+        }
+        return stringBuilder;
+    }
 }
