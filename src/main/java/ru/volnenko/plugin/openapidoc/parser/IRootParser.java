@@ -23,6 +23,7 @@ public interface IRootParser {
     @NonNull
     String yaml();
 
-    @NonNull List<Root> parse();
+    @NonNull
+    List<Root> parse();
 
 }
