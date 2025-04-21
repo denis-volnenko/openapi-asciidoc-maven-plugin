@@ -13,8 +13,10 @@ import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
 import ru.volnenko.plugin.openapidoc.generator.IParameterGenerator;
+import ru.volnenko.plugin.openapidoc.generator.IParametersGenerator;
 import ru.volnenko.plugin.openapidoc.generator.IRootGenerator;
 import ru.volnenko.plugin.openapidoc.generator.impl.ParameterGenerator;
+import ru.volnenko.plugin.openapidoc.generator.impl.ParametersGenerator;
 import ru.volnenko.plugin.openapidoc.generator.impl.RootGenerator;
 import ru.volnenko.plugin.openapidoc.model.impl.*;
 import ru.volnenko.plugin.openapidoc.parser.RootParser;
@@ -108,6 +110,12 @@ public final class Generator extends AbstractMojo {
 
     @NonNull
     private final StringBuilder stringBuilder = new StringBuilder();
+
+    @NonNull
+    private final IRootGenerator rootGenerator = new RootGenerator();
+
+    @NonNull
+    private final IParameterGenerator parameterGenerator = new ParameterGenerator();
 
     @NonNull
     private ObjectMapper objectMapper(@NonNull final String file) {
@@ -339,7 +347,7 @@ public final class Generator extends AbstractMojo {
         stringBuilder.append("\n");
 
         if (operation.getParameters() == null) operation.setParameters(Collections.emptyList());
-        generate(operation.getParameters().toArray(new ru.volnenko.plugin.openapidoc.model.impl.Parameter[0]));
+        generate(operation.getParameters());
 
         {
             stringBuilder.append("==== Описание запроса \n");
@@ -457,48 +465,12 @@ public final class Generator extends AbstractMojo {
         }
     }
 
-    private void generate(@NonNull final ru.volnenko.plugin.openapidoc.model.impl.Parameter[] parameters) {
-        stringBuilder.append("==== Описание параметров \n");
-        int index = 1;
-        stringBuilder.append("\n");
-        stringBuilder.append("[cols=\"0,20,20,10,10,10,10\"]\n");
-        stringBuilder.append("|===\n");
-
-        stringBuilder.append("\n");
-        stringBuilder.append("^|*№*\n");
-        stringBuilder.append("|*Физ. название*\n");
-        stringBuilder.append("|*Лог. название*\n");
-        stringBuilder.append("^|*Тип*\n");
-        stringBuilder.append("^|*Формат*\n");
-        stringBuilder.append("^|*Вид*\n");
-        stringBuilder.append("^|*Обязательный*\n");
-        stringBuilder.append("\n");
-
-        if (parameters.length == 0) {
-            stringBuilder.append("\n");
-            stringBuilder.append("7+^| Отсутствует \n");
-            stringBuilder.append("\n");
-        }
-
-        for (ru.volnenko.plugin.openapidoc.model.impl.Parameter parameter : parameters) {
-            generate(parameter, index);
-            index++;
-        }
-
-        stringBuilder.append("\n");
-        stringBuilder.append("|===\n");
-        stringBuilder.append("\n");
-    }
-
-    private void generate(ru.volnenko.plugin.openapidoc.model.impl.Parameter parameter, int index) {
-        parameterGenerator.index(index).parameter(parameter).append(stringBuilder);
-    }
-
     @NonNull
-    private final IRootGenerator rootGenerator = new RootGenerator();
+    private final IParametersGenerator parametersGenerator = new ParametersGenerator();
 
-    @NonNull
-    private final IParameterGenerator parameterGenerator = new ParameterGenerator();
+    private void generate(@NonNull final List<ru.volnenko.plugin.openapidoc.model.impl.Parameter> parameters) {
+        parametersGenerator.parameters(parameters).append(stringBuilder);
+    }
 
     private void header() {
         rootGenerator
