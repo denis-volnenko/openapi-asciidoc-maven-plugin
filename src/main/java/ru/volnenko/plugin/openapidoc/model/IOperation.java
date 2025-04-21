@@ -26,24 +26,24 @@ public interface IOperation {
 
     String getSummary();
 
-    ru.volnenko.plugin.openapidoc.model.impl.RequestBody getRequestBody();
+    RequestBody getRequestBody();
 
-    java.util.List<ru.volnenko.plugin.openapidoc.model.impl.Parameter> getParameters();
+    List<Parameter> getParameters();
 
-    java.util.List<String> getTags();
+    List<String> getTags();
 
-    java.util.Map<String, ru.volnenko.plugin.openapidoc.model.impl.Response> getResponses();
+    Map<String, Response> getResponses();
 
     void setOperationId(String operationId);
 
     void setSummary(String summary);
 
-    void setRequestBody(ru.volnenko.plugin.openapidoc.model.impl.RequestBody requestBody);
+    void setRequestBody(RequestBody requestBody);
 
-    void setParameters(java.util.List<ru.volnenko.plugin.openapidoc.model.impl.Parameter> parameters);
+    void setParameters(List<Parameter> parameters);
 
-    void setTags(java.util.List<String> tags);
+    void setTags(List<String> tags);
 
-    void setResponses(java.util.Map<String, ru.volnenko.plugin.openapidoc.model.impl.Response> responses);
+    void setResponses(Map<String, Response> responses);
 
 }
