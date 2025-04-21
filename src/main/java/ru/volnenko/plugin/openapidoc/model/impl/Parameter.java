@@ -22,4 +22,24 @@ public final class Parameter implements IParameter {
 
     private Schema schema;
 
+    public String in() {
+        return in;
+    }
+
+    public String name() {
+        return name;
+    }
+
+    public String description() {
+        return description;
+    }
+
+    public Boolean required() {
+        return required;
+    }
+
+    public Schema schema() {
+        return schema;
+    }
+
 }
