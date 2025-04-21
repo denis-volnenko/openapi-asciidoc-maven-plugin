@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-public final class RootParser {
+public final class RootParser implements IRootParser {
 
     @NonNull
     private List<String> files = Collections.emptyList();
@@ -28,6 +28,13 @@ public final class RootParser {
     }
 
     @NonNull
+    @SneakyThrows
+    private JsonNode map(@NonNull final String file) {
+        @NonNull final ObjectMapper objectMapper = objectMapper(file);
+        return objectMapper.readTree(new File(file));
+    }
+
+    @NonNull
     private ObjectMapper objectMapper(@NonNull final String file) {
         @NonNull final String name = file.toLowerCase(Locale.ROOT);
         if (name.endsWith(".json")) return MapperUtil.json();
@@ -36,6 +43,7 @@ public final class RootParser {
         throw new UnsupportedFormatException();
     }
 
+    @Override
     @NonNull
     @SneakyThrows
     public Root parse(@NonNull final String file) {
@@ -48,13 +56,7 @@ public final class RootParser {
     }
 
     @NonNull
-    @SneakyThrows
-    private JsonNode map(@NonNull final String file) {
-        @NonNull final ObjectMapper objectMapper = objectMapper(file);
-        return objectMapper.readTree(new File(file));
-    }
-
-    @NonNull
+    @Override
     @SneakyThrows
     public List<JsonNode> all() {
         @NonNull final List<JsonNode> result = new ArrayList<>();
@@ -66,6 +68,7 @@ public final class RootParser {
     }
 
     @NonNull
+    @Override
     public JsonNode jsonNode() {
         @NonNull final List<JsonNode> jsonNodes = all();
         @NonNull JsonNode mergedNodes = jsonNodes.get(0);
@@ -75,17 +78,22 @@ public final class RootParser {
         return mergedNodes;
     }
 
+    @NonNull
+    @Override
     @SneakyThrows
     public String json() {
         return MapperUtil.json().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode());
     }
 
+    @NonNull
+    @Override
     @SneakyThrows
     public String yaml() {
         return MapperUtil.yaml().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode());
     }
 
     @NonNull
+    @Override
     public List<Root> parse() {
         @NonNull final List<Root> result = new ArrayList<>();
         for (final String file : files) {
