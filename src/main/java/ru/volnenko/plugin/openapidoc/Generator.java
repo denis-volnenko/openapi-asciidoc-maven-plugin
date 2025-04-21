@@ -12,7 +12,9 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
+import ru.volnenko.plugin.openapidoc.generator.IParameterGenerator;
 import ru.volnenko.plugin.openapidoc.generator.IRootGenerator;
+import ru.volnenko.plugin.openapidoc.generator.impl.ParameterGenerator;
 import ru.volnenko.plugin.openapidoc.generator.impl.RootGenerator;
 import ru.volnenko.plugin.openapidoc.model.impl.*;
 import ru.volnenko.plugin.openapidoc.parser.RootParser;
@@ -489,19 +491,14 @@ public final class Generator extends AbstractMojo {
     }
 
     private void generate(ru.volnenko.plugin.openapidoc.model.impl.Parameter parameter, int index) {
-        stringBuilder.append("\n");
-        stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
-        stringBuilder.append("|" + StringUtil.format(parameter.getName()) + "\n");
-        stringBuilder.append("|" + StringUtil.format(parameter.getDescription()) + "\n");
-        stringBuilder.append("^|" + parameter.getSchema().toString() + "\n");
-        stringBuilder.append("^|" + ParameterUtil.format(parameter) + "\n");
-        stringBuilder.append("^|" + StringUtil.format(parameter.getIn()) + "\n");
-        stringBuilder.append("^|" + StringUtil.format(parameter.getRequired()) + "\n");
-        stringBuilder.append("\n");
+        parameterGenerator.index(index).parameter(parameter).append(stringBuilder);
     }
 
     @NonNull
     private final IRootGenerator rootGenerator = new RootGenerator();
+
+    @NonNull
+    private final IParameterGenerator parameterGenerator = new ParameterGenerator();
 
     private void header() {
         rootGenerator
