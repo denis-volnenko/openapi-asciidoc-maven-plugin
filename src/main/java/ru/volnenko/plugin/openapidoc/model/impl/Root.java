@@ -27,4 +27,34 @@ public final class Root implements IRoot {
 
     private Components components;
 
+    @Override
+    public String openapi() {
+        return openapi;
+    }
+
+    @Override
+    public String swagger() {
+        return swagger;
+    }
+
+    @Override
+    public Info info() {
+        return info;
+    }
+
+    @Override
+    public List<Server> servers() {
+        return servers;
+    }
+
+    @Override
+    public Map<String, Map<String, Operation>> paths() {
+        return paths;
+    }
+
+    @Override
+    public Components components() {
+        return components;
+    }
+
 }

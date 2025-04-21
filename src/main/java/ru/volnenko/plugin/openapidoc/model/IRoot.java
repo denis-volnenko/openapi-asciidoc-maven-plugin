@@ -34,4 +34,16 @@ public interface IRoot {
 
     void setComponents(Components components);
 
+    String openapi();
+
+    String swagger();
+
+    Info info();
+
+    List<Server> servers();
+
+    Map<String, Map<String, Operation>> paths();
+
+    Components components();
+
 }
