@@ -1,10 +1,10 @@
 package ru.volnenko.plugin.openapidoc.generator.impl;
 
 import lombok.NonNull;
-import ru.volnenko.plugin.openapidoc.generator.IRootGenerator;
+import ru.volnenko.plugin.openapidoc.generator.IHeaderGenerator;
 import ru.volnenko.plugin.openapidoc.util.StringUtil;
 
-public final class RootGenerator implements IRootGenerator {
+public final class HeaderGenerator implements IHeaderGenerator {
 
     public boolean headerFirstEnabled = true;
 
@@ -38,28 +38,28 @@ public final class RootGenerator implements IRootGenerator {
 
     @NonNull
     @Override
-    public IRootGenerator headerFirstEnabled(boolean headerFirstEnabled) {
+    public IHeaderGenerator headerFirstEnabled(boolean headerFirstEnabled) {
         this.headerFirstEnabled = headerFirstEnabled;
         return this;
     }
 
     @NonNull
     @Override
-    public IRootGenerator headerSecondEnabled(boolean headerSecondEnabled) {
+    public IHeaderGenerator headerSecondEnabled(boolean headerSecondEnabled) {
         this.headerSecondEnabled = headerSecondEnabled;
         return this;
     }
 
     @NonNull
     @Override
-    public IRootGenerator tableOfContentsEnabled(boolean tableOfContentsEnabled) {
+    public IHeaderGenerator tableOfContentsEnabled(boolean tableOfContentsEnabled) {
         this.tableOfContentsEnabled = tableOfContentsEnabled;
         return this;
     }
 
     @NonNull
     @Override
-    public IRootGenerator headerFirstText(@NonNull final String headerFirstText) {
+    public IHeaderGenerator headerFirstText(@NonNull final String headerFirstText) {
         this.headerFirstText = headerFirstText;
         return this;
     }

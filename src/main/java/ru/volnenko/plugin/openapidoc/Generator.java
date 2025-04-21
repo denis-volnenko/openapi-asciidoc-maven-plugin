@@ -107,7 +107,7 @@ public final class Generator extends AbstractMojo {
     private final StringBuilder stringBuilder = new StringBuilder();
 
     @NonNull
-    private final IRootGenerator rootGenerator = new RootGenerator();
+    private final IHeaderGenerator rootGenerator = new HeaderGenerator();
 
     @NonNull
     private final IOperationGenerator operationGenerator = new OperationGenerator();
