@@ -5,20 +5,20 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.SneakyThrows;
+
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
+
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
 import ru.volnenko.plugin.openapidoc.generator.*;
 import ru.volnenko.plugin.openapidoc.generator.impl.*;
 import ru.volnenko.plugin.openapidoc.model.impl.*;
 import ru.volnenko.plugin.openapidoc.parser.RootParser;
-import ru.volnenko.plugin.openapidoc.util.ContentUtil;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
-import ru.volnenko.plugin.openapidoc.util.StringUtil;
 
 import java.io.File;
 import java.util.*;
@@ -113,7 +113,7 @@ public final class Generator extends AbstractMojo {
     private final IOperationGenerator operationGenerator = new OperationGenerator();
 
     @NonNull
-    private final ISchemaGenerator schemaGenerator = new SchemaGenerator();
+    private final IComponentsGenerator componentsGenerator = new ComponentsGenerator();
 
     @NonNull
     private ObjectMapper objectMapper(@NonNull final String file) {
@@ -186,7 +186,6 @@ public final class Generator extends AbstractMojo {
         return this;
     }
 
-
     @SneakyThrows
     public void parse(@NonNull final String file) {
         @NonNull final ObjectMapper objectMapper = objectMapper(file);
@@ -200,22 +199,6 @@ public final class Generator extends AbstractMojo {
         generate(root.getPaths());
         generate(root.getComponents());
         return stringBuilder.toString();
-    }
-
-    private void generate(final Components components) {
-        if (components == null) return;
-        if (components.getSchemas() == null) return;
-        if (components.getSchemas().isEmpty()) return;
-        for (final String model : components.getSchemas().keySet()) {
-            generate(model, components.getSchemas().get(model));
-        }
-    }
-
-    public void generate(final String model, final Schema schema) {
-        schemaGenerator
-                .model(model)
-                .schema(schema)
-                .append(stringBuilder);
     }
 
     private void generate(final Map<String, Map<String, Operation>> paths) {
@@ -232,6 +215,10 @@ public final class Generator extends AbstractMojo {
             if (method == null || method.isEmpty()) continue;
             generate(path, method, operations.get(method));
         }
+    }
+
+    private void generate(final Components components) {
+        componentsGenerator.components(components).append(stringBuilder);
     }
 
     private void generate(final String path, final String method, final Operation operation) {
