@@ -10,4 +10,7 @@ public interface ITag {
 
     void setDescription(String description);
 
+    String name();
+
+    String description();
 }

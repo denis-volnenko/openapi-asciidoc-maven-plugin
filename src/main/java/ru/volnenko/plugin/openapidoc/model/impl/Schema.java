@@ -48,6 +48,75 @@ public final class Schema implements ISchema {
     private List<String> required;
 
     @Override
+    public String description() {
+        return description;
+    }
+
+    @Override
+    public String title() {
+        return title;
+    }
+
+    @Override
+    public String type() {
+        return type;
+    }
+
+    @Override
+    public String format() {
+        return format;
+    }
+
+    public String reference() {
+        return reference;
+    }
+
+    @Override
+    public String defaultValue() {
+        return defaultValue;
+    }
+
+    @Override
+    public Boolean uniqueItems() {
+        return uniqueItems;
+    }
+
+    @Override
+    public Boolean writeOnly() {
+        return writeOnly;
+    }
+
+    @Override
+    public Boolean readOnly() {
+        return readOnly;
+    }
+
+    @Override
+    public List<String> enums() {
+        return enums;
+    }
+
+    @Override
+    public Object example() {
+        return example;
+    }
+
+    @Override
+    public Schema items() {
+        return items;
+    }
+
+    @Override
+    public Map<String, Schema> properties() {
+        return properties;
+    }
+
+    @Override
+    public List<String> required() {
+        return required;
+    }
+
+    @Override
     public boolean referenced() {
         String localReference = reference;
         String localType = type;
@@ -89,4 +158,5 @@ public final class Schema implements ISchema {
         }
         return dataType;
     }
+
 }

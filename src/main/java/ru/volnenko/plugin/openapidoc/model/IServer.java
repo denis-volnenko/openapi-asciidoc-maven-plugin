@@ -10,4 +10,7 @@ public interface IServer {
 
     void setDescription(String description);
 
+    String url();
+
+    String description();
 }

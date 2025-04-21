@@ -16,4 +16,14 @@ public final class Tag implements ITag {
 
     private String description;
 
+    @Override
+    public String name() {
+        return name;
+    }
+
+    @Override
+    public String description() {
+        return description;
+    }
+
 }

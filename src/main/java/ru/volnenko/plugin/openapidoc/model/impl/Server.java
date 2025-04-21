@@ -16,4 +16,14 @@ public final class Server implements IServer {
 
     private String description;
 
+    @Override
+    public String url() {
+        return url;
+    }
+
+    @Override
+    public String description() {
+        return description;
+    }
+
 }
