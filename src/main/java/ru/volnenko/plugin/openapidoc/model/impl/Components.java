@@ -16,4 +16,8 @@ public final class Components implements IComponents {
 
     private Map<String, Schema> schemas;
 
+    public Map<String, Schema> schemas() {
+        return schemas;
+    }
+
 }

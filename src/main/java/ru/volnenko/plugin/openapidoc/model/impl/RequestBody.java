@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.volnenko.plugin.openapidoc.model.IRequestBody;
 
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class RequestBody {
+public final class RequestBody implements IRequestBody {
 
     private Boolean required;
 

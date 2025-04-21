@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.volnenko.plugin.openapidoc.model.ISchema;
 import ru.volnenko.plugin.openapidoc.util.StringUtil;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Schema {
+public final class Schema implements ISchema {
 
     private String description;
 
@@ -46,6 +47,7 @@ public final class Schema {
 
     private List<String> required;
 
+    @Override
     public boolean referenced() {
         String localReference = reference;
         String localType = type;
