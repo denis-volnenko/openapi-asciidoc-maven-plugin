@@ -18,4 +18,12 @@ public final class RequestBody implements IRequestBody {
 
     private Map<String, Content> content;
 
+    public Boolean required() {
+        return required;
+    }
+
+    public Map<String, Content> content() {
+        return content;
+    }
+
 }
