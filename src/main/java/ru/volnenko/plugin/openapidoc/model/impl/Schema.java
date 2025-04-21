@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.openapidoc.model;
+package ru.volnenko.plugin.openapidoc.model.impl;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

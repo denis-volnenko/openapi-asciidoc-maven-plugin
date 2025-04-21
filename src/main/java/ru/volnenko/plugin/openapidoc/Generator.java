@@ -12,7 +12,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
-import ru.volnenko.plugin.openapidoc.model.*;
+import ru.volnenko.plugin.openapidoc.model.impl.*;
 import ru.volnenko.plugin.openapidoc.parser.RootParser;
 import ru.volnenko.plugin.openapidoc.util.ContentUtil;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
@@ -335,7 +335,7 @@ public final class Generator extends AbstractMojo {
         stringBuilder.append("\n");
 
         if (operation.getParameters() == null) operation.setParameters(Collections.emptyList());
-        generate(operation.getParameters().toArray(new ru.volnenko.plugin.openapidoc.model.Parameter[0]));
+        generate(operation.getParameters().toArray(new ru.volnenko.plugin.openapidoc.model.impl.Parameter[0]));
 
         {
             stringBuilder.append("==== Описание запроса \n");
@@ -453,7 +453,7 @@ public final class Generator extends AbstractMojo {
         }
     }
 
-    private void generate(@NonNull final ru.volnenko.plugin.openapidoc.model.Parameter[] parameters) {
+    private void generate(@NonNull final ru.volnenko.plugin.openapidoc.model.impl.Parameter[] parameters) {
         stringBuilder.append("==== Описание параметров \n");
         int index = 1;
         stringBuilder.append("\n");
@@ -476,7 +476,7 @@ public final class Generator extends AbstractMojo {
             stringBuilder.append("\n");
         }
 
-        for (ru.volnenko.plugin.openapidoc.model.Parameter parameter : parameters) {
+        for (ru.volnenko.plugin.openapidoc.model.impl.Parameter parameter : parameters) {
             generate(parameter, index);
             index++;
         }
@@ -486,7 +486,7 @@ public final class Generator extends AbstractMojo {
         stringBuilder.append("\n");
     }
 
-    private void generate(ru.volnenko.plugin.openapidoc.model.Parameter parameter, int index) {
+    private void generate(ru.volnenko.plugin.openapidoc.model.impl.Parameter parameter, int index) {
         stringBuilder.append("\n");
         stringBuilder.append("^|" + StringUtil.format(index) + ". \n");
         stringBuilder.append("|" + StringUtil.format(parameter.getName()) + "\n");

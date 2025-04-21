@@ -7,7 +7,7 @@ import lombok.NonNull;
 import lombok.SneakyThrows;
 import ru.volnenko.plugin.openapidoc.exception.SwaggerSchemeNotSupportedException;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
-import ru.volnenko.plugin.openapidoc.model.Root;
+import ru.volnenko.plugin.openapidoc.model.impl.Root;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
 
 import java.io.File;

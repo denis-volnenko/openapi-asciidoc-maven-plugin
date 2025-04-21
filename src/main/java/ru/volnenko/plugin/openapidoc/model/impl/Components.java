@@ -1,9 +1,10 @@
-package ru.volnenko.plugin.openapidoc.model;
+package ru.volnenko.plugin.openapidoc.model.impl;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.volnenko.plugin.openapidoc.model.IComponents;
 
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Components {
+public final class Components implements IComponents {
 
     private Map<String, Schema> schemas;
 

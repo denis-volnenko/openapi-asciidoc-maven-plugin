@@ -1,7 +1,7 @@
 package ru.volnenko.plugin.openapidoc.util;
 
 import lombok.NonNull;
-import ru.volnenko.plugin.openapidoc.model.Parameter;
+import ru.volnenko.plugin.openapidoc.model.impl.Parameter;
 
 public final class ParameterUtil {
 

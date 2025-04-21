@@ -2,7 +2,7 @@ package ru.volnenko.plugin.openapidoc;
 
 import org.junit.Assert;
 import org.junit.Test;
-import ru.volnenko.plugin.openapidoc.model.Root;
+import ru.volnenko.plugin.openapidoc.model.impl.Root;
 
 public final class GeneratorTest {
 

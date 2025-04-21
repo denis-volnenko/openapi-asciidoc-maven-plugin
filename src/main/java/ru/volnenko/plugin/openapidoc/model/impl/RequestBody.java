@@ -1,18 +1,20 @@
-package ru.volnenko.plugin.openapidoc.model;
+package ru.volnenko.plugin.openapidoc.model.impl;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Map;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Server {
+public final class RequestBody {
 
-    private String url;
+    private Boolean required;
 
-    private String description;
+    private Map<String, Content> content;
 
 }

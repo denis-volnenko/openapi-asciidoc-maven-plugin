@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.openapidoc.model;
+package ru.volnenko.plugin.openapidoc.model.impl;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
@@ -9,10 +9,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class License {
-
-    private String name;
+public final class Server {
 
     private String url;
+
+    private String description;
 
 }

@@ -1,8 +1,8 @@
 package ru.volnenko.plugin.openapidoc.util;
 
 import lombok.NonNull;
-import ru.volnenko.plugin.openapidoc.model.Content;
-import ru.volnenko.plugin.openapidoc.model.Schema;
+import ru.volnenko.plugin.openapidoc.model.impl.Content;
+import ru.volnenko.plugin.openapidoc.model.impl.Schema;
 
 public final class ContentUtil {
 
