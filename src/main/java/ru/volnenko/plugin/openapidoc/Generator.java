@@ -22,7 +22,6 @@ import ru.volnenko.plugin.openapidoc.model.impl.*;
 import ru.volnenko.plugin.openapidoc.parser.RootParser;
 import ru.volnenko.plugin.openapidoc.util.ContentUtil;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
-import ru.volnenko.plugin.openapidoc.util.ParameterUtil;
 import ru.volnenko.plugin.openapidoc.util.StringUtil;
 
 import java.io.File;
