@@ -119,6 +119,12 @@ public final class Generator extends AbstractMojo {
     private final IParameterGenerator parameterGenerator = new ParameterGenerator();
 
     @NonNull
+    private final IResponseGenerator responseGenerator = new ResponseGenerator();
+
+    @NonNull
+    private final IParametersGenerator parametersGenerator = new ParametersGenerator();
+
+    @NonNull
     private ObjectMapper objectMapper(@NonNull final String file) {
         @NonNull final String name = file.toLowerCase(Locale.ROOT);
         if (name.endsWith(".json")) return MapperUtil.json();
@@ -449,9 +455,6 @@ public final class Generator extends AbstractMojo {
         stringBuilder.append("\n");
     }
 
-    @NonNull
-    private final IResponseGenerator responseGenerator = new ResponseGenerator();
-
     private void generate(@NonNull final String httpCode, final Response response, int index) {
        responseGenerator
                .response(response)
@@ -460,11 +463,10 @@ public final class Generator extends AbstractMojo {
                .append(stringBuilder);
     }
 
-    @NonNull
-    private final IParametersGenerator parametersGenerator = new ParametersGenerator();
-
     private void generate(@NonNull final List<ru.volnenko.plugin.openapidoc.model.impl.Parameter> parameters) {
-        parametersGenerator.parameters(parameters).append(stringBuilder);
+        parametersGenerator
+                .parameters(parameters)
+                .append(stringBuilder);
     }
 
     private void header() {
