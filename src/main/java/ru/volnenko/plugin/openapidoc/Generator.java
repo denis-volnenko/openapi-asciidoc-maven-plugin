@@ -175,7 +175,6 @@ public final class Generator extends AbstractMojo {
                 .saveDatabaseYAML(path)
                 .saveDatabaseJSON(path)
                 .saveDatabaseJavaScript(path);
-
         @NonNull final File file = new File(path.getAbsolutePath() + "/" + outputFile);
         FileUtils.fileWrite(file, stringBuilder.toString());
     }
@@ -218,7 +217,9 @@ public final class Generator extends AbstractMojo {
     }
 
     private void generate(final Components components) {
-        componentsGenerator.components(components).append(stringBuilder);
+        componentsGenerator
+                .components(components)
+                .append(stringBuilder);
     }
 
     private void generate(final String path, final String method, final Operation operation) {
