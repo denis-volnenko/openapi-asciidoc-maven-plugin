@@ -12,6 +12,8 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
+import ru.volnenko.plugin.openapidoc.generator.IRootGenerator;
+import ru.volnenko.plugin.openapidoc.generator.impl.RootGenerator;
 import ru.volnenko.plugin.openapidoc.model.impl.*;
 import ru.volnenko.plugin.openapidoc.parser.RootParser;
 import ru.volnenko.plugin.openapidoc.util.ContentUtil;
@@ -498,19 +500,16 @@ public final class Generator extends AbstractMojo {
         stringBuilder.append("\n");
     }
 
+    @NonNull
+    private final IRootGenerator rootGenerator = new RootGenerator();
+
     private void header() {
-        if (headerFirstEnabled) {
-            stringBuilder.append("= " + StringUtil.format(headerFirstText) + "\n");
-            if (tableOfContentsEnabled) {
-                stringBuilder.append(":toc-title: Оглавление\n");
-                stringBuilder.append(":toc:\n");
-            }
-            stringBuilder.append("\n");
-        }
-        if (headerSecondEnabled) {
-            stringBuilder.append("== Представление веб-сервисов \n");
-            stringBuilder.append("\n");
-        }
+        rootGenerator
+                .headerFirstText(headerFirstText)
+                .headerFirstEnabled(headerFirstEnabled)
+                .headerSecondEnabled(headerSecondEnabled)
+                .tableOfContentsEnabled(tableOfContentsEnabled)
+                .append(stringBuilder);
     }
 
 }
