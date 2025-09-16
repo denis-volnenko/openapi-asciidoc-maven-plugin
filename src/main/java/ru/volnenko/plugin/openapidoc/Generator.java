@@ -218,6 +218,7 @@ public final class Generator extends AbstractMojo {
 
     private void generate(final Components components) {
         componentsGenerator
+                .serviceName(serviceName)
                 .components(components)
                 .append(stringBuilder);
     }

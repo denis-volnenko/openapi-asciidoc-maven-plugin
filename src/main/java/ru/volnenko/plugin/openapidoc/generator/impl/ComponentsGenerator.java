@@ -13,6 +13,8 @@ public final class ComponentsGenerator implements IComponentsGenerator {
 
     private Components components;
 
+    private String serviceName;
+
     @NonNull
     @Override
     public IComponentsGenerator components(final Components components) {
@@ -20,14 +22,23 @@ public final class ComponentsGenerator implements IComponentsGenerator {
         return this;
     }
 
+    @NonNull
+    @Override
+    public IComponentsGenerator serviceName(final String serviceName) {
+        this.serviceName = serviceName;
+        return this;
+    }
+
     private void generate(
             @NonNull final StringBuilder stringBuilder,
             final String model,
+            final String serviceName,
             final Schema schema
     ) {
         schemaGenerator
                 .model(model)
                 .schema(schema)
+                .serviceName(serviceName)
                 .append(stringBuilder);
     }
 
@@ -38,7 +49,7 @@ public final class ComponentsGenerator implements IComponentsGenerator {
         if (components.getSchemas() == null) return stringBuilder;
         if (components.getSchemas().isEmpty()) return stringBuilder;
         for (final String model : components.getSchemas().keySet()) {
-            generate(stringBuilder, model, components.getSchemas().get(model));
+            generate(stringBuilder, model, serviceName, components.getSchemas().get(model));
         }
         return stringBuilder;
     }
