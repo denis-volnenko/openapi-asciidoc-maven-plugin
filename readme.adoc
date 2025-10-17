@@ -101,7 +101,7 @@ https://github.com/denis-volnenko/yaml-packaging-maven-plugin/
     ...
     <pluginRepositories>
         <pluginRepository>
-            <id>github</id>
+            <id>openapi-asciidoc-maven-plugin</id>
             <name>GitHub Packages</name>
             <url>https://maven.pkg.github.com/denis-volnenko/openapi-asciidoc-maven-plugin</url>
         </pluginRepository>
@@ -126,7 +126,7 @@ https://github.com/denis-volnenko/yaml-packaging-maven-plugin/
             <plugin>
                 <groupId>ru.volnenko.maven.plugin</groupId>
                 <artifactId>maven-openapi-asciidoc-plugin</artifactId>
-                <version>1.0.1</version>
+                <version>1.0.3</version>
                 <configuration>
                     <serviceName>Pet Store</serviceName>
                     <headerFirstEnabled>true</headerFirstEnabled>
