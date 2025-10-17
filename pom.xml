@@ -26,6 +26,16 @@
 
     <profiles>
         <profile>
+            <id>github</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub Packages</name>
+                    <url>https://maven.pkg.github.com/denis-volnenko/openapi-asciidoc-maven-plugin</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
             <id>minio</id>
             <properties>
                 <extension.wagon.groupId>ru.volnenko.maven.plugin</extension.wagon.groupId>

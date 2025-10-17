@@ -101,6 +101,11 @@ https://github.com/denis-volnenko/yaml-packaging-maven-plugin/
     ...
     <pluginRepositories>
         <pluginRepository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/denis-volnenko/openapi-asciidoc-maven-plugin</url>
+        </pluginRepository>
+        <pluginRepository>
             <id>maven.volnenko.ru</id>
             <name>maven.volnenko.ru</name>
             <url>https://maven.volnenko.ru/repository</url>
