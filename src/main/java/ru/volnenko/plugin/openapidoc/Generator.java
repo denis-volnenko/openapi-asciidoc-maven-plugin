@@ -96,6 +96,12 @@ public final class Generator extends AbstractMojo {
 
     @Getter
     @Setter
+    @Parameter(property = "paths")
+    private List<String> paths = new ArrayList<>();
+
+
+    @Getter
+    @Setter
     @Parameter(property = "files")
     private List<String> files = new ArrayList<>();
 
@@ -127,7 +133,10 @@ public final class Generator extends AbstractMojo {
     @SneakyThrows
     public void execute() {
         header();
-        @NonNull final String json = rootParser.files(files).json();
+        if (paths.isEmpty() && files.isEmpty()) {
+            throw new RuntimeException("Error! Files or paths in plugin settings should not be empty...");
+        }
+        @NonNull final String json = rootParser.paths(paths).files(files).json();
         @NonNull final Root root = MapperUtil.json().readValue(json, Root.class);
         generate(root);
         save();

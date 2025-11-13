@@ -5,6 +5,9 @@ components:
       description: Задача
       required:
         - id
+        - name
+        - description
+        - statusType
         - userId
         - created
         - updated

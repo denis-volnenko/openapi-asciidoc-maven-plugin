@@ -5,6 +5,9 @@ components:
       description: Проект
       required:
         - id
+        - name
+        - description
+        - statusType
         - userId
         - created
         - updated

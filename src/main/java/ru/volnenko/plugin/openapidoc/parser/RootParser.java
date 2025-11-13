@@ -8,6 +8,7 @@ import lombok.SneakyThrows;
 import ru.volnenko.plugin.openapidoc.exception.SwaggerSchemeNotSupportedException;
 import ru.volnenko.plugin.openapidoc.exception.UnsupportedFormatException;
 import ru.volnenko.plugin.openapidoc.model.impl.Root;
+import ru.volnenko.plugin.openapidoc.util.FileUtil;
 import ru.volnenko.plugin.openapidoc.util.MapperUtil;
 
 import java.io.File;
@@ -19,7 +20,16 @@ import java.util.Locale;
 public final class RootParser implements IRootParser {
 
     @NonNull
+    private List<String> paths = Collections.emptyList();
+
+    @NonNull
     private List<String> files = Collections.emptyList();
+
+    @NonNull
+    public RootParser paths(@NonNull final List<String> paths) {
+        this.paths = paths;
+        return this;
+    }
 
     @NonNull
     public RootParser files(@NonNull final List<String> files) {
@@ -60,6 +70,13 @@ public final class RootParser implements IRootParser {
     @SneakyThrows
     public List<JsonNode> all() {
         @NonNull final List<JsonNode> result = new ArrayList<>();
+        for (final String path: paths) {
+            if (path == null || path.isEmpty()) continue;
+            for (final String file : FileUtil.files(path)) {
+                if (file == null || file.isEmpty()) continue;
+                result.add(map(file));
+            }
+        }
         for (final String file : files) {
             if (file == null || file.isEmpty()) continue;
             result.add(map(file));
