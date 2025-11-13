@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.volnenko.maven.plugin</groupId>
     <artifactId>openapi-asciidoc-maven-plugin</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>maven-plugin</packaging>
 
     <name>openapi-asciidoc-maven-plugin</name>
@@ -191,28 +191,25 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <plugin>
-                <groupId>ru.volnenko.maven.plugin</groupId>
-                <artifactId>openapi-asciidoc-maven-plugin</artifactId>
-                <version>1.0.4</version>
-                <configuration>
-                    <serviceName>Pet Store</serviceName>
-                    <headerFirstEnabled>true</headerFirstEnabled>
-                    <headerSecondEnabled>true</headerSecondEnabled>
-                    <tableOfContentsEnabled>true</tableOfContentsEnabled>
-                    <outputPath>${project.basedir}/example/pet-store-openapi-asciidoc/src/main/asciidoc/</outputPath>
-                    <outputFile>index.adoc</outputFile>
-                    <outputJsonFileEnabled>true</outputJsonFileEnabled>
-                    <outputYamlFileEnabled>true</outputYamlFileEnabled>
-                    <outputJavaScriptFileEnabled>true</outputJavaScriptFileEnabled>
-<!--                    <paths>-->
-<!--                        <path>${project.basedir}/example/pet-store-openapi-asciidoc/src/main/resources/</path>-->
-<!--                    </paths>-->
+<!--            <plugin>-->
+<!--                <groupId>ru.volnenko.maven.plugin</groupId>-->
+<!--                <artifactId>openapi-asciidoc-maven-plugin</artifactId>-->
+<!--                <version>1.0.4</version>-->
+<!--                <configuration>-->
+<!--                    <serviceName>Pet Store</serviceName>-->
+<!--                    <headerFirstEnabled>true</headerFirstEnabled>-->
+<!--                    <headerSecondEnabled>true</headerSecondEnabled>-->
+<!--                    <tableOfContentsEnabled>true</tableOfContentsEnabled>-->
+<!--                    <outputPath>${project.basedir}/example/pet-store-openapi-asciidoc/src/main/asciidoc/</outputPath>-->
+<!--                    <outputFile>index.adoc</outputFile>-->
+<!--                    <outputJsonFileEnabled>true</outputJsonFileEnabled>-->
+<!--                    <outputYamlFileEnabled>true</outputYamlFileEnabled>-->
+<!--                    <outputJavaScriptFileEnabled>true</outputJavaScriptFileEnabled>-->
 <!--                    <files>-->
 <!--                        <file>${project.basedir}/example/pet-store-openapi-asciidoc/src/main/resources/openapi.yaml</file>-->
 <!--                    </files>-->
-                </configuration>
-            </plugin>
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
